@@ -145,6 +145,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .btn-primary {
@@ -335,6 +336,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     font-size: 1.6rem;
     color: var(--accent-green);
+    white-space: nowrap;
 }
 .logo-icon {
     width: 28px;
@@ -356,6 +358,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-secondary);
     position: relative;
     padding: 6px 0;
+    white-space: nowrap;
 }
 .nav-link:hover, .nav-link.active {
     color: var(--accent-green);
@@ -1749,6 +1752,22 @@ h1, h2, h3, h4, h5, h6 {
    ==================================================== */
 
 @media (max-width: 1024px) {
+    .nav-menu {
+        gap: 16px;
+    }
+    .logo {
+        font-size: 1.3rem;
+    }
+    .nav-link {
+        font-size: 0.85rem;
+    }
+    .header-container {
+        padding: 0 16px;
+    }
+    .header-actions {
+        gap: 12px;
+    }
+
     .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1846,6 +1865,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 480px) {
+    .btn-header-club {
+        display: none;
+    }
+    .logo {
+        font-size: 1.15rem;
+    }
+
     .hero-actions-group {
         flex-direction: column;
         width: 100%;
