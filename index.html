@@ -1,467 +1,787 @@
 <!DOCTYPE html>
-<html lang="kk">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="UMAY — Қазақстандағы жабық әйелдер қауымдастығы. Даму, психологиялық қолдау, курстар, ретриттер және пікірлестердің жылы ортасы.">
-    <title>UMAY KZ — Қазақстандағы ең ірі жабық әйелдер қауымдастығы</title>
+    <meta name="description" content="Онлайн-программа «Близкие друзья (БД)» — 21 день, которые помогут изменить окружение и качество вашей жизни. Закрытое женское сообщество, поддержка и личный рост в Казахстане.">
+    <title>Близкие Друзья — 21-дневная программа трансформации окружения и жизни</title>
     
-    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-serif) -->
+    <!-- Google Fonts: Cormorant Garamond & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" crossorigin>
     
-    <!-- Link to external CSS -->
+    <!-- External CSS -->
     <link rel="stylesheet" href="style.css?v=2.0.1">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <!-- Ambient container for floating rose petals / warm shapes -->
+    <!-- Ambient backgrounds -->
     <div class="ambient-glow glow-warm-1"></div>
     <div class="ambient-glow glow-warm-2"></div>
-    <div class="petal-container" id="petal-container"></div>
+    <div class="ambient-glow glow-warm-3"></div>
 
-    <!-- MAIN HEADER -->
+    <!-- 1. MAIN HEADER -->
     <header class="main-header glass-header" id="main-header">
         <div class="header-container">
             <a href="#" class="logo" id="logo-link">
-                <i data-lucide="flower" class="logo-icon"></i>
-                <span class="logo-text">UMAY<span class="logo-dot">.</span></span>
+                <i data-lucide="sparkles" class="logo-icon"></i>
+                <span class="logo-text">Близкие Друзья<span class="logo-dot">.</span></span>
             </a>
             
-            <nav class="nav-menu" id="nav-menu">
-                <a href="#about" class="nav-link">Біз туралы</a>
-                <a href="#test-section" class="nav-link active">Тесттен өту</a>
-                <a href="#club-section" class="nav-link">Клуб</a>
-                <a href="#stories-section" class="nav-link">Шынайы оқиғалар</a>
-                <a href="#faq" class="nav-link">Сұрақ-жауап</a>
+            <nav class="nav-menu">
+                <a href="#about" class="nav-link">О БД</a>
+                <a href="#for-whom" class="nav-link">Для кого</a>
+                <a href="#timeline" class="nav-link">Программа</a>
+                <a href="#includes" class="nav-link">Что входит</a>
+                <a href="#pricing" class="nav-link">Стоимость</a>
+                <a href="#faq" class="nav-link">Вопросы</a>
             </nav>
-
+            
             <div class="header-actions">
-                <button class="lang-toggle-btn" id="lang-btn">RU</button>
-                <button class="btn btn-primary btn-header-club" id="header-join-btn">Клубқа мүше болу</button>
+                <a href="index_kk.html" class="lang-toggle-btn" aria-label="Switch to Kazakh">KZ</a>
+                <button class="btn btn-primary btn-header-club btn-open-checkout">Вступить в БД</button>
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- 2. HERO SECTION -->
     <section class="hero-section" id="hero">
-        <div class="hero-content">
-            <span class="hero-tagline"><i data-lucide="sparkles"></i> Саналы әйелдер қауымдастығы</span>
-            <h1 class="hero-title">Бақытты әйел.<br><span class="serif-italic text-rose">Аяулы ана.</span><br>Табысты тұлға.</h1>
-            <p class="hero-description">
-                Отбасы құндылықтары, мансап және жеке қалауларыңыздың арасындағы теңгерімді табыңыз. Айыптау мен кінәлау сезімінсіз, қолдау көрсететін ортаның күшін сезініңіз.
-            </p>
-            <div class="hero-actions-group">
-                <a href="#test-section" class="btn btn-primary" id="hero-test-btn">
-                    <span>Теңгерім тестінен өту</span>
-                    <i data-lucide="arrow-right"></i>
-                </a>
-                <a href="#club-section" class="btn btn-secondary">Клуб туралы толығырақ</a>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="hero-tagline"><i data-lucide="shield-check"></i> Премиальное женское пространство</span>
+                <h1 class="hero-title">21 день, которые помогут изменить <span class="serif-italic text-gold">окружение</span> и качество вашей жизни</h1>
+                <p class="hero-description">
+                    Закрытое сообщество женщин Казахстана и СНГ. Ежедневные задания на развитие самооценки, эфиры с психологами и поддерживающее окружение близких по духу единомышленниц.
+                </p>
+                <div class="hero-actions-group">
+                    <button class="btn btn-primary btn-open-checkout">
+                        <span>Вступить в БД</span>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                    <a href="#about" class="btn btn-secondary">Узнать больше</a>
+                </div>
             </div>
-        </div>
-        
-        <div class="hero-visual">
-            <div class="hero-image-frame glass-panel">
-                <div class="floating-badge badge-top-right">
-                    <i data-lucide="heart" class="text-rose"></i> 10 000+ қатысушы
+            
+            <div class="hero-visual">
+                <div class="hero-card-frame glass-panel">
+                    <div class="visual-top-brand">
+                        <i data-lucide="heart-handshake"></i>
+                        <span>БД.</span>
+                    </div>
+                    
+                    <div class="visual-meta-list">
+                        <div class="visual-meta-item">
+                            <div class="meta-icon-wrapper"><i data-lucide="users"></i></div>
+                            <div class="meta-text">
+                                <h4>5 000+ участниц</h4>
+                                <p>Поддержка и новые знакомства</p>
+                            </div>
+                        </div>
+                        <div class="visual-meta-item">
+                            <div class="meta-icon-wrapper"><i data-lucide="send"></i></div>
+                            <div class="meta-text">
+                                <h4>Telegram-формат</h4>
+                                <p>Удобные ежедневные задания</p>
+                            </div>
+                        </div>
+                        <div class="visual-meta-item">
+                            <div class="meta-icon-wrapper"><i data-lucide="infinity"></i></div>
+                            <div class="meta-text">
+                                <h4>Доступ навсегда</h4>
+                                <p>Все материалы остаются с вами</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-badge badge-top-left">
+                        <i data-lucide="award" class="text-gold"></i> 100% Результат
+                    </div>
+                    <div class="floating-badge badge-bottom-right">
+                        <i data-lucide="smile" class="text-green"></i> 98% рекомендаций
+                    </div>
                 </div>
-                <div class="floating-badge badge-bottom-left">
-                    <i data-lucide="shield-check" class="text-gold"></i> Қауіпсіз орта
-                </div>
-                <div class="abstract-ring-bg"></div>
-                <!-- Premium Abstract Vector SVG for UMAY logo/branding -->
-                <svg viewBox="0 0 200 200" class="abstract-umay-svg" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="roseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#e8a7a1" />
-                            <stop offset="100%" stop-color="#d98880" />
-                        </linearGradient>
-                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#f6d365" />
-                            <stop offset="100%" stop-color="#d4af37" />
-                        </linearGradient>
-                    </defs>
-                    <!-- Abstract elegant flower petal path representing femininity -->
-                    <path d="M 100 20 C 130 60, 160 80, 100 180 C 40 80, 70 60, 100 20 Z" fill="url(#roseGrad)" opacity="0.85" filter="drop-shadow(0 8px 15px rgba(217,136,128,0.3))"/>
-                    <path d="M 100 50 C 120 80, 140 95, 100 160 C 60 95, 80 80, 100 50 Z" fill="url(#goldGrad)" opacity="0.6"/>
-                    <circle cx="100" cy="110" r="10" fill="#fff" opacity="0.9" />
-                    <!-- Sparkles -->
-                    <path d="M 40 50 L 45 55 L 40 60 L 35 55 Z" fill="#d4af37" />
-                    <path d="M 160 140 L 163 143 L 160 146 L 157 143 Z" fill="#e8a7a1" />
-                </svg>
             </div>
         </div>
     </section>
 
-    <!-- SEGMENT SECTOR "WHERE ARE YOU NOW" -->
-    <section class="segment-section" id="about">
-        <div class="about-name-meaning glass-panel" style="margin-bottom: 48px; padding: 32px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
-            <span class="section-tag" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px;"><i data-lucide="help-circle" style="width: 16px; height: 16px;"></i> Атаудың мағынасы</span>
-            <h3 style="font-family: var(--font-serif); font-size: 2rem; margin-bottom: 16px; color: var(--rose-dark);">Неліктен UMAY?</h3>
-            <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem;">
-                <strong>Ұмай (Umay)</strong> — түркі халықтарының ежелгі мифологиясындағы отбасылық ошақтың, ана мен баланың, әйелдердің қамқоршысы мен желеп-жебеуші тәңір иесі. Ол қамқорлықты, мейірімділікті және өмір беретін жұмсақ күшті бейнелейді. Біздің қауымдастық әрбір әйелге өз өмірінің тепе-теңдігін табуға және қолдаушы ортаны сезінуге көмектесу үшін осы есімді таңдады.
-            </p>
-        </div>
-
-        <div class="section-header">
-            <h2 class="section-title">Қай сала ерекше назар аударуды қажет етеді?</h2>
-            <p class="section-subtitle">Жеке қолдау алу үшін қазіргі күйіңізді таңдаңыз</p>
-        </div>
-        
-        <div class="segment-grid">
-            <div class="segment-card glass-panel" onclick="startSegmentTest('kelin')">
-                <div class="segment-icon-box"><i data-lucide="home"></i></div>
-                <h3>Мен жас келінмін</h3>
-                <p>Жаңа отбасына бейімделу қиын болып жүр және жеке шекараларымды дұрыс қалыптастырғым келеді.</p>
-                <span class="segment-link">Тесттен өту <i data-lucide="chevron-right"></i></span>
+    <!-- 3. WHAT IS BD -->
+    <section class="what-is-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i data-lucide="help-circle"></i> О программе</span>
+                <h2 class="section-title">Что такое «Близкие Друзья»?</h2>
+                <p class="section-subtitle">БД — это не просто очередной онлайн-курс. Это живой поддерживающий организм.</p>
             </div>
             
-            <div class="segment-card glass-panel" onclick="startSegmentTest('burnout')">
-                <div class="segment-icon-box"><i data-lucide="battery-charging"></i></div>
-                <h3>Мен мансап құрып жатырмын</h3>
-                <p>Күнделікті күйбең тірліктен шаршадым, күйзеліске түстім (выгорание) және әйелдік энергияны қайтарғым келеді.</p>
-                <span class="segment-link">Шаршау деңгейін анықтау <i data-lucide="chevron-right"></i></span>
-            </div>
-            
-            <div class="segment-card glass-panel" onclick="startSegmentTest('mom')">
-                <div class="segment-icon-box"><i data-lucide="baby"></i></div>
-                <h3>Мен жас анамын</h3>
-                <p>Бала тәрбиесі, үй шаруасы мен жеке уақыт арасындағы теңгерімді іздеймін.</p>
-                <span class="segment-link">Тесттен өту <i data-lucide="chevron-right"></i></span>
-            </div>
-            
-            <div class="segment-card glass-panel" onclick="startSegmentTest('divorce')">
-                <div class="segment-icon-box"><i data-lucide="heart-off"></i></div>
-                <h3>Дағдарыс немесе ажырасу кезеңіндемін</h3>
-                <p>Өмірімнің жаңа бақытты кезеңін бастау үшін заңгерлік және психологиялық көмек іздеймін.</p>
-                <span class="segment-link">Әрекет жоспарын алу <i data-lucide="chevron-right"></i></span>
-            </div>
-        </div>
-    </section>
-
-    <!-- INTERACTIVE TEST WIDGET SECTION -->
-    <section class="test-section-wrapper" id="test-section">
-        <div class="test-container-box glass-panel">
-            <div class="test-widget-header">
-                <span class="test-category-badge" id="test-category-label">Тестілеу</span>
-                <h2 class="test-widget-title" id="test-title-label">Психологиялық экспресс-талдау</h2>
-                <div class="test-selector-dropdown">
-                    <label for="test-select">Басқа тақырыпты таңдау:</label>
-                    <select id="test-select" class="glass-select">
-                        <option value="kelin">Қандай келінсіз?</option>
-                        <option value="burnout" selected>Күйзеліс пен ресурс деңгейі</option>
-                        <option value="balance">Мансап пен отбасы теңгерімі</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Progress line -->
-            <div class="test-progress-wrapper" id="test-progress-container">
-                <div class="test-progress-bar">
-                    <div class="test-progress-fill" id="test-progress-bar-fill"></div>
-                </div>
-                <span class="test-progress-text" id="test-progress-nums">Сұрақ 1, барлығы 4</span>
-            </div>
-
-            <!-- Content Area -->
-            <div class="test-widget-content" id="test-content-area">
-                <!-- Step 1: Question display (Injected by JS) -->
-                <div class="question-container" id="question-container">
-                    <!-- Dynamic question and buttons go here -->
+            <div class="what-is-grid">
+                <div>
+                    <h3 class="what-is-tag">Пространство мягкой силы и дисциплины</h3>
+                    <p class="what-is-desc">
+                        Здесь нет жестких рамок, токсичного соперничества или «инфоцыганских» обещаний. Мы бережно ведем вас к лучшей версии себя через проверенные психологические практики, ежедневную отчетность и теплое общение.
+                    </p>
                 </div>
                 
-                <!-- Step 2: Lead Capture Form (Hidden initially) -->
-                <div class="lead-form-container hidden" id="lead-form-container">
-                    <p class="form-instructions">UMAY қауымдастығының психологынан тесттің толық талдауын алу және тегін практикалық нұсқаулықты жүктеп алу үшін төмендегі өрістерді толтырыңыз.</p>
-                    <form id="lead-capture-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="lead-name">Аты-жөніңіз</label>
-                                <input type="text" id="lead-name" required placeholder="Аружан Алтынбекова" class="glass-input">
-                            </div>
-                            <div class="form-group">
-                                <label for="lead-phone">Телефон нөмірі (WhatsApp байланысы үшін)</label>
-                                <input type="tel" id="lead-phone" required placeholder="+7 (707) 777-77-77" class="glass-input">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="lead-email">Электрондық пошта</label>
-                                <input type="email" id="lead-email" required placeholder="aruzhan@mail.kz" class="glass-input">
-                            </div>
-                            <div class="form-group">
-                                <label for="lead-city">Тұратын қалаңыз</label>
-                                <select id="lead-city" class="glass-select">
-                                    <option value="almaty">Алматы</option>
-                                    <option value="astana">Астана</option>
-                                    <option value="shymkent">Шымкент</option>
-                                    <option value="karaganda">Қарағанды</option>
-                                    <option value="other">ҚР басқа қаласы</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-footer-actions">
-                            <button type="submit" class="btn btn-primary btn-submit-lead">
-                                <span>Нәтижені көрсету және PDF жүктеу</span>
-                                <i data-lucide="download"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Step 3: Result Display (Hidden initially) -->
-                <div class="results-container hidden" id="results-container">
-                    <div class="result-status-card glass-panel-dark">
-                        <div class="result-score-circle">
-                            <span class="result-score-val" id="result-score-txt">85%</span>
-                        </div>
-                        <div class="result-summary-text">
-                            <h3 id="result-title-txt">Сізде күйзеліс шегіне жеткен деңгейі</h3>
-                            <p id="result-desc-txt">Сіз өз ресурстарыңызды ұмытып, өзгелерге қамқорлық жасауға тым көп күш жұмсайсыз. Эмоциялық сарқылу қаупі өте жоғары.</p>
-                        </div>
+                <div class="what-is-cards">
+                    <div class="what-is-card glass-panel">
+                        <div class="what-is-card-icon"><i data-lucide="users"></i></div>
+                        <h3>Окружение</h3>
+                        <p>Осознанные женщины, стремящиеся к росту без жалоб и осуждения.</p>
                     </div>
-                    
-                    <div class="gift-box glass-panel">
-                        <div class="gift-icon"><i data-lucide="file-text"></i></div>
-                        <div>
-                            <h4>Тесттен өткеніңіз үшін сыйлық</h4>
-                            <p>Сізге арналған <strong>«Ана мен келіннің ресурсын 7 күнде қалпына келтіру жоспары»</strong> нұсқаулығы Telegram-ботқа жіберілді.</p>
-                        </div>
-                        <a href="#" class="btn btn-secondary btn-sm" id="btn-get-pdf">Telegram арқылы алу</a>
+                    <div class="what-is-card glass-panel">
+                        <div class="what-is-card-icon"><i data-lucide="heart"></i></div>
+                        <h3>Поддержка</h3>
+                        <p>Чат с кураторами-психологами и личное участие автора.</p>
                     </div>
-                    
-                    <div class="next-step-offer glass-panel-accent">
-                        <span class="offer-tag">Келесі қадамыңыз</span>
-                        <h3>Күйзеліспен жалғыз қалмаңыз</h3>
-                        <p>Бүгін UMAY жабық клубына қосылыңыз. Психологтармен апта сайынғы кездесулерге, қолдау көрсететін мастер-кластарға және пікірлестердің қауіпсіз чатына қол жеткізіңіз.</p>
-                        <div class="offer-pricing">
-                            <span class="old-price">12 000 ₸/ай</span>
-                            <span class="new-price">7 000 ₸/ай</span>
-                        </div>
-                        <button class="btn btn-primary" id="btn-buy-club-offer">Жеңілдікпен UMAY клубына мүше болу</button>
+                    <div class="what-is-card glass-panel">
+                        <div class="what-is-card-icon"><i data-lucide="calendar"></i></div>
+                        <h3>Дисциплина</h3>
+                        <p>Небольшие, но регулярные действия, которые перерастают в сильные привычки.</p>
+                    </div>
+                    <div class="what-is-card glass-panel">
+                        <div class="what-is-card-icon"><i data-lucide="book-open"></i></div>
+                        <h3>Работа над собой</h3>
+                        <p>Уникальные задания для раскрытия внутренней женской уверенности.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CLOSED CLUB PRESENTATION -->
-    <section class="club-section" id="club-section">
-        <div class="club-grid">
-            <div class="club-text">
-                <span class="section-tag">UMAY Жабық Кеңістігі</span>
-                <h2>Сізді түсінетін және қолдайтын клуб</h2>
-                <p>
-                    Closed Club UMAY — бұл жай ғана сайт емес. Бұл бүкіл Қазақстан әйелдерін біріктіретін сенім мен қолдау ортасы. Мұнда біз тәжірибе бөлісіп, өзімізді бағалауды үйренеміз және кез келген қиын сәтте қолдау табамыз.
+    <!-- 4. FOR WHOM SECTION -->
+    <section class="for-whom-section" id="for-whom">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i data-lucide="users-2"></i> Целевая аудитория</span>
+                <h2 class="section-title">Для кого эта программа?</h2>
+                <p class="section-subtitle">Обретите опору и вдохновение, если узнали себя хотя бы в одном пункте</p>
+            </div>
+            
+            <div class="for-whom-grid">
+                <div class="for-whom-card glass-panel">
+                    <div class="for-whom-num">01</div>
+                    <h3>Если чувствуете одиночество</h3>
+                    <p>Даже в окружении семьи может не хватать людей, которые разделяют ваши глубокие мысли, интересы и стремление расти.</p>
+                </div>
+                <div class="for-whom-card glass-panel">
+                    <div class="for-whom-num">02</div>
+                    <h3>Если хотите новое окружение</h3>
+                    <p>Создадите качественный круг общения, где вас искренне ценят, слушают без зависти и мотивируют идти вперед к вашим целям.</p>
+                </div>
+                <div class="for-whom-card glass-panel">
+                    <div class="for-whom-num">03</div>
+                    <h3>Если хотите развиваться</h3>
+                    <p>Каждый день вы будете получать развивающий контент: от книг до инсайтов коучей и прикладных психологических тестов.</p>
+                </div>
+                <div class="for-whom-card glass-panel">
+                    <div class="for-whom-num">04</div>
+                    <h3>Если не хватает мотивации</h3>
+                    <p>Групповая динамика помогает не сойти с дистанции. Вы будете двигаться вместе с десятками других целеустремленных женщин.</p>
+                </div>
+                <div class="for-whom-card glass-panel">
+                    <div class="for-whom-num">05</div>
+                    <h3>Если хотите стать увереннее</h3>
+                    <p>Проработаете внутренние блоки, страх осуждения со стороны общества, родственников или коллег по работе.</p>
+                </div>
+                <div class="for-whom-card glass-panel">
+                    <div class="for-whom-num">06</div>
+                    <h3>Если хотите выйти на новый уровень</h3>
+                    <p>Преодолеете застой и выстроите четкий план развития в карьере, финансах и личной гармонии на месяцы вперед.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. TIMELINE SECTION (21 DAYS) -->
+    <section class="timeline-section" id="timeline">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i data-lucide="calendar"></i> Расписание курса</span>
+                <h2 class="section-title">Что будет за 21 день?</h2>
+                <p class="section-subtitle">Последовательное погружение в работу над ключевыми сферами жизни</p>
+            </div>
+            
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+                
+                <!-- Week 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="timeline-week-badge">Неделя 1</span>
+                        <h3>Фундамент и диагностика</h3>
+                        <ul class="timeline-steps">
+                            <li class="timeline-step">Честный аудит текущего состояния вашей жизни (колесо баланса).</li>
+                            <li class="timeline-step">Определение истинных целей на год без навязанных шаблонов.</li>
+                            <li class="timeline-step">Внедрение первых утренних и вечерних поддерживающих привычек.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Week 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="timeline-week-badge">Неделя 2</span>
+                        <h3>Окружение и самооценка</h3>
+                        <ul class="timeline-steps">
+                            <li class="timeline-step">Экологичный разбор вашего круга общения и выстраивание границ.</li>
+                            <li class="timeline-step">Практики работы со страхом критики и синдромом самозванки.</li>
+                            <li class="timeline-step">Искусство уверенной самопрезентации в обществе и на работе.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Week 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-panel">
+                        <span class="timeline-week-badge">Неделя 3</span>
+                        <h3>Закрепление и новый масштаб</h3>
+                        <ul class="timeline-steps">
+                            <li class="timeline-step">Создание долгосрочного плана личного и карьерного развития.</li>
+                            <li class="timeline-step">Проработка денежного мышления и преодоление финансовых блоков.</li>
+                            <li class="timeline-step">Финальный созвон и переход в закрытый клуб выпускниц сообщества.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. WHAT INCLUDES -->
+    <section class="includes-section" id="includes">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i data-lucide="check-circle-2"></i> Наполнение программы</span>
+                <h2 class="section-title">Что вы получаете?</h2>
+                <p class="section-subtitle">Продуманная экосистема для вашего комфортного обучения</p>
+            </div>
+            
+            <div class="includes-grid">
+                <div class="includes-card glass-panel">
+                    <div class="includes-card-icon"><i data-lucide="send"></i></div>
+                    <h3>Telegram канал</h3>
+                    <p>Информационный хаб со всеми аудио-лекциями, видео-заметками и конспектами.</p>
+                </div>
+                <div class="includes-card glass-panel">
+                    <div class="includes-card-icon"><i data-lucide="message-square"></i></div>
+                    <h3>Закрытый чат</h3>
+                    <p>Пространство для общения, обсуждения домашних заданий и ежедневных инсайтов.</p>
+                </div>
+                <div class="includes-card glass-panel">
+                    <div class="includes-card-icon"><i data-lucide="file-check"></i></div>
+                    <h3>Ежедневные задания</h3>
+                    <p>Небольшие практики (до 15 минут в день), легко встраиваемые в любой график.</p>
+                </div>
+                <div class="includes-card glass-panel">
+                    <div class="includes-card-icon"><i data-lucide="video"></i></div>
+                    <h3>Прямые эфиры</h3>
+                    <p>Онлайн-разборы ваших вопросов в Zoom/Telegram с автором и приглашенными экспертами.</p>
+                </div>
+                <div class="includes-card glass-panel">
+                    <div class="includes-card-icon"><i data-lucide="save"></i></div>
+                    <h3>Записи навсегда</h3>
+                    <p>Вы сможете переслушать уроки и эфиры в любое время. Доступ не сгорает через месяц.</p>
+                </div>
+                <div class="includes-card glass-panel">
+                    <div class="includes-card-icon"><i data-lucide="heart-handshake"></i></div>
+                    <h3>Психологическая опора</h3>
+                    <p>Бережные ответы кураторов и групповая терапия в экологичном формате.</p>
+                </div>
+                <div class="includes-card glass-panel">
+                    <div class="includes-card-icon"><i data-lucide="file-text"></i></div>
+                    <h3>Чек-листы и гайды</h3>
+                    <p>PDF-памятки с практиками, трекерами привычек и пошаговыми инструкциями.</p>
+                </div>
+                <div class="includes-card glass-panel">
+                    <div class="includes-card-icon"><i data-lucide="library"></i></div>
+                    <h3>Полезные материалы</h3>
+                    <p>Подборки книг, лекций и медитаций, подобранные специально под тематику программы.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. RESULTS OF PARTICIPANTS -->
+    <section class="results-section" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i data-lucide="star"></i> Отзывы</span>
+                <h2 class="section-title">Результаты наших участниц</h2>
+                <p class="section-subtitle">Истории реальных женщин, которые уже изменили свое окружение</p>
+            </div>
+            
+            <div class="reviews-carousel-container">
+                <div class="review-card glass-panel" id="active-review-card">
+                    <div class="review-visual-media">
+                        <!-- Premium Mock Avatar Image Frame -->
+                        <div class="video-play-btn" aria-label="Смотреть отзыв">
+                            <i data-lucide="play"></i>
+                        </div>
+                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #FAF7F2, #F4EFEB);">
+                            <i data-lucide="user" style="width: 80px; height: 80px; color: var(--accent-green); opacity: 0.25;"></i>
+                        </div>
+                    </div>
+                    <div class="review-content-box">
+                        <div class="review-rating">
+                            <i data-lucide="star" style="fill: #fbbf24; stroke: #fbbf24;"></i>
+                            <i data-lucide="star" style="fill: #fbbf24; stroke: #fbbf24;"></i>
+                            <i data-lucide="star" style="fill: #fbbf24; stroke: #fbbf24;"></i>
+                            <i data-lucide="star" style="fill: #fbbf24; stroke: #fbbf24;"></i>
+                            <i data-lucide="star" style="fill: #fbbf24; stroke: #fbbf24;"></i>
+                            <span class="review-user-meta">• г. Алматы</span>
+                        </div>
+                        <blockquote class="review-quote">
+                            «Я пришла в БД в период тяжелого выгорания на работе. Казалось, что меня никто не понимает. За 21 день я не просто обрела круг потрясающих девчонок, с которыми мы до сих пор общаемся, но и выстроила личные границы. Отношения в семье улучшились, а тревога ушла.»
+                        </blockquote>
+                        <cite class="review-author">— Айгерим, 31 год, маркетолог</cite>
+                    </div>
+                </div>
+                
+                <div class="carousel-nav-arrows">
+                    <button class="carousel-arrow" id="btn-review-prev" aria-label="Предыдущий отзыв"><i data-lucide="arrow-left"></i></button>
+                    <button class="carousel-arrow" id="btn-review-next" aria-label="Следующий отзыв"><i data-lucide="arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. AUTHOR OF PROGRAM -->
+    <section class="author-section" id="author">
+        <div class="container author-grid">
+            <div class="author-image-wrapper">
+                <!-- Abstract Vector Logo Placeholder / Premium vector framing -->
+                <div class="author-img" style="width: 100%; aspect-ratio: 4/5; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--accent-green), var(--accent-green-hover));">
+                    <div style="text-align: center; color: var(--white); padding: 40px;">
+                        <i data-lucide="flower-2" style="width: 72px; height: 72px; color: var(--gold-primary); margin: 0 auto 20px;"></i>
+                        <h3 style="color: var(--white); font-family: var(--font-serif); font-size: 2.2rem;">Алия Серикова</h3>
+                        <p style="font-size: 0.95rem; color: var(--gold-primary); margin-top: 10px; font-weight: 500;">Основательница БД</p>
+                    </div>
+                </div>
+            </div>
+            <div class="author-meta">
+                <span class="section-tag"><i data-lucide="award"></i> Автор курса</span>
+                <h2>Алия Серикова</h2>
+                <span>Практикующий психолог, женский коуч, ментор по отношениям</span>
+                <p class="author-story">
+                    «Моя миссия — создать для казахстанских женщин безопасное, глубокое и теплое пространство, в котором не нужно казаться идеальной. Я убеждена, что правильное окружение — это 80% успеха в личной трансформации. За 7 лет практики я помогла тысячам мам, жен и карьеристок обрести внутренний баланс, научиться говорить «нет» без чувства вины и смело идти к своей мечте.»
                 </p>
                 
-                <div class="club-features-list">
-                    <div class="club-feat-item">
-                        <div class="feat-icon"><i data-lucide="users"></i></div>
-                        <div>
-                            <h4>Тұрақты психологиялық қолдау</h4>
-                            <p>Кәсіби психологтармен Zoom-да апта сайынғы жабық онлайн кездесулер.</p>
+                <div class="author-achievements">
+                    <div class="achieve-item">
+                        <i data-lucide="graduation-cap"></i>
+                        <div class="achieve-text">
+                            <h4>Высшее психологическое образование</h4>
+                            <p>КазНУ им. аль-Фараби, сертификация в СНГ и ЕС</p>
                         </div>
                     </div>
-                    <div class="club-feat-item">
-                        <div class="feat-icon"><i data-lucide="book-open"></i></div>
-                        <div>
-                            <h4>Білім беру курстары</h4>
-                            <p>Жеке шекаралар, бала тәрбиесі, әйел денсаулығы және жеке қаржыны басқару туралы дәрістер.</p>
+                    <div class="achieve-item">
+                        <i data-lucide="heart-handshake"></i>
+                        <div class="achieve-text">
+                            <h4>10 000+ часов практики</h4>
+                            <p>Личные разборы, групповая терапия, тренинги</p>
                         </div>
-                    </div>
-                    <div class="club-feat-item">
-                        <div class="feat-icon"><i data-lucide="map-pin"></i></div>
-                        <div>
-                            <h4>Офлайн кездесулер мен ретриттер</h4>
-                            <p>Алматы мен Астанадағы тұрақты нетоворкингтер және табиғат аясындағы ретриттер.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="club-visual-panel">
-                <div class="club-schedule-widget glass-panel">
-                    <div class="schedule-header">
-                        <i data-lucide="calendar"></i>
-                        <span>Кездесулер күнтізбесі • Маусым 2026</span>
-                    </div>
-                    <div class="schedule-items">
-                        <div class="schedule-item">
-                            <div class="item-date">9 маусым</div>
-                            <div class="item-info">
-                                <h5>«Кінә сезімінсіз ата-енемен дұрыс қарым-қатынас пен шекара құру»</h5>
-                                <span>Жүргізуші: Әлия Нұғманова, отбасылық терапевт</span>
-                            </div>
-                        </div>
-                        <div class="schedule-item">
-                            <div class="item-date">16 маусым</div>
-                            <div class="item-info">
-                                <h5>«Босанғаннан кейінгі депрессия: оны қалай танып, жеңуге болады»</h5>
-                                <span>Жүргізуші: Жанар Сұлтанова, клиникалық психолог</span>
-                            </div>
-                        </div>
-                        <div class="schedule-item">
-                            <div class="item-date">23 маусым</div>
-                            <div class="item-info">
-                                <h5>«Өзіңді таныту және мансап: өзімізді сенімді түрде көрсетеміз»</h5>
-                                <span>Жүргізуші: Динара Асанова, бизнес-коуч</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="schedule-footer">
-                        <button class="btn btn-secondary btn-sm" id="btn-open-checkout">Қонақ болып қатысуды рәсімдеу (7 000 ₸)</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- STORIES OF SUCCESS SECTION -->
-    <section class="stories-section" id="stories-section">
-        <div class="section-header">
-            <span class="section-tag">Шынайы оқиғалар</span>
-            <h2 class="section-title">UMAY қатысушыларының өзгеріс оқиғалары</h2>
-            <p class="section-subtitle">Клубқа мүше болғаннан кейін әйелдердің өмірі қалай өзгерді?</p>
-        </div>
-        
-        <div class="stories-carousel-container">
-            <div class="story-card glass-panel" id="active-story-card">
-                <div class="story-image-placeholder">
-                    <i data-lucide="user" class="story-user-icon"></i>
-                </div>
-                <div class="story-content-box">
-                    <div class="story-rating">
-                        <i data-lucide="star" style="fill: #fbbf24; stroke: #fbbf24;"></i>
-                        <i data-lucide="star" style="fill: #fbbf24; stroke: #fbbf24;"></i>
-                        <i data-lucide="star" style="fill: #fbbf24; stroke: #fbbf24;"></i>
-                        <i data-lucide="star" style="fill: #fbbf24; stroke: #fbbf24;"></i>
-                        <i data-lucide="star" style="fill: #fbbf24; stroke: #fbbf24;"></i>
-                        <span class="story-user-city">• Алматы қ.</span>
-                    </div>
-                    <blockquote class="story-quote">
-                        «Тұрмыс құрғаннан кейін мен басқа қаладағы күйеуімнің ата-анасының үйіне көшіп келдім. Бейімделу өте қиын болды, өзімді жат сезініп, дәрменсіздіктен үнемі жылайтынмын. UMAY клубынан жеке шекараларды қалай дұрыс құру керектігін түсіндірген психологтарды таптым. Бір айдан кейін енеммен қарым-қатынасымыз жақсарды, ең бастысы — ішкі тыныштығымды таптым.»
-                    </blockquote>
-                    <cite class="story-author">— Айдана, 24 жаста, келін</cite>
-                </div>
+    <!-- 9. PRICING SECTION -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i data-lucide="wallet"></i> Инвестиция в себя</span>
+                <h2 class="section-title">Стоимость участия</h2>
+                <p class="section-subtitle">Присоединяйтесь к программе на самых выгодных условиях</p>
             </div>
             
-            <div class="carousel-nav-arrows">
-                <button class="carousel-arrow" id="btn-story-prev" aria-label="Алдыңғы пікір"><i data-lucide="arrow-left"></i></button>
-                <button class="carousel-arrow" id="btn-story-next" aria-label="Келесі пікір"><i data-lucide="arrow-right"></i></button>
+            <div class="pricing-wrapper">
+                <div class="pricing-card glass-panel-accent">
+                    <h3 class="price-title">Близкие Друзья</h3>
+                    <p class="price-tagline">Полный доступ к программе на 21 день</p>
+                    
+                    <div class="price-amount">
+                        <span class="price-value">7 000 ₸</span>
+                    </div>
+                    
+                    <ul class="price-features">
+                        <li class="price-feat-item"><i data-lucide="check"></i> <span>Все аудио-уроки и ежедневные задания</span></li>
+                        <li class="price-feat-item"><i data-lucide="check"></i> <span>Доступ в общий поддерживающий чат</span></li>
+                        <li class="price-feat-item"><i data-lucide="check"></i> <span>Прямые эфиры и разборы вопросов</span></li>
+                        <li class="price-feat-item"><i data-lucide="check"></i> <span>Материалы, чек-листы и записи навсегда</span></li>
+                    </ul>
+                    
+                    <button class="btn btn-primary btn-full btn-open-checkout" style="font-size: 1.1rem; padding: 20px 48px;">
+                        <span>Оплатить участие</span>
+                        <i data-lucide="credit-card"></i>
+                    </button>
+                    
+                    <div class="payment-badge-group">
+                        <span class="payment-badge kaspi-red">Kaspi Red</span>
+                        <span class="payment-badge">Kaspi QR</span>
+                        <span class="payment-badge">Рассрочка</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ SECTION -->
+    <!-- 10. FAQ SECTION -->
     <section class="faq-section" id="faq">
-        <div class="section-header">
-            <h2 class="section-title">Жиі қойылатын сұрақтар</h2>
-            <p class="section-subtitle">Әйелдер қауымдастығының жұмысы туралы білгіңіз келгеннің бәрі</p>
-        </div>
-        
-        <div class="faq-accordion-group">
-            <div class="faq-item glass-panel">
-                <button class="faq-trigger">
-                    <span>Клубтың онлайн кездесулері қалай өтеді?</span>
-                    <i data-lucide="chevron-down" class="faq-icon"></i>
-                </button>
-                <div class="faq-content">
-                    <p>Кездесулер апта сайын Zoom платформасында жабық форматта өтеді. Видео және дыбыс арқылы қосылуға (талдаулар мен сұрақтар үшін) немесе жай ғана ыңғайлы уақытта тыңдауға болады. Барлық жазбалар жеке кабинетте сақталады.</p>
-                </div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i data-lucide="help-circle"></i> Справка</span>
+                <h2 class="section-title">Часто задаваемые вопросы</h2>
+                <p class="section-subtitle">Ответы на популярные организационные и технические вопросы о программе</p>
             </div>
             
-            <div class="faq-item glass-panel">
-                <button class="faq-trigger">
-                    <span>Менің қатысуым құпия бола ма?</span>
-                    <i data-lucide="chevron-down" class="faq-icon"></i>
-                </button>
-                <div class="faq-content">
-                    <p>Әрине. Қауіпсіздік пен құпиялылық — UMAY қауымдастығының басты басымдығы. Сіз чаттарға бүркеншік атпен (псевдониммен) қатыса аласыз және тесттерден анонимді түрде өте аласыз. Біз әдеп ережелерінің сақталуын қатаң қадағалаймыз.</p>
+            <div class="faq-accordion-group">
+                <!-- Q1 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Когда начнется следующий поток программы?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Потоки программы запускаются каждый понедельник. После оплаты вы сразу получаете доступ к приветственным материалам и боту, а основное обучение начнется в ближайший понедельник.</p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="faq-item glass-panel">
-                <button class="faq-trigger">
-                    <span>Егер маған ұнамаса, жазылымды тоқтата аламын ба?</span>
-                    <i data-lucide="chevron-down" class="faq-icon"></i>
-                </button>
-                <div class="faq-content">
-                    <p>Иә, жеке кабинетіңізде кез келген уақытта бір рет басу арқылы жазылымды тоқтата аласыз. Ешқандай жасырын төлемдер немесе келісімшарттар жоқ — бәрі адал әрі ашық.</p>
+                
+                <!-- Q2 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Сколько времени в день требуется на задания?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>В среднем от 10 до 20 минут в день. Все задания записаны в удобном аудио- и текстовом формате в Telegram, их можно прослушать по дороге на работу или во время домашних дел.</p>
+                    </div>
+                </div>
+                
+                <!-- Q3 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Как оплатить через Kaspi QR?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Нажмите кнопку «Оплатить участие», выберите вкладку Kaspi QR. Отсканируйте код с помощью приложения Kaspi.kz на вашем телефоне. Оплата зачисляется моментально.</p>
+                    </div>
+                </div>
+                
+                <!-- Q4 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Есть ли рассрочка или оплата через Kaspi Red?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Да, вы можете произвести оплату с Kaspi Red прямо через наш эквайринг-партнер при выборе Kaspi-методов. Платеж делится на 3 месяца без переплат.</p>
+                    </div>
+                </div>
+                
+                <!-- Q5 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Что делать, если я живу за пределами Казахстана?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Мы принимаем карты Visa/Mastercard любых банков СНГ и мира. Просто переключитесь на вкладку «Карта Visa/Mastercard» в окне оплаты.</p>
+                    </div>
+                </div>
+                
+                <!-- Q6 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Безопасно ли участие? Будет ли конфиденциальность?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Полностью безопасно. В чате вы можете использовать псевдоним (никнейм) и не ставить личное фото. Мы жестко пресекаем любые утечки информации и неуважительное отношение.</p>
+                    </div>
+                </div>
+                
+                <!-- Q7 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Кто проверяет домашние задания?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Задания проверяются квалифицированными психологами-кураторами нашей команды. Они дают бережную и подробную обратную связь в личные сообщения или в общем чате (по вашему желанию).</p>
+                    </div>
+                </div>
+                
+                <!-- Q8 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Могу ли я участвовать, если я в декрете с младенцем?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Конечно! Большинство наших участниц — это молодые мамы. Формат программы построен так, чтобы стать вашей отдушиной и поддержкой, а не дополнительной нагрузкой.</p>
+                    </div>
+                </div>
+                
+                <!-- Q9 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Что если я не успею пройти все дни за 21 день?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Ничего страшного. Доступ ко всем материалам, лекциям и заданиям остается у вас НАВСЕГДА. Вы сможете вернуться к практикам в любой момент в своем темпе.</p>
+                    </div>
+                </div>
+                
+                <!-- Q10 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Будет ли живое общение с автором?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Да. Алия Серикова проводит еженедельные разборы в чате и лично отвечает на вопросы участниц на прямых эфирах в конце каждой недели.</p>
+                    </div>
+                </div>
+                
+                <!-- Q11 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Поможет ли программа пережить кризис или развод?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Да, наши терапевтические недели направлены на укрепление внутренней самооценки и проработку обид. Чат единомышленниц станет для вас надежной теплой опорой.</p>
+                    </div>
+                </div>
+                
+                <!-- Q12 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Выдаются ли сертификаты по окончании?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Так как это программа личностного роста и психологической поддержки, классических экзаменов у нас нет. Но все выпускницы получают памятный цифровой диплом о прохождении курса трансформации.</p>
+                    </div>
+                </div>
+                
+                <!-- Q13 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Как устроена работа кураторов?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Кураторы находятся в чате ежедневно с 09:00 до 21:00. Они отвечают на вопросы, помогают экологично прожить сложные инсайты и поддерживают участниц.</p>
+                    </div>
+                </div>
+                
+                <!-- Q14 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Можно ли подарить участие подруге/сестре?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Да. После оплаты напишите в нашу службу поддержки, и мы оформим красивый именной подарочный сертификат с кодом доступа.</p>
+                    </div>
+                </div>
+                
+                <!-- Q15 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Какой процент участниц доходит до конца программы?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Благодаря геймификации, небольшим заданиям и мягкому контролю со стороны кураторов, более 89% участниц полностью доходят до конца 21-дневного спринта.</p>
+                    </div>
+                </div>
+                
+                <!-- Q16 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>В каком приложении будет чат?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Вся программа проходит в мессенджере Telegram. Это позволяет обучаться с любого устройства без установки тяжелых сторонних приложений.</p>
+                    </div>
+                </div>
+                
+                <!-- Q17 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Будут ли домашние задания обязательными для выполнения?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>У нас нет строгой принудительной системы. Задания нужны для ваших изменений. Вы делаете их в комфортном темпе, штрафов или исключений за пропуски у нас нет.</p>
+                    </div>
+                </div>
+                
+                <!-- Q18 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Могу ли я вернуть деньги, если программа мне не подойдет?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Да. Если в течение первых 3 дней программы вы поймете, что формат вам не подходит, мы вернем вам 100% стоимости без лишних вопросов.</p>
+                    </div>
+                </div>
+                
+                <!-- Q19 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Будут ли очные встречи участников?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Да, после окончания 21-дневной программы участницы объединяются по городам. Мы регулярно организуем очные нетворкинги и кофе-встречи в Алматы и Астане.</p>
+                    </div>
+                </div>
+                
+                <!-- Q20 -->
+                <div class="faq-item glass-panel">
+                    <button class="faq-trigger">
+                        <span>Есть ли возрастные ограничения для участия?</span>
+                        <i data-lucide="chevron-down" class="faq-icon"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Программа рассчитана на взрослую аудиторию. Средний возраст участниц — от 25 до 55 лет. Взаимное уважение и зрелость — основа нашего общения.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- 11. FINAL BLOCK -->
+    <section class="final-section">
+        <div class="container">
+            <div class="final-banner glass-panel-accent">
+                <h2>Ваше новое окружение начинается сегодня</h2>
+                <p>Присоединяйтесь к программе «Близкие Друзья» и сделайте первый шаг навстречу изменениям в вашей жизни.</p>
+                <button class="btn btn-gold btn-open-checkout" style="font-size: 1.1rem; padding: 20px 48px;">
+                    <span>Стать участницей БД</span>
+                    <i data-lucide="arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i data-lucide="sparkles" class="logo-icon"></i>
+                    <span class="logo-text">Близкие Друзья<span class="logo-dot">.</span></span>
+                </a>
+                <p class="footer-desc">Мягкая сила женского сообщества Казахстана и СНГ. Качественное окружение, развитие и поддержка.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="Telegram"><i data-lucide="send"></i></a>
+                    <a href="#" class="social-link" aria-label="WhatsApp"><i data-lucide="phone"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="#about">О программе</a></li>
+                    <li><a href="#for-whom">Для кого</a></li>
+                    <li><a href="#timeline">Программа</a></li>
+                    <li><a href="#pricing">Стоимость</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Контакты и Информация</h4>
+                <p class="footer-info-text">ИП «Serikova Coaching»<br>БИН 920512400991<br>г. Алматы, пр. Аль-Фараби, 77/7</p>
+                <p class="footer-info-text">Поддержка: support@closefriends.kz<br>WhatsApp: +7 (707) 123-45-67</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Близкие Друзья. Все права защищены. Договор публичной оферты. Безопасность транзакций обеспечена Freedom Pay.</p>
+        </div>
+    </footer>
 
     <!-- KASPI CHECKOUT MODAL -->
     <div class="checkout-overlay" id="checkout-overlay"></div>
-    <div class="checkout-modal glass-panel" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Клуб төлемі">
-        <button class="close-modal-btn" id="checkout-close" aria-label="Жабу"><i data-lucide="x"></i></button>
+    <div class="checkout-modal glass-panel" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Оплата программы">
+        <button class="close-modal-btn" id="checkout-close" aria-label="Закрыть"><i data-lucide="x"></i></button>
         
         <div class="checkout-modal-content">
-            <h3 class="checkout-title">Жазылымды рәсімдеу</h3>
-            <p class="checkout-subtitle">UMAY әйелдер клубына қосылу</p>
+            <h3 class="checkout-title">Оформление участия</h3>
+            <p class="checkout-subtitle">Онлайн-программа «Близкие Друзья»</p>
             
             <div class="payment-tabs">
                 <button class="pay-tab active" id="tab-kaspi">Kaspi QR</button>
-                <button class="pay-tab" id="tab-card">Visa/Mastercard картасы</button>
+                <button class="pay-tab" id="tab-card">Карта Visa/Mastercard</button>
             </div>
             
-            <!-- Kaspi QR Content -->
+            <!-- Kaspi QR Panel -->
             <div class="payment-panel active" id="panel-kaspi">
-                <p class="pay-instructions">Телефоныңызда Kaspi.kz қосымшасын ашып, Kaspi QR арқылы кодты сканерлеңіз:</p>
+                <p class="pay-instructions">Откройте приложение <strong>Kaspi.kz</strong> на телефоне → выберите <strong>Kaspi QR</strong> и отсканируйте код:</p>
                 
                 <div class="kaspi-payment-box glass-panel-dark">
                     <div class="kaspi-red-header">Kaspi QR</div>
                     <div class="kaspi-qr-wrapper">
-                        <!-- Simulated QR SVG -->
+                        <!-- Simulated QR Code SVG -->
                         <svg viewBox="0 0 100 100" class="kaspi-qr-svg">
                             <rect x="10" y="10" width="20" height="20" fill="#e11d48"/>
-                            <rect x="15" y="15" width="10" height="10" fill="#fff"/>
+                            <rect x="15" y="15" width="10" height="10" fill="#white"/>
                             <rect x="70" y="10" width="20" height="20" fill="#e11d48"/>
-                            <rect x="75" y="15" width="10" height="10" fill="#fff"/>
+                            <rect x="75" y="15" width="10" height="10" fill="#white"/>
                             <rect x="10" y="70" width="20" height="20" fill="#e11d48"/>
-                            <rect x="15" y="75" width="10" height="10" fill="#fff"/>
-                            <!-- Noise pixels -->
-                            <rect x="40" y="20" width="15" height="10" fill="#2d2424"/>
-                            <rect x="50" y="45" width="25" height="15" fill="#2d2424"/>
-                            <rect x="25" y="60" width="10" height="25" fill="#2d2424"/>
-                            <rect x="70" y="70" width="15" height="15" fill="#2d2424"/>
+                            <rect x="15" y="75" width="10" height="10" fill="#white"/>
+                            <!-- Pixels noise -->
+                            <rect x="42" y="20" width="10" height="15" fill="#222624"/>
+                            <rect x="52" y="45" width="20" height="15" fill="#222624"/>
+                            <rect x="25" y="62" width="12" height="20" fill="#222624"/>
+                            <rect x="70" y="70" width="15" height="15" fill="#222624"/>
                             <rect x="35" y="75" width="5" height="5" fill="#e11d48"/>
                         </svg>
                         <div class="qr-pulse-glow"></div>
                     </div>
-                    <div class="kaspi-qr-title">UMAY COMMUNITY KZ</div>
+                    <div class="kaspi-qr-title">CLOSE FRIENDS COMMUNITY</div>
                 </div>
             </div>
             
-            <!-- Card Content -->
+            <!-- Card Panel -->
             <div class="payment-panel" id="panel-card">
-                <p class="pay-instructions">ҚР кез келген банкінің карта деректерін енгізіңіз:</p>
-                <div class="credit-card-mockup glass-panel-dark">
+                <p class="pay-instructions">Введите реквизиты карты любого банка СНГ/РК:</p>
+                <div class="credit-card-mockup">
                     <div class="cc-brand">Visa / Mastercard</div>
-                    <div class="cc-number" id="cc-card-number-preview">•••• •••• •••• 7788</div>
+                    <div class="cc-number" id="cc-card-number-preview">•••• •••• •••• 1122</div>
                     <div class="cc-holder-row">
                         <div>
-                            <span class="cc-label">ИЕСІ</span>
-                            <div id="cc-name-display">ARUZHAN A.</div>
+                            <span class="cc-label">ВЛАДЕЛЕЦ</span>
+                            <div id="cc-name-display">ALIYA S.</div>
                         </div>
                         <div>
-                            <span class="cc-label">МЕРЗІМІ</span>
-                            <div id="cc-expiry-preview">05/30</div>
+                            <span class="cc-label">СРОК</span>
+                            <div id="cc-expiry-preview">12/28</div>
                         </div>
                     </div>
                 </div>
+                
                 <div class="card-inputs-grid">
                     <div class="form-group full-width">
-                        <label for="card-number-input">Карта нөмірі</label>
+                        <label for="card-number-input">Номер карты</label>
                         <input type="text" id="card-number-input" placeholder="4400 0000 0000 0000" class="glass-input" maxlength="19">
                     </div>
                     <div class="form-group">
-                        <label for="card-expiry-input">Мерзімі</label>
+                        <label for="card-expiry-input">Срок действия</label>
                         <input type="text" id="card-expiry-input" placeholder="MM/YY" class="glass-input" maxlength="5">
                     </div>
                     <div class="form-group">
@@ -472,72 +792,34 @@
             </div>
             
             <div class="checkout-bill-summary">
-                <span>Төлем сомасы (ай сайын):</span>
+                <span>Сумма списания (единоразово):</span>
                 <strong>7 000 ₸</strong>
             </div>
             
             <div class="checkout-actions">
-                <button class="btn btn-secondary btn-full" id="checkout-cancel-btn">Бас тарту</button>
+                <button class="btn btn-secondary btn-full" id="checkout-cancel-btn">Отмена</button>
                 <button class="btn btn-primary btn-full" id="checkout-pay-btn">
-                    <span class="pay-btn-text">Мен Kaspi QR арқылы төледім</span>
+                    <span class="pay-btn-text">Я оплатила через Kaspi QR</span>
                     <span class="pay-btn-spinner hidden"></span>
                 </button>
             </div>
         </div>
         
-        <!-- Success Checkout Screen -->
+        <!-- Success Screen -->
         <div class="checkout-success-content hidden" id="checkout-success-view">
             <div class="success-heart-icon-box">
                 <i data-lucide="heart" class="success-heart-icon"></i>
             </div>
-            <h3>UMAY-ға қош келдіңіз!</h3>
-            <p>Сіз біздің жабық клубымыздың мүшесі атандыңыз. 2 минут ішінде көрсетілген WhatsApp нөміріне жеке сәлемдесу хабарламасы мен чат сілтемелері келеді.</p>
-            <button class="btn btn-primary" id="success-close-btn">Қарым-қатынасты бастау</button>
+            <h3>Вы успешно в БД!</h3>
+            <p>Вы стали участницей программы «Близкие Друзья». Ссылка на закрытый Telegram-канал и инструкция отправлены на ваш WhatsApp номер.</p>
+            <button class="btn btn-primary btn-full" id="success-close-btn">Начать трансформацию</button>
         </div>
     </div>
 
-    <!-- MAIN FOOTER -->
-    <footer class="main-footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="#" class="logo">
-                    <i data-lucide="flower" class="logo-icon"></i>
-                    <span class="logo-text">UMAY<span class="logo-dot">.</span></span>
-                </a>
-                <p class="footer-desc">Қазақстандық әйелдердің жұмсақ күші. Қолдау, теңгерім және өзіне деген сенімділік.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-                    <a href="#" class="social-link" aria-label="Telegram"><i data-lucide="send"></i></a>
-                    <a href="#" class="social-link" aria-label="YouTube"><i data-lucide="youtube"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Бөлімдер</h4>
-                <ul>
-                    <li><a href="#about">Қауымдастық туралы</a></li>
-                    <li><a href="#test-section">Тестілеу</a></li>
-                    <li><a href="#club-section">Жабық Клуб</a></li>
-                    <li><a href="#stories-section">Өзгеріс оқиғалары</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-col">
-                <h4>Байланыс және Заңды ақпарат</h4>
-                <p class="footer-info-text">«UMAY Women Community» ЖШС<br>БСН 260340099881<br>Алматы қ., Әл-Фараби даңғылы, 77/7</p>
-                <p class="footer-info-text">Қолдау қызметі: support@umay.kz<br>WhatsApp: +7 (707) 123-45-67</p>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 UMAY Closed Community. Барлық құқықтар қорғалған. Жария оферта шарты. Төлем қауіпсіздігі Freedom Pay жүйесімен қамтамасыз етілген.</p>
-        </div>
-    </footer>
-
-    <!-- TOAST NOTIFICATION CONTAINER -->
+    <!-- TOAST CONTAINER -->
     <div class="toast-container" id="toast-container"></div>
 
-    <!-- Link to JavaScript -->
+    <!-- JS Core -->
     <script src="app.js?v=2.0.1"></script>
 </body>
 </html>

@@ -1,23 +1,23 @@
 // ====================================================
-// "CLOSE FRIENDS (БД)" INTERACTIVE LOGIC (RU VERSION)
+// "CLOSE FRIENDS (БД)" INTERACTIVE LOGIC (KK VERSION)
 // ====================================================
 
 // --- Reviews Database ---
 const REVIEWS_DATABASE = [
     {
-        city: "г. Алматы",
-        quote: "«Я пришла в БД в период тяжелого выгорания на работе. Казалось, что меня никто не понимает. За 21 день я не просто обрела круг потрясающих девчонок, с которыми мы до сих пор общаемся, но и выстроила личные границы. Отношения в семье улучшились, а тревога ушла.»",
-        author: "— Айгерим, 31 год, маркетолог"
+        city: "Алматы қ.",
+        quote: "«Мен ЖД-ға жұмыста қатты шаршаған, күйзелген сәтте келдім. Мені ешкім түсінбейтіндей көрінетін. 21 күннің ішінде мен керемет қыздармен танысып, орта таптым. Жеке шекараларды құруды үйрендім. Отбасыммен қарым-қатынасым жақсарып, ішкі тыныштығымды таптым.»",
+        author: "— Әйгерім, 31 жаста, маркетолог"
     },
     {
-        city: "г. Астана",
-        quote: "«Как маме троих детей, мне казалось невозможным найти время на себя. Программа БД научила меня правильному планированию и заботе о своем ресурсе без чувства вины. Муж заметил, как я расцвела, дома воцарился покой. Спасибо автору за это теплое пространство!»",
-        author: "— Динара, 39 лет, мама троих детей"
+        city: "Астана қ.",
+        quote: "«Үш баланың анасы ретінде маған өзіме уақыт табу мүмкін еместей көрінетін. Бағдарлама мені дұрыс жоспарлауға және кінә сезімінсіз өз ресурстарымды күтуге үйретті. Күйеуім менің өзгергенімді байқады, үйде тыныштық орнады. Авторына осындай жылы орта үшін рақмет!»",
+        author: "— Динара, 39 жаста, көп балалы ана"
     },
     {
-        city: "г. Шымкент",
-        quote: "«Самое ценное в этой программе — это дисциплина и окружение. Ежедневные отчеты в чате мотивируют делать действия, а поддержка девочек дает силы. Я наконец-то решилась сменить сферу деятельности и увеличила доход. Это лучшая инвестиция в себя!»",
-        author: "— Сабина, 28 лет, дизайнер"
+        city: "Шымкент қ.",
+        quote: "«Бұл бағдарламаның ең құнды жері — тәртіп пен орта. Чаттағы күнделікті есептер әрекет етуге ынталандырады, ал қыздардың қолдауы күш береді. Мен ақыры жұмыс саласын ауыстыруға шешім қабылдап, табысымды арттырдым. Бұл өзіме жасаған ең жақсы инвестициям!»",
+        author: "— Сабина, 28 жаста, дизайнер"
     }
 ];
 
@@ -137,6 +137,7 @@ function openCheckout() {
     document.body.style.overflow = "hidden";
 }
 
+// Close Modal
 function closeCheckout() {
     checkoutModal.classList.remove("active");
     checkoutOverlay.classList.remove("active");
@@ -150,13 +151,13 @@ function selectPaymentTab(method) {
         tabCard.classList.remove("active");
         panelKaspi.classList.add("active");
         panelCard.classList.remove("active");
-        btnText.textContent = "Я оплатила через Kaspi QR";
+        btnText.textContent = "Мен Kaspi QR арқылы төледім";
     } else {
         tabKaspi.classList.remove("active");
         tabCard.classList.add("active");
         panelKaspi.classList.remove("active");
         panelCard.classList.add("active");
-        btnText.textContent = "Оплатить картой";
+        btnText.textContent = "Картамен төлеу";
     }
 }
 
@@ -172,23 +173,23 @@ function processPayment() {
         const cardCvv = cardCvvInput ? cardCvvInput.value.trim() : "";
         
         if (cardNum.length !== 16) {
-            showToast("Введите корректный номер карты (16 цифр)!", "error");
+            showToast("Карта нөмірін дұрыс енгізіңіз (16 сан)!", "error");
             return;
         }
         
         if (!/^\d{2}\/\d{2}$/.test(cardExpiry)) {
-            showToast("Введите срок действия в формате MM/YY!", "error");
+            showToast("Мерзімін MM/YY форматында енгізіңіз!", "error");
             return;
         }
         
         const [month, year] = cardExpiry.split("/").map(Number);
         if (month < 1 || month > 12) {
-            showToast("Введите корректный месяц (01-12)!", "error");
+            showToast("Жарамды айды енгізіңіз (01-12)!", "error");
             return;
         }
         
         if (cardCvv.length !== 3 || !/^\d{3}$/.test(cardCvv)) {
-            showToast("Введите корректный код CVV (3 цифры)!", "error");
+            showToast("CVV кодын дұрыс енгізіңіз (3 сан)!", "error");
             return;
         }
     }
@@ -206,7 +207,7 @@ function processPayment() {
         modalContent.classList.add("hidden");
         checkoutSuccessView.classList.remove("hidden");
         
-        showToast("Платеж успешно подтвержден!", "success");
+        showToast("Төлем сәтті расталды!", "success");
         spawnSuccessHearts();
     }, 2000);
 }
@@ -250,7 +251,6 @@ function spawnSuccessHearts() {
         heart.style.zIndex = "250";
         heart.style.pointerEvents = "none";
         
-        // Pseudo elements for heart geometry
         const style = document.createElement('style');
         style.innerHTML = `
             .success-heart::before, .success-heart::after {
@@ -347,7 +347,7 @@ function initGlobalListeners() {
     socialLinks.forEach(link => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
-            showToast("Эта соцсеть пока не подключена!", "info");
+            showToast("Бұл әлеуметтік желі әзірге қосылмаған!", "info");
         });
     });
 
