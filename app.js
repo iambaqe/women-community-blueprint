@@ -463,6 +463,38 @@ function selectPaymentTab(method) {
 }
 
 function processPayment() {
+    // Card payment validation
+    if (tabCard.classList.contains("active")) {
+        const cardNumInput = document.getElementById("card-number-input");
+        const cardExpiryInput = document.getElementById("card-expiry-input");
+        const cardCvvInput = document.getElementById("card-cvv-input");
+        
+        const cardNum = cardNumInput ? cardNumInput.value.replace(/\s/g, "") : "";
+        const cardExpiry = cardExpiryInput ? cardExpiryInput.value.trim() : "";
+        const cardCvv = cardCvvInput ? cardCvvInput.value.trim() : "";
+        
+        if (cardNum.length !== 16) {
+            showToast("Карта нөмірін дұрыс енгізіңіз (16 сан)!", "error");
+            return;
+        }
+        
+        if (!/^\d{2}\/\d{2}$/.test(cardExpiry)) {
+            showToast("Мерзімін MM/YY форматында енгізіңіз!", "error");
+            return;
+        }
+        
+        const [month, year] = cardExpiry.split("/").map(Number);
+        if (month < 1 || month > 12) {
+            showToast("Жарамды айды енгізіңіз (01-12)!", "error");
+            return;
+        }
+        
+        if (cardCvv.length !== 3 || !/^\d{3}$/.test(cardCvv)) {
+            showToast("CVV кодын дұрыс енгізіңіз (3 сан)!", "error");
+            return;
+        }
+    }
+
     const btnText = checkoutPayBtn.querySelector(".pay-btn-text");
     const btnSpinner = checkoutPayBtn.querySelector(".pay-btn-spinner");
     
@@ -706,4 +738,52 @@ function initGlobalListeners() {
     
     // Pay execute
     checkoutPayBtn.addEventListener("click", processPayment);
+
+    // Card inputs interactive formatting and preview
+    const cardNumInput = document.getElementById("card-number-input");
+    const cardNumPreview = document.getElementById("cc-card-number-preview");
+    const cardExpiryInput = document.getElementById("card-expiry-input");
+    const cardExpiryPreview = document.getElementById("cc-expiry-preview");
+
+    if (cardNumInput && cardNumPreview) {
+        cardNumInput.addEventListener("input", (e) => {
+            let val = e.target.value.replace(/\D/g, ""); // digits only
+            let formatted = "";
+            for (let i = 0; i < val.length; i++) {
+                if (i > 0 && i % 4 === 0) formatted += " ";
+                formatted += val[i];
+            }
+            e.target.value = formatted;
+            cardNumPreview.textContent = formatted || "•••• •••• •••• 7788";
+        });
+    }
+
+    if (cardExpiryInput && cardExpiryPreview) {
+        cardExpiryInput.addEventListener("input", (e) => {
+            let val = e.target.value.replace(/\D/g, "");
+            if (val.length > 2) {
+                val = val.substring(0, 2) + "/" + val.substring(2, 4);
+            }
+            e.target.value = val;
+            cardExpiryPreview.textContent = val || "05/30";
+        });
+    }
+
+    // Social links feedback
+    const socialLinks = document.querySelectorAll(".social-link");
+    socialLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            showToast("Бұл әлеуметтік желі әзірге қосылмаған!", "info");
+        });
+    });
+
+    // Logo smooth scroll
+    const logoLink = document.getElementById("logo-link");
+    if (logoLink) {
+        logoLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
 }
