@@ -3,43 +3,46 @@
 /* ==================================================== */
 
 :root {
-    /* Warm Feminine Palette */
-    --bg-cream: #fdfbf7;
-    --bg-sand: #f5ebe0;
-    --bg-card: rgba(255, 255, 255, 0.65);
+    /* Warm Luxury Feminine Palette */
+    --bg-cream: #fcfaf6;
+    --bg-sand: #f4e8dc;
+    --bg-card: rgba(255, 255, 255, 0.72);
     
-    --text-primary: #332727;
-    --text-secondary: #5c4a4a;
-    --text-muted: #8c7676;
+    --text-primary: #2b1f1f;
+    --text-secondary: #4d3c3c;
+    --text-muted: #857070;
     
-    --rose-primary: #d98880;
-    --rose-light: #f5dcd9;
-    --rose-dark: #b86b63;
+    --rose-primary: #e59a91;
+    --rose-light: #f7e6e3;
+    --rose-dark: #a85850;
     
-    --accent-gold: #d4af37;
-    --accent-gold-light: #f9f1d2;
+    --accent-gold: #dfba53;
+    --accent-gold-light: #fdf5d6;
     --success-green: #2ecc71;
     --kaspi-red: #e11d48;
     
-    --gradient-rose: linear-gradient(135deg, #e8a7a1 0%, #d98880 100%);
-    --gradient-gold: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
+    /* 3-color luxurious gradients for modern visual depth */
+    --gradient-rose: linear-gradient(135deg, #f0b5ab 0%, #e59a91 50%, #c4766e 100%);
+    --gradient-gold: linear-gradient(135deg, #faebb7 0%, #dfba53 50%, #bb9831 100%);
     --gradient-warm: linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-sand) 100%);
     
     /* Spacings & Layouts */
-    --border-warm: 1px solid rgba(217, 136, 128, 0.15);
+    --border-warm: 1px solid rgba(229, 154, 145, 0.16);
     --border-focus: 1.5px solid var(--rose-primary);
     
-    --radius-sm: 8px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
     --radius-full: 9999px;
     
-    --shadow-soft: 0 10px 30px -10px rgba(8c, 76, 76, 0.08);
-    --shadow-glow-rose: 0 10px 25px rgba(217, 136, 128, 0.25);
+    /* Luxurious shadows with smooth falloff (ambient occlusion style) */
+    --shadow-soft: 0 16px 48px -12px rgba(43, 31, 31, 0.05), 0 0 1px 0 rgba(43, 31, 31, 0.05);
+    --shadow-glow-rose: 0 12px 30px -4px rgba(229, 154, 145, 0.28);
+    --shadow-premium: 0 24px 64px -16px rgba(43, 31, 31, 0.08);
     
-    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ---------------------------------------------------- */
@@ -164,10 +167,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .glass-panel {
     background: var(--bg-card);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: var(--border-warm);
     box-shadow: var(--shadow-soft);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-panel-dark {
@@ -514,15 +518,20 @@ h1, h2, h3, h4, h5, h6 {
     padding: 32px;
     border-radius: var(--radius-lg);
     cursor: pointer;
-    transition: var(--transition-normal);
+    background: var(--bg-card);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: var(--border-warm);
+    box-shadow: var(--shadow-soft);
     display: flex;
     flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .segment-card:hover {
     transform: translateY(-8px);
-    background: white;
-    box-shadow: 0 15px 40px -10px rgba(217, 136, 128, 0.15);
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 24px 50px -12px rgba(229, 154, 145, 0.22);
     border-color: var(--rose-primary);
 }
 
