@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" crossorigin>
     
     <!-- Link to external CSS -->
-    <link rel="stylesheet" href="style.css?v=2.0.0">
+    <link rel="stylesheet" href="style.css?v=2.0.1">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -432,10 +432,10 @@
             
             <!-- Card Content -->
             <div class="payment-panel" id="panel-card">
-                <p class="pay-instructions">Введите данные карты любого банка РК.</p>
+                <p class="pay-instructions">Введите данные карты любого банка РК:</p>
                 <div class="credit-card-mockup glass-panel-dark">
                     <div class="cc-brand">Visa / Mastercard</div>
-                    <div class="cc-number">•••• •••• •••• 7788</div>
+                    <div class="cc-number" id="cc-card-number-preview">•••• •••• •••• 7788</div>
                     <div class="cc-holder-row">
                         <div>
                             <span class="cc-label">ВЛАДЕЛЕЦ</span>
@@ -443,8 +443,22 @@
                         </div>
                         <div>
                             <span class="cc-label">СРОК</span>
-                            <div>05/30</div>
+                            <div id="cc-expiry-preview">05/30</div>
                         </div>
+                    </div>
+                </div>
+                <div class="card-inputs-grid">
+                    <div class="form-group full-width">
+                        <label for="card-number-input">Номер карты</label>
+                        <input type="text" id="card-number-input" placeholder="4400 0000 0000 0000" class="glass-input" maxlength="19">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-expiry-input">Срок действия</label>
+                        <input type="text" id="card-expiry-input" placeholder="MM/YY" class="glass-input" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-cvv-input">CVV</label>
+                        <input type="password" id="card-cvv-input" placeholder="•••" class="glass-input" maxlength="3">
                     </div>
                 </div>
             </div>
@@ -516,6 +530,6 @@
     <div class="toast-container" id="toast-container"></div>
 
     <!-- Link to JavaScript -->
-    <script src="app_ru.js?v=2.0.0"></script>
+    <script src="app_ru.js?v=2.0.1"></script>
 </body>
 </html>

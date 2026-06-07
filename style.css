@@ -1782,3 +1782,21 @@ h1, h2, h3, h4, h5, h6 {
         gap: 10px;
     }
 }
+
+/* Card interactive inputs */
+.card-inputs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+    text-align: left;
+}
+.card-inputs-grid .full-width {
+    grid-column: span 2;
+}
+
+/* Hidden utility class */
+.hidden {
+    display: none !important;
+}
+
