@@ -48,6 +48,7 @@ const toastContainer = document.getElementById("toast-container");
 document.addEventListener("DOMContentLoaded", () => {
     initGlobalListeners();
     initFAQAccordions();
+    initQuiz();
     lucide.createIcons();
 });
 
@@ -357,6 +358,120 @@ function initGlobalListeners() {
         logoLink.addEventListener("click", (e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+}
+
+// --- Interactive Diagnostic Quiz Logic ---
+function initQuiz() {
+    const btnStart = document.getElementById("btn-quiz-start");
+    const introStep = document.getElementById("quiz-step-intro");
+    const resultView = document.getElementById("quiz-result-view");
+    
+    if (!btnStart) return;
+
+    let currentStep = 0; // 0 = intro, 1-5 = questions
+    let quizScores = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+
+    // Start Quiz
+    btnStart.addEventListener("click", () => {
+        introStep.classList.remove("active");
+        introStep.style.display = "none";
+        currentStep = 1;
+        document.getElementById("quiz-step-1").classList.add("active");
+    });
+
+    // Setup Option Card Click Event for all 5 steps
+    for (let step = 1; step <= 5; step++) {
+        const stepEl = document.getElementById(`quiz-step-${step}`);
+        if (!stepEl) continue;
+
+        const options = stepEl.querySelectorAll(".quiz-option-card");
+        options.forEach(option => {
+            option.addEventListener("click", () => {
+                // Remove selection from siblings
+                options.forEach(opt => opt.classList.remove("selected"));
+                // Add selection to clicked
+                option.classList.add("selected");
+                
+                // Store score
+                const val = parseInt(option.getAttribute("data-value"));
+                quizScores[step] = val;
+            });
+        });
+
+        // Next button handler
+        const btnNext = stepEl.querySelector(".btn-quiz-next");
+        if (btnNext) {
+            btnNext.addEventListener("click", () => {
+                if (quizScores[step] === 0) {
+                    showToast("Пожалуйста, выберите один из вариантов ответа!", "error");
+                    return;
+                }
+                // Transition to next
+                stepEl.classList.remove("active");
+                currentStep = step + 1;
+                document.getElementById(`quiz-step-${currentStep}`).classList.add("active");
+            });
+        }
+
+        // Prev button handler
+        const btnPrev = stepEl.querySelector(".btn-quiz-prev");
+        if (btnPrev) {
+            btnPrev.addEventListener("click", () => {
+                stepEl.classList.remove("active");
+                currentStep = step - 1;
+                if (currentStep === 0) {
+                    introStep.style.display = "block";
+                    introStep.classList.add("active");
+                } else {
+                    document.getElementById(`quiz-step-${currentStep}`).classList.add("active");
+                }
+            });
+        }
+    }
+
+    // Finish button handler
+    const btnFinish = document.getElementById("btn-quiz-finish");
+    if (btnFinish) {
+        btnFinish.addEventListener("click", () => {
+            if (quizScores[5] === 0) {
+                showToast("Пожалуйста, выберите один из вариантов ответа!", "error");
+                return;
+            }
+            
+            // Calculate score
+            const total = quizScores[1] + quizScores[2] + quizScores[3] + quizScores[4] + quizScores[5];
+            
+            // Hide question 5
+            document.getElementById("quiz-step-5").classList.remove("active");
+            
+            // Show result view
+            resultView.classList.add("active");
+            
+            // Hide all zones
+            document.getElementById("zone-red").classList.add("hidden");
+            document.getElementById("zone-yellow").classList.add("hidden");
+            document.getElementById("zone-green").classList.add("hidden");
+            
+            // Show matched zone
+            let targetZoneId = "";
+            if (total >= 5 && total <= 8) {
+                targetZoneId = "zone-red";
+            } else if (total >= 9 && total <= 12) {
+                targetZoneId = "zone-yellow";
+            } else {
+                targetZoneId = "zone-green";
+            }
+            
+            const targetZone = document.getElementById(targetZoneId);
+            targetZone.classList.remove("hidden");
+            
+            // Setup CTA buttons inside the loaded zone card
+            const ctaBtn = targetZone.querySelector(".btn-open-checkout");
+            if (ctaBtn) {
+                ctaBtn.addEventListener("click", openCheckout);
+            }
         });
     }
 }

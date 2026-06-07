@@ -200,6 +200,191 @@
         </div>
     </section>
 
+    <!-- 4.5 DIAGNOSTIC QUIZ SECTION -->
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i data-lucide="sparkles"></i> Диагностика</span>
+                <h2 class="section-title">Психологиялық экспресс-тесттен өтіңіз</h2>
+                <p class="section-subtitle">Өзіңіздің ішкі ресурсыңызды, ортаңызды және сенімділігіңізді бағалаңыз</p>
+            </div>
+
+            <div class="quiz-card glass-panel" id="quiz-card-wrapper">
+                <!-- Intro View -->
+                <div class="quiz-step active" id="quiz-step-intro">
+                    <div style="text-align: center; padding: 20px 0;">
+                        <h3 class="quiz-question-title" style="margin-bottom: 20px;">Ішкі ресурсыңыздың деңгейін білуге дайынсыз ба?</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 36px; line-height: 1.7; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                            Бұл тест қауымдастығымыздың тәжірибелі психологтарымен әзірленген. 5 қарапайым сұраққа жауап беру арқылы өміріңіздің балансын бағалаңыз және жеке ұсыныстар алыңыз.
+                        </p>
+                        <button class="btn btn-primary" id="btn-quiz-start" style="padding: 18px 48px; font-size: 1.05rem;">
+                            <span>Экспресс-тестті бастау</span>
+                            <i data-lucide="play"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question 1 -->
+                <div class="quiz-step" id="quiz-step-1">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" style="width: 20%;"></div>
+                    </div>
+                    <h3 class="quiz-question-title">1. Күннің соңында өзіңіздің күш-қуатыңызды қалай бағалайсыз?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option-card" data-value="1">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Толықтай қажығанымды сеземін, созылмалы шаршау бар, ештеңе істегім келмейді (1 ұпай)</span>
+                        </div>
+                        <div class="quiz-option-card" data-value="2">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Шаршаймын, бірақ үй шаруасына және жақындарыммен араласуға күшім жетеді (2 ұпай)</span>
+                        </div>
+                        <div class="quiz-option-card" data-value="3">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Күш-қуатым тасып тұрады, сергекпін және кешке белсенді жоспарлар құрамын (3 ұпай)</span>
+                        </div>
+                    </div>
+                    <div class="quiz-navigation">
+                        <button class="btn btn-secondary btn-quiz-prev" disabled>Артқа</button>
+                        <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="quiz-step" id="quiz-step-2">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" style="width: 40%;"></div>
+                    </div>
+                    <h3 class="quiz-question-title">2. Жақын ортаңызда сізді шын жүректен қолдайтын және шабыттандыратын адамдар бар ма?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option-card" data-value="1">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Жоқ, көбіне сынмен, қызғанышпен немесе жалғыздық сезімімен бетпе-бет келемін (1 ұпай)</span>
+                        </div>
+                        <div class="quiz-option-card" data-value="2">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">1–2 адам бар, бірақ маған сапалы дамытатын орта жетіспейді (2 ұпай)</span>
+                        </div>
+                        <div class="quiz-option-card" data-value="3">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Иә, мені әрқашан қолдайтын және маған сенетін мықты әйелдер қоршаған (3 ұпай)</span>
+                        </div>
+                    </div>
+                    <div class="quiz-navigation">
+                        <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
+                        <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="quiz-step" id="quiz-step-3">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" style="width: 60%;"></div>
+                    </div>
+                    <h3 class="quiz-question-title">3. Сізге «жоқ» деп айту және жеке шекараларыңызды қорғау қаншалықты оңай?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option-card" data-value="1">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Өте қиын, көбіне өз мүддеме нұқсан келтіре отырып келісемін (1 ұпай)</span>
+                        </div>
+                        <div class="quiz-option-card" data-value="2">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Бас тартуға тырысамын, бірақ кейін өзімді ұзақ уақыт кінәлі сезінемін (2 ұпай)</span>
+                        </div>
+                        <div class="quiz-option-card" data-value="3">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Ешқандай кінә сезінбестен, жеке шекараларымды сенімді түрде орнатамын (3 ұпай)</span>
+                        </div>
+                    </div>
+                    <div class="quiz-navigation">
+                        <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
+                        <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="quiz-step" id="quiz-step-4">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" style="width: 80%;"></div>
+                    </div>
+                    <h3 class="quiz-question-title">4. Жаңа пайдалы әдеттерді енгізуге тырысқанда не болады?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option-card" data-value="1">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Мотивацияны тез жоғалтып, 2-3 күннен кейін тастап кетемін (1 ұпай)</span>
+                        </div>
+                        <div class="quiz-option-card" data-value="2">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Бірнеше апта ұстанамын, бірақ сыртқы қолдаусыз бәрібір үзіліп қалады (2 ұпай)</span>
+                        </div>
+                        <div class="quiz-option-card" data-value="3">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Пайдалы әдеттер мен ритуалдарды өміріме жүйелі түрде оңай сіңіремін (3 ұпай)</span>
+                        </div>
+                    </div>
+                    <div class="quiz-navigation">
+                        <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
+                        <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="quiz-step" id="quiz-step-5">
+                    <div class="quiz-progress-bar">
+                        <div class="quiz-progress-fill" style="width: 100%;"></div>
+                    </div>
+                    <h3 class="quiz-question-title">5. Мазасыздықты, өзіңізге деген сенімсіздікті немесе болашаққа деген қорқынышты қаншалықты жиі сезінесіз?</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option-card" data-value="1">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Күнде дерлік, бұл маған ұйықтауға және болашақты жоспарлауға кедергі келтіреді (1 ұпай)</span>
+                        </div>
+                        <div class="quiz-option-card" data-value="2">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Кейде, әсіресе жұмыста немесе отбасында күйзеліс болған кезде (2 ұпай)</span>
+                        </div>
+                        <div class="quiz-option-card" data-value="3">
+                            <div class="quiz-radio-circle"></div>
+                            <span class="quiz-option-text">Өте сирек, мен ішкі тұрақты тірегімді және тыныштықты сезінемін (3 ұпай)</span>
+                        </div>
+                    </div>
+                    <div class="quiz-navigation">
+                        <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
+                        <button class="btn btn-primary" id="btn-quiz-finish">Нәтижені алу <i data-lucide="check"></i></button>
+                    </div>
+                </div>
+
+                <!-- Results View -->
+                <div class="quiz-result" id="quiz-result-view">
+                    <div class="result-zone-card red-zone hidden" id="zone-red">
+                        <h3 class="result-zone-title">🔴 Қызыл аймақ (Күш-қуаттың сарқылуы және дағдарыс)</h3>
+                        <p class="result-zone-desc">
+                            Сіздің ресурсыңыз өте төмен деңгейде. Сіз қатты эмоционалды немесе физикалық шаршауды сезінесіз, жеке шекараларыңыз бұзылып, қолдаудың жоқтығынан зардап шегесіз. Мұндай күйде даму және дұрыс өмірлік шешімдер қабылдау өте қиын.<br><br>
+                            <strong>Ұсыныс:</strong> Сізге тез арада қолдау, қауіпсіз орта және шекараларды қалпына келтіру қажет. 21 күндік «Жақын Достар» бағдарламасы мен психологтардың қолдауы сізге осы дағдарыстан шығуға көмектеседі.
+                        </p>
+                        <button class="btn btn-primary btn-open-checkout">ЖД арқылы қалпына келуді бастау</button>
+                    </div>
+                    <div class="result-zone-card yellow-zone hidden" id="zone-yellow">
+                        <h3 class="result-zone-title">🟡 Сары аймақ (Теңгерімді іздеу және тоқырау)</h3>
+                        <p class="result-zone-desc">
+                            Бойыңызда жақсы ішкі әлеует бар, бірақ қазіргі уақытта бір орында тұрып қалғандайсыз. Күнделікті күйбең тірлік пен шаршау сізге алға серпіліс жасауға кедергі келтіреді. Сізге пайдалы әдеттер, жүйелі тәртіп және ең бастысы — сізді алға жетелейтін сапалы әйелдер ортасы жетіспейді.<br><br>
+                            <strong>Ұсыныс:</strong> «Жақын Достар» бағдарламасы сізге назарыңызды өзіңізге аударуға, күнделікті пайдалы әдеттер қалыптастыруға және алға сенімді қадам басуға көмектеседі.
+                        </p>
+                        <button class="btn btn-primary btn-open-checkout">ЖД арқылы трансформацияны бастау</button>
+                    </div>
+                    <div class="result-zone-card green-zone hidden" id="zone-green">
+                        <h3 class="result-zone-title">🟢 Жасыл аймақ (Тұрақты ресурс және дамуға дайындық)</h3>
+                        <p class="result-zone-desc">
+                            Құттықтаймыз, сіз өзіңіздің өміріңізді өте жақсы басқарып отырсыз! Сіз күш-қуатты бөлуді, жеке шекараларды орнатуды және ішкі тыныштықты сақтауды білесіз. Дегенмен, қазір нәтижелеріңізді одан әрі арттырып, жаңа биіктерді бағындырудың ең қолайлы уақыты.<br><br>
+                            <strong>Ұсыныс:</strong> ЖД сізге мықты әрі белсенді әйелдердің жабық нетворкингіне жол ашады, ішкі әлеуетіңізді тереңірек ашуға және өмір сапасын жаңа деңгейге көтеруге көмектеседі.
+                        </p>
+                        <button class="btn btn-primary btn-open-checkout">ЖД-мен бірге жаңа деңгейге шығу</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 5. TIMELINE SECTION -->
     <section class="timeline-section" id="timeline">
         <div class="container">
