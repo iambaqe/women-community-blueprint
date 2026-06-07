@@ -155,6 +155,34 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid var(--accent-green);
 }
 
+.btn-primary::after, .btn-gold::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60px;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.35) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;
+    transition: none;
+}
+
+.btn-primary:hover::after, .btn-gold:hover::after {
+    animation: button-shimmer 1.5s infinite ease-in-out;
+}
+
+@keyframes button-shimmer {
+    0% { left: -150%; }
+    50% { left: 150%; }
+    100% { left: 150%; }
+}
+
 .btn-primary:hover {
     background-color: var(--accent-green-hover);
     transform: translateY(-2px);
@@ -206,6 +234,12 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: var(--radius-lg);
     box-shadow: 0 10px 40px rgba(21, 62, 45, 0.03);
+    transition: var(--transition-smooth);
+}
+
+.glass-panel:hover {
+    box-shadow: 0 20px 45px rgba(21, 62, 45, 0.06);
+    border-color: rgba(223, 186, 107, 0.35);
 }
 
 .glass-panel-dark {
@@ -224,31 +258,51 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: var(--radius-lg);
 }
 
-/* Ambient circles background glow */
+/* Ambient circles background glow with organic slow-motion drift */
 .ambient-glow {
     position: absolute;
-    width: 40vw;
-    height: 40vw;
+    width: 45vw;
+    height: 45vw;
     border-radius: 50%;
     pointer-events: none;
     z-index: -2;
     filter: blur(140px);
-    opacity: 0.15;
+    opacity: 0.18;
+    will-change: transform;
 }
 .glow-warm-1 {
     top: 5%;
     left: -10%;
     background-color: var(--gold-primary);
+    animation: glow-drift-1 25s ease-in-out infinite alternate;
 }
 .glow-warm-2 {
     top: 35%;
     right: -10%;
     background-color: var(--accent-green);
+    animation: glow-drift-2 30s ease-in-out infinite alternate;
 }
 .glow-warm-3 {
     bottom: 15%;
     left: 20%;
     background-color: var(--gold-primary);
+    animation: glow-drift-3 28s ease-in-out infinite alternate;
+}
+
+@keyframes glow-drift-1 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(8vw, 6vh) scale(1.1); }
+    100% { transform: translate(-4vw, 12vh) scale(0.9); }
+}
+@keyframes glow-drift-2 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-10vw, -8vh) scale(0.95); }
+    100% { transform: translate(6vw, 4vh) scale(1.15); }
+}
+@keyframes glow-drift-3 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(5vw, -12vh) scale(1.1); }
+    100% { transform: translate(-6vw, -4vh) scale(0.9); }
 }
 
 /* Custom badges */
@@ -338,10 +392,17 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--accent-green);
     white-space: nowrap;
 }
+
+.logo:hover .logo-icon {
+    transform: rotate(15deg) scale(1.15);
+    color: var(--gold-primary);
+}
+
 .logo-icon {
     width: 28px;
     height: 28px;
     color: var(--gold-dark);
+    transition: var(--transition-smooth);
 }
 .logo-dot {
     color: var(--gold-primary);
@@ -613,8 +674,9 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition-smooth);
 }
 .what-is-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.02);
     border-color: var(--gold-primary);
+    box-shadow: 0 15px 35px rgba(21, 62, 45, 0.04);
 }
 
 .what-is-card-icon {
@@ -667,9 +729,9 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition-smooth);
 }
 .for-whom-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.02);
     border-color: var(--gold-primary);
-    box-shadow: 0 15px 40px rgba(21, 62, 45, 0.05);
+    box-shadow: 0 20px 45px rgba(21, 62, 45, 0.06), 0 2px 6px rgba(223, 186, 107, 0.1);
 }
 
 .for-whom-num {
@@ -740,6 +802,26 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateX(-50%);
     z-index: 5;
     box-shadow: 0 0 10px rgba(223,186,107,0.5);
+}
+
+.timeline-dot::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 50%;
+    border: 2px solid var(--gold-primary);
+    opacity: 0;
+    animation: timeline-dot-pulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    pointer-events: none;
+}
+
+@keyframes timeline-dot-pulse {
+    0% { transform: scale(0.6); opacity: 0; }
+    50% { opacity: 0.45; }
+    100% { transform: scale(1.3); opacity: 0; }
 }
 
 .timeline-content {
@@ -824,8 +906,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .includes-card:hover {
     border-color: var(--gold-primary);
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(21, 62, 45, 0.04);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 16px 35px rgba(21, 62, 45, 0.05);
 }
 
 .includes-card-icon {
@@ -879,6 +961,21 @@ h1, h2, h3, h4, h5, h6 {
     padding: 48px;
     align-items: center;
     transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.review-card::before {
+    content: '“';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-family: var(--font-serif);
+    font-size: 10rem;
+    color: var(--gold-primary);
+    opacity: 0.08;
+    line-height: 1;
+    pointer-events: none;
 }
 
 .review-visual-media {
@@ -1095,6 +1192,13 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     border: 1px solid rgba(223, 186, 107, 0.35);
     box-shadow: 0 25px 60px rgba(21, 62, 45, 0.08);
+    transition: var(--transition-smooth);
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 35px 70px rgba(21, 62, 45, 0.12);
+    border-color: var(--gold-primary);
 }
 
 .price-title {
@@ -1781,6 +1885,30 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(to right, var(--accent-green) 0%, var(--gold-primary) 100%);
     border-radius: var(--radius-full);
     transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.quiz-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: progress-sheen 3s infinite linear;
+}
+
+@keyframes progress-sheen {
+    0% { left: -100%; }
+    30% { left: 100%; }
+    100% { left: 100%; }
 }
 
 .quiz-step {
