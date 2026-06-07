@@ -786,7 +786,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     color: white;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 1.3rem;
     box-shadow: var(--shadow-glow-rose);
