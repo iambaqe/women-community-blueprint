@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
+    <script>
+        if (localStorage.getItem('preferred-lang') === 'ru') {
+            window.location.replace('index.html');
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="«Близкие Друзья (БД)» онлайн-бағдарламасы — ортаңыз бен өміріңіздің сапасын өзгертуге көмектесетін 21 күн. Қазақстандағы жабық әйелдер қауымдастығы, қолдау және жеке даму.">
@@ -918,6 +923,12 @@
                 <p class="section-subtitle">Бағдарламаның өту форматы туралы жиі қойылатын сұрақтарға жауаптар</p>
             </div>
             
+            <!-- FAQ Search Bar -->
+            <div class="faq-search-wrapper">
+                <i data-lucide="search" class="faq-search-icon"></i>
+                <input type="text" id="faq-search-input" placeholder="Сұрақтар бойынша іздеу (мысалы: төлем, Telegram, уақыт)..." class="faq-search-input-field">
+            </div>
+            
             <div class="faq-accordion-group">
                 <!-- Q1 -->
                 <div class="faq-item glass-panel">
@@ -1337,6 +1348,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Processing Screen -->
+        <div class="checkout-processing-content hidden" id="checkout-processing-view">
+            <div class="processing-loader-box">
+                <div class="processing-spinner"></div>
+                <i data-lucide="lock" class="processing-lock-icon"></i>
+            </div>
+            <h3 id="processing-title">Төлем өңделуде...</h3>
+            <p id="processing-status-text">Freedom Pay шлюзімен қауіпсіз байланыс орнату...</p>
         </div>
         
         <!-- Success Screen -->

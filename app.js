@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initMockupSlider();
     initTimelineTabs();
     initFounderTabs();
+    initFAQSearch();
     lucide.createIcons();
 });
 
@@ -135,6 +136,27 @@ function prevReview() {
     updateReviewCard();
 }
 
+// --- FAQ Live Search ---
+function initFAQSearch() {
+    const searchInput = document.getElementById("faq-search-input");
+    const faqItems = document.querySelectorAll(".faq-item");
+    if (!searchInput || faqItems.length === 0) return;
+
+    searchInput.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        faqItems.forEach(item => {
+            const questionText = item.querySelector(".faq-trigger span") ? item.querySelector(".faq-trigger span").textContent.toLowerCase() : "";
+            const answerText = item.querySelector(".faq-content p") ? item.querySelector(".faq-content p").textContent.toLowerCase() : "";
+            
+            if (questionText.includes(query) || answerText.includes(query)) {
+                item.style.display = "";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    });
+}
+
 // --- FAQ Accordions ---
 function initFAQAccordions() {
     const triggers = document.querySelectorAll(".faq-trigger");
@@ -167,6 +189,15 @@ function initFAQAccordions() {
 function openCheckout() {
     // Reset modal view
     checkoutSuccessView.classList.add("hidden");
+    
+    const processingView = document.getElementById("checkout-processing-view");
+    if (processingView) processingView.classList.add("hidden");
+    
+    const statusText = document.getElementById("processing-status-text");
+    if (statusText) {
+        statusText.textContent = "Установление безопасного соединения с Freedom Pay...";
+    }
+    
     const modalContent = checkoutModal.querySelector(".checkout-modal-content");
     modalContent.classList.remove("hidden");
     
@@ -247,15 +278,42 @@ function processPayment() {
     btnSpinner.classList.remove("hidden");
     checkoutPayBtn.disabled = true;
     
-    // Simulate checkout transaction
+    const modalContent = checkoutModal.querySelector(".checkout-modal-content");
+    const processingView = document.getElementById("checkout-processing-view");
+    const statusText = document.getElementById("processing-status-text");
+    
+    // Hide inputs, show loader
+    modalContent.classList.add("hidden");
+    processingView.classList.remove("hidden");
+    
+    // Step-by-step progress simulation
     setTimeout(() => {
-        const modalContent = checkoutModal.querySelector(".checkout-modal-content");
-        modalContent.classList.add("hidden");
+        if (statusText) {
+            statusText.style.opacity = "0";
+            setTimeout(() => {
+                statusText.textContent = "Авторизация транзакции и проверка 3D Secure...";
+                statusText.style.opacity = "1";
+            }, 300);
+        }
+    }, 900);
+    
+    setTimeout(() => {
+        if (statusText) {
+            statusText.style.opacity = "0";
+            setTimeout(() => {
+                statusText.textContent = "Подтверждение платежа банком-эмитентом...";
+                statusText.style.opacity = "1";
+            }, 300);
+        }
+    }, 1800);
+    
+    setTimeout(() => {
+        processingView.classList.add("hidden");
         checkoutSuccessView.classList.remove("hidden");
         
         showToast("Платеж успешно подтвержден!", "success");
         spawnSuccessHearts();
-    }, 2000);
+    }, 2800);
 }
 
 // --- Toast System ---
@@ -441,6 +499,14 @@ function initGlobalListeners() {
         logoLink.addEventListener("click", (e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+
+    // Preferred language switcher saver
+    const langBtn = document.querySelector(".lang-toggle-btn");
+    if (langBtn) {
+        langBtn.addEventListener("click", () => {
+            localStorage.setItem("preferred-lang", "kk");
         });
     }
 }

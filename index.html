@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <script>
+        if (localStorage.getItem('preferred-lang') === 'kk') {
+            window.location.replace('index_kk.html');
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Онлайн-программа «Близкие друзья (БД)» — 21 день, которые помогут изменить окружение и качество вашей жизни. Закрытое женское сообщество, поддержка и личный рост в Казахстане.">
@@ -920,6 +925,12 @@
                 <p class="section-subtitle">Ответы на популярные организационные и технические вопросы о программе</p>
             </div>
             
+            <!-- FAQ Search Bar -->
+            <div class="faq-search-wrapper">
+                <i data-lucide="search" class="faq-search-icon"></i>
+                <input type="text" id="faq-search-input" placeholder="Поиск по вопросам (например: оплата, Telegram, время)..." class="faq-search-input-field">
+            </div>
+            
             <div class="faq-accordion-group">
                 <!-- Q1 -->
                 <div class="faq-item glass-panel">
@@ -1339,6 +1350,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Processing Screen -->
+        <div class="checkout-processing-content hidden" id="checkout-processing-view">
+            <div class="processing-loader-box">
+                <div class="processing-spinner"></div>
+                <i data-lucide="lock" class="processing-lock-icon"></i>
+            </div>
+            <h3 id="processing-title">Обработка платежа...</h3>
+            <p id="processing-status-text">Установление безопасного соединения с Freedom Pay...</p>
         </div>
         
         <!-- Success Screen -->
