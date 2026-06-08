@@ -2817,8 +2817,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .wheel-form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    display: flex;
+    flex-direction: column;
     gap: 12px;
 }
 
@@ -3350,7 +3350,6 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .wheel-form-row {
-        grid-template-columns: 1fr;
         gap: 8px;
     }
 }

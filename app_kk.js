@@ -515,11 +515,11 @@ function initWheelOfBalance() {
             const phone = phoneInput ? phoneInput.value.trim() : "";
 
             if (!name) {
-                showToast("Пожалуйста, введите ваше имя!", "error");
+                showToast("Атыңызды енгізіңіз!", "error");
                 return;
             }
             if (phone.length < 5) {
-                showToast("Пожалуйста, введите корректный номер WhatsApp!", "error");
+                showToast("WhatsApp нөміріңізді дұрыс енгізіңіз!", "error");
                 return;
             }
 
