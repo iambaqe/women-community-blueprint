@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initTimelineTabs();
     initFounderTabs();
     initFAQSearch();
+    initChatSimulator();
     lucide.createIcons();
 });
 
@@ -744,4 +745,104 @@ function initMockupSlider() {
     }
 
     startAutoSlide();
+}
+
+// --- Interactive Chat Simulator ---
+function initChatSimulator() {
+    const chatLog = document.getElementById("chat-messages-log");
+    const chatInput = document.getElementById("chat-input-field");
+    const sendBtn = document.getElementById("chat-send-btn");
+
+    if (!chatLog || !chatInput || !sendBtn) return;
+
+    function appendMessage(text, isOutgoing) {
+        const bubble = document.createElement("div");
+        bubble.className = `chat-bubble ${isOutgoing ? 'outgoing' : 'incoming'}`;
+        bubble.textContent = text;
+        chatLog.appendChild(bubble);
+        chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    function showTypingIndicator() {
+        const indicator = document.createElement("div");
+        indicator.className = "typing-indicator";
+        indicator.id = "chat-typing-indicator";
+        
+        for (let i = 0; i < 3; i++) {
+            const dot = document.createElement("div");
+            dot.className = "typing-dot";
+            indicator.appendChild(dot);
+        }
+        
+        chatLog.appendChild(indicator);
+        chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+        const indicator = document.getElementById("chat-typing-indicator");
+        if (indicator) {
+            indicator.remove();
+        }
+    }
+
+    function handleSend() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        // Append user's message
+        appendMessage(text, true);
+        chatInput.value = "";
+
+        // Trigger bot response after a delay
+        showTypingIndicator();
+
+        setTimeout(() => {
+            removeTypingIndicator();
+            
+            // Analyze keywords to customize response
+            const lowerText = text.toLowerCase();
+            let botResponse = "";
+
+            if (lowerText.includes("ене") || lowerText.includes("свекровь") || lowerText.includes("родственник") || lowerText.includes("семья") || lowerText.includes("родител") || lowerText.includes("муж")) {
+                botResponse = "Отношения с близкими — это часто сложнейшая тема. Ты имеешь право на свои границы и личное пространство. В нашем клубе мы часто разбираем с психологами темы сепарации и здоровых границ.";
+            } else if (lowerText.includes("уят") || lowerText.includes("жұрт") || lowerText.includes("люди") || lowerText.includes("осужден") || lowerText.includes("стыд") || lowerText.includes("позор")) {
+                botResponse = "Страх осуждения и синдром «уят» часто сковывают нас. Но помни: твоя жизнь принадлежит только тебе. Ты заслуживаешь жить свободно и счастливо, не пытаясь угодить всем вокруг.";
+            } else if (lowerText.includes("шарша") || lowerText.includes("уста") || lowerText.includes("выгор") || lowerText.includes("быт") || lowerText.includes("декрет") || lowerText.includes("силы")) {
+                botResponse = "Береги себя, дорогая. Усталость — это сигнал, что твой ресурс на исходе. Тебе нужна теплая поддержка и отдых без чувства вины. Наша программа создана именно для бережного возвращения сил.";
+            } else {
+                botResponse = "Спасибо, что поделилась своей историей. Твои чувства абсолютно важны. Ты не должна нести эту нагрузку в одиночку. В клубе «Близкие Друзья» мы помогаем друг другу справляться с трудностями в атмосфере тепла и безопасности.";
+            }
+
+            // Append bot response
+            appendMessage(botResponse, false);
+
+            // Append a small CTA bubble right after
+            setTimeout(() => {
+                const ctaBubble = document.createElement("div");
+                ctaBubble.className = "chat-bubble incoming chat-cta-link-bubble";
+                
+                const ctaText = document.createElement("p");
+                ctaText.textContent = "Ты достойна заботы и лучшего окружения. Давай сделаем первый шаг вместе:";
+                ctaText.style.margin = "0 0 8px 0";
+                
+                const ctaBtn = document.createElement("a");
+                ctaBtn.href = "#pricing";
+                ctaBtn.className = "chat-cta-btn";
+                ctaBtn.textContent = "Узнать о программе";
+                
+                ctaBubble.appendChild(ctaText);
+                ctaBubble.appendChild(ctaBtn);
+                chatLog.appendChild(ctaBubble);
+                chatLog.scrollTop = chatLog.scrollHeight;
+            }, 800);
+
+        }, 1500);
+    }
+
+    sendBtn.addEventListener("click", handleSend);
+    chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            handleSend();
+        }
+    });
 }

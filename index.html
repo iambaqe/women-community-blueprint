@@ -118,44 +118,91 @@
             <div class="section-header">
                 <span class="section-tag"><i data-lucide="eye"></i> Реальность</span>
                 <h2 class="section-title">С чем сталкивается современная казахстанка?</h2>
-                <p class="section-subtitle">Четыре ключевых вызова, мешающих женщинам чувствовать себя счастливыми и реализованными</p>
+                <p class="section-subtitle">Шесть ключевых вызовов, мешающих женщинам чувствовать себя счастливыми и реализованными</p>
             </div>
             
-            <div class="challenges-grid">
-                <!-- Challenge 1 -->
-                <div class="challenge-card glass-panel">
-                    <div class="challenge-icon-wrapper">
-                        <i data-lucide="shield-alert"></i>
+            <div class="challenges-flex-layout">
+                <!-- Left Column: 6 Challenges Cards -->
+                <div class="challenges-left-col">
+                    <div class="challenges-grid">
+                        <!-- Challenge 1 -->
+                        <div class="challenge-card glass-panel">
+                            <div class="challenge-icon-wrapper">
+                                <i data-lucide="shield-alert"></i>
+                            </div>
+                            <h3>Синдром «Уят» и социальные рамки</h3>
+                            <p>Жизнь с постоянной оглядкой на чужое мнение («что скажут люди?»). Сложности с выстраиванием личных границ и страх столкнуться с осуждением.</p>
+                        </div>
+                        
+                        <!-- Challenge 2 -->
+                        <div class="challenge-card glass-panel">
+                            <div class="challenge-icon-wrapper">
+                                <i data-lucide="flame"></i>
+                            </div>
+                            <h3>Двойное эмоциональное выгорание</h3>
+                            <p>Попытки быть идеальной женой, матерью, келин и успешным специалистом. Сочетание работы и быта ведет к хронической усталости.</p>
+                        </div>
+                        
+                        <!-- Challenge 3 -->
+                        <div class="challenge-card glass-panel">
+                            <div class="challenge-icon-wrapper">
+                                <i data-lucide="user-x"></i>
+                            </div>
+                            <h3>Одиночество в толпе</h3>
+                            <p>Отсутствие понимающего окружения, где можно открыто поделиться мыслями, страхами и целями без поучений и обесценивания.</p>
+                        </div>
+                        
+                        <!-- Challenge 4 -->
+                        <div class="challenge-card glass-panel">
+                            <div class="challenge-icon-wrapper">
+                                <i data-lucide="hourglass"></i>
+                            </div>
+                            <h3>Синдром «Отложенной жизни»</h3>
+                            <p>Привычка откладывать собственное счастье, цели и полноценную жизнь на «потом» (после выплаты кредитов, взросления детей, переезда) в ожидании лучшего момента.</p>
+                        </div>
+
+                        <!-- Challenge 5 -->
+                        <div class="challenge-card glass-panel">
+                            <div class="challenge-icon-wrapper">
+                                <i data-lucide="heart-off"></i>
+                            </div>
+                            <h3>Синдром «Шыда» (Терпение во вред)</h3>
+                            <p>Внушенная привычка терпеть холодность, неуважение или токсичность ради сохранения брака и внешнего статуса семьи.</p>
+                        </div>
+
+                        <!-- Challenge 6 -->
+                        <div class="challenge-card glass-panel">
+                            <div class="challenge-icon-wrapper">
+                                <i data-lucide="clock"></i>
+                            </div>
+                            <h3>Давление возраста и ярлыки</h3>
+                            <p>Тревожность из-за навязанных социальных «дедлайнов» для замужества и рождения детей, страх бестактных вопросов.</p>
+                        </div>
                     </div>
-                    <h3>Синдром «Уят» и социальные рамки</h3>
-                    <p>Жизнь с постоянной оглядкой на чужое мнение («что скажут люди?»). Сложности с выстраиванием личных границ и страх столкнуться с осуждением родственников или общества.</p>
                 </div>
-                
-                <!-- Challenge 2 -->
-                <div class="challenge-card glass-panel">
-                    <div class="challenge-icon-wrapper">
-                        <i data-lucide="flame"></i>
+
+                <!-- Right Column: Interactive Chat Widget -->
+                <div class="challenges-right-col">
+                    <div class="chat-simulator-widget glass-panel">
+                        <div class="chat-widget-header">
+                            <div class="chat-bot-avatar">БД</div>
+                            <div class="chat-bot-info">
+                                <h4>Близкие Друзья Bot</h4>
+                                <div class="chat-bot-status">в сети</div>
+                            </div>
+                        </div>
+                        <div class="chat-messages-log" id="chat-messages-log">
+                            <div class="chat-bubble incoming">
+                                Привет! Я знаю, как тяжело бывает держать всё в себе. Напиши анонимно здесь, что тебя сейчас беспокоит или от чего ты устала.
+                            </div>
+                        </div>
+                        <div class="chat-input-bar">
+                            <input type="text" id="chat-input-field" placeholder="Напишите сообщение..." class="chat-input-field">
+                            <button id="chat-send-btn" class="chat-send-btn">
+                                <i data-lucide="send" style="width: 14px; height: 14px;"></i>
+                            </button>
+                        </div>
                     </div>
-                    <h3>Двойное эмоциональное выгорание</h3>
-                    <p>Необходимость соответствовать роли «идеальной женщины»: строить карьеру, воспитывать детей и тащить на себе весь быт без должной поддержки и разделения обязанностей.</p>
-                </div>
-                
-                <!-- Challenge 3 -->
-                <div class="challenge-card glass-panel">
-                    <div class="challenge-icon-wrapper">
-                        <i data-lucide="user-x"></i>
-                    </div>
-                    <h3>Одиночество в толпе</h3>
-                    <p>Острый дефицит поддерживающего, принимающего окружения. Ситуация, когда ваши чувства, стремления и цели обесцениваются, а вместо поддержки вы получаете критику.</p>
-                </div>
-                
-                <!-- Challenge 4 -->
-                <div class="challenge-card glass-panel">
-                    <div class="challenge-icon-wrapper">
-                        <i data-lucide="hourglass"></i>
-                    </div>
-                    <h3>Синдром «Отложенной жизни»</h3>
-                    <p>Привычка ставить интересы мужа, детей, родителей и коллег на первое место, полностью игнорируя собственные желания, амбиции и эмоциональное здоровье.</p>
                 </div>
             </div>
         </div>

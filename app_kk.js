@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initTimelineTabs();
     initFounderTabs();
     initFAQSearch();
+    initChatSimulator();
     lucide.createIcons();
 });
 
@@ -744,4 +745,104 @@ function initMockupSlider() {
     }
 
     startAutoSlide();
+}
+
+// --- Interactive Chat Simulator ---
+function initChatSimulator() {
+    const chatLog = document.getElementById("chat-messages-log");
+    const chatInput = document.getElementById("chat-input-field");
+    const sendBtn = document.getElementById("chat-send-btn");
+
+    if (!chatLog || !chatInput || !sendBtn) return;
+
+    function appendMessage(text, isOutgoing) {
+        const bubble = document.createElement("div");
+        bubble.className = `chat-bubble ${isOutgoing ? 'outgoing' : 'incoming'}`;
+        bubble.textContent = text;
+        chatLog.appendChild(bubble);
+        chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    function showTypingIndicator() {
+        const indicator = document.createElement("div");
+        indicator.className = "typing-indicator";
+        indicator.id = "chat-typing-indicator";
+        
+        for (let i = 0; i < 3; i++) {
+            const dot = document.createElement("div");
+            dot.className = "typing-dot";
+            indicator.appendChild(dot);
+        }
+        
+        chatLog.appendChild(indicator);
+        chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+        const indicator = document.getElementById("chat-typing-indicator");
+        if (indicator) {
+            indicator.remove();
+        }
+    }
+
+    function handleSend() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        // Append user's message
+        appendMessage(text, true);
+        chatInput.value = "";
+
+        // Trigger bot response after a delay
+        showTypingIndicator();
+
+        setTimeout(() => {
+            removeTypingIndicator();
+            
+            // Analyze keywords to customize response
+            const lowerText = text.toLowerCase();
+            let botResponse = "";
+
+            if (lowerText.includes("ене") || lowerText.includes("күйеу") || lowerText.includes("туыс") || lowerText.includes("отбасы")) {
+                botResponse = "Жақындармен қарым-қатынас — өте күрделі тақырып. Сенің өз шекараң мен жеке кеңістігіңе құқығың бар. Біздің қауымдастықта психологтармен бірге осы жеке шекараны қорғау тақырыбын жиі талдамыз.";
+            } else if (lowerText.includes("уят") || lowerText.includes("ұят") || lowerText.includes("жұрт") || lowerText.includes("сын") || lowerText.includes("айып")) {
+                botResponse = "«Ұят» синдромы мен өзгелердің сыны біздің еркіндігімізді шектейді. Есіңде болсын: сенің өмірің тек өзіңе тиесілі. Сен еркін әрі бақытты өмір сүруге лайықтысың.";
+            } else if (lowerText.includes("шарша") || lowerText.includes("қажу") || lowerText.includes("тұрмыс") || lowerText.includes("декрет") || lowerText.includes("күш") || lowerText.includes("болма")) {
+                botResponse = "Өзіңді күт, қымбаттым. Шаршау — ішкі ресурсыңның таусылғанының белгісі. Саған ешқандай кінә сезімінсіз демалыс пен жылы қолдау қажет. Біздің бағдарлама дәл осы күшті қалпына келтіру үшін жасалған.";
+            } else {
+                botResponse = "Бөліскеніңе рақмет, қымбаттым. Сенің сезімдерің өте маңызды. Бұл жүкті жалғыз көтеруге міндетті емессің. «Близкие Друзья» қауымдастығында біз қауіпсіз және жылы ортада бір-бірімізге көмектесеміз.";
+            }
+
+            // Append bot response
+            appendMessage(botResponse, false);
+
+            // Append a small CTA bubble right after
+            setTimeout(() => {
+                const ctaBubble = document.createElement("div");
+                ctaBubble.className = "chat-bubble incoming chat-cta-link-bubble";
+                
+                const ctaText = document.createElement("p");
+                ctaText.textContent = "Сен қамқорлық пен жақсы ортаға лайықтысың. Алғашқы қадамды бірге жасайық:";
+                ctaText.style.margin = "0 0 8px 0";
+                
+                const ctaBtn = document.createElement("a");
+                ctaBtn.href = "#pricing";
+                ctaBtn.className = "chat-cta-btn";
+                ctaBtn.textContent = "Бағдарлама туралы білу";
+                
+                ctaBubble.appendChild(ctaText);
+                ctaBubble.appendChild(ctaBtn);
+                chatLog.appendChild(ctaBubble);
+                chatLog.scrollTop = chatLog.scrollHeight;
+            }, 800);
+
+        }, 1500);
+    }
+
+    sendBtn.addEventListener("click", handleSend);
+    chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            handleSend();
+        }
+    });
 }
