@@ -139,33 +139,7 @@
                     <div class="what-is-card glass-panel">
                         <div class="what-is-card-icon"><i data-lucide="heart"></i></div>
                         <h3>Қолдау</h3>
-                        <p>Кәсіби психолог-кураторлармен және автордың тікелей қатысуымен жұмыс.</p>
-                    </div>
-                    <div class="what-is-card glass-panel">
-                        <div class="what-is-card-icon"><i data-lucide="calendar"></i></div>
-                        <h3>Тәртіп</h3>
-                        <p>Күнделікті шағын, бірақ тұрақты әрекеттер арқылы жаңа әдеттер қалыптастыру.</p>
-                    </div>
-                    <div class="what-is-card glass-panel">
-                        <div class="what-is-card-icon"><i data-lucide="book-open"></i></div>
-                        <h3>Өз-өзіңмен жұмыс</h3>
-                        <p>Әйелдік сенімділікті ашуға арналған бірегей тапсырмалар жинағы.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. FOR WHOM SECTION -->
-    <section class="for-whom-section" id="for-whom">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag"><i data-lucide="users-2"></i> Қатысушылар</span>
-                <h2 class="section-title">Бағдарлама кімге арналған?</h2>
-                <p class="section-subtitle">Егер бойыңыздан төмендегі белгілерді тапсаңыз, біз сізге көмектесеміз</p>
-            </div>
-            
-            <div class="for-whom-grid">
+                      <div class="for-whom-grid">
                 <div class="for-whom-card glass-panel">
                     <div class="for-whom-num">01</div>
                     <h3>Жалғыздықты сезінсеңіз</h3>
@@ -206,156 +180,172 @@
             <div class="section-header">
                 <span class="section-tag"><i data-lucide="sparkles"></i> Диагностика</span>
                 <h2 class="section-title">Психологиялық экспресс-тесттен өтіңіз</h2>
-                <p class="section-subtitle">Өзіңіздің ішкі ресурсыңызды, ортаңызды және сенімділігіңізді бағалаңыз</p>
+                <p class="section-subtitle">Өзіңіздің ішкі ресурстарыңызды, ортаңызды және сенімділігіңізді бағалаңыз</p>
             </div>
 
             <div class="quiz-card glass-panel" id="quiz-card-wrapper">
-                <!-- Intro View -->
-                <div class="quiz-step active" id="quiz-step-intro">
-                    <div style="text-align: center; padding: 20px 0;">
-                        <h3 class="quiz-question-title" style="margin-bottom: 20px;">Ішкі ресурсыңыздың деңгейін білуге дайынсыз ба?</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 36px; line-height: 1.7; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                            Бұл тест қауымдастығымыздың тәжірибелі психологтарымен әзірленген. 5 қарапайым сұраққа жауап беру арқылы өміріңіздің балансын бағалаңыз және жеке ұсыныстар алыңыз.
-                        </p>
-                        <button class="btn btn-primary" id="btn-quiz-start" style="padding: 18px 48px; font-size: 1.05rem;">
-                            <span>Экспресс-тестті бастау</span>
-                            <i data-lucide="play"></i>
-                        </button>
+                <div class="quiz-slides-container">
+                    <!-- Intro View -->
+                    <div class="quiz-step active" id="quiz-step-intro">
+                        <div style="text-align: center; padding: 20px 0;">
+                            <h3 class="quiz-question-title" style="margin-bottom: 20px;">Ішкі ресурсыңыздың деңгейін білуге дайынсыз ба?</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 36px; line-height: 1.7; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                                Бұл тест қауымдастығымыздың тәжірибелі психологтарымен әзірленген. 5 қарапайым сұраққа жауап беру арқылы өміріңіздің балансын бағалаңыз және жеке ұсыныстар алыңыз.
+                            </p>
+                            <button class="btn btn-primary" id="btn-quiz-start" style="padding: 18px 48px; font-size: 1.05rem;">
+                                <span>Экспресс-тестті бастау</span>
+                                <i data-lucide="play"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Question 1 -->
-                <div class="quiz-step" id="quiz-step-1">
-                    <div class="quiz-progress-bar">
-                        <div class="quiz-progress-fill" style="width: 20%;"></div>
-                    </div>
-                    <h3 class="quiz-question-title">1. Күннің соңында өзіңіздің күш-қуатыңызды қалай бағалайсыз?</h3>
-                    <div class="quiz-options">
-                        <div class="quiz-option-card" data-value="1">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Толықтай қажығанымды сеземін, созылмалы шаршау бар, ештеңе істегім келмейді (1 ұпай)</span>
+                    <!-- Question 1 -->
+                    <div class="quiz-step" id="quiz-step-1">
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" style="width: 20%;"></div>
                         </div>
-                        <div class="quiz-option-card" data-value="2">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Шаршаймын, бірақ үй шаруасына және жақындарыммен араласуға күшім жетеді (2 ұпай)</span>
+                        <h3 class="quiz-question-title">1. Күннің соңында өзіңіздің күш-қуатыңызды қалай бағалайсыз?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option-card" data-value="1">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Толықтай қажығанымды сеземін, созылмалы шаршау бар, ештеңе істегім келмейді (1 ұпай)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="2">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Шаршаймын, бірақ үй шаруасына және жақындарыммен араласуға күшім жетеді (2 ұпай)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="3">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Күш-қуатым тасып тұрады, сергекпін және кешке белсенді жоспарлар құрамын (3 ұпай)</span>
+                            </div>
                         </div>
-                        <div class="quiz-option-card" data-value="3">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Күш-қуатым тасып тұрады, сергекпін және кешке белсенді жоспарлар құрамын (3 ұпай)</span>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-secondary btn-quiz-prev" disabled>Артқа</button>
+                            <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="quiz-navigation">
-                        <button class="btn btn-secondary btn-quiz-prev" disabled>Артқа</button>
-                        <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
-                    </div>
-                </div>
 
-                <!-- Question 2 -->
-                <div class="quiz-step" id="quiz-step-2">
-                    <div class="quiz-progress-bar">
-                        <div class="quiz-progress-fill" style="width: 40%;"></div>
-                    </div>
-                    <h3 class="quiz-question-title">2. Жақын ортаңызда сізді шын жүректен қолдайтын және шабыттандыратын адамдар бар ма?</h3>
-                    <div class="quiz-options">
-                        <div class="quiz-option-card" data-value="1">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Жоқ, көбіне сынмен, қызғанышпен немесе жалғыздық сезімімен бетпе-бет келемін (1 ұпай)</span>
+                    <!-- Question 2 -->
+                    <div class="quiz-step" id="quiz-step-2">
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" style="width: 40%;"></div>
                         </div>
-                        <div class="quiz-option-card" data-value="2">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">1–2 адам бар, бірақ маған сапалы дамытатын орта жетіспейді (2 ұпай)</span>
+                        <h3 class="quiz-question-title">2. Жақын ортаңызда сізді шын жүректен қолдайтын және шабыттандыратын адамдар бар ма?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option-card" data-value="1">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Жоқ, көбіне сынмен, қызғанышпен немесе жалғыздық сезімімен бетпе-бет келемін (1 ұпай)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="2">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">1–2 адам бар, бірақ маған сапалы дамытатын орта жетіспейді (2 ұпай)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="3">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Иә, мені әрқашан қолдайтын және маған сенетін мықты әйелдер қоршаған (3 ұпай)</span>
+                            </div>
                         </div>
-                        <div class="quiz-option-card" data-value="3">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Иә, мені әрқашан қолдайтын және маған сенетін мықты әйелдер қоршаған (3 ұпай)</span>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
+                            <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="quiz-navigation">
-                        <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
-                        <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
-                    </div>
-                </div>
 
-                <!-- Question 3 -->
-                <div class="quiz-step" id="quiz-step-3">
-                    <div class="quiz-progress-bar">
-                        <div class="quiz-progress-fill" style="width: 60%;"></div>
-                    </div>
-                    <h3 class="quiz-question-title">3. Сізге «жоқ» деп айту және жеке шекараларыңызды қорғау қаншалықты оңай?</h3>
-                    <div class="quiz-options">
-                        <div class="quiz-option-card" data-value="1">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Өте қиын, көбіне өз мүддеме нұқсан келтіре отырып келісемін (1 ұпай)</span>
+                    <!-- Question 3 -->
+                    <div class="quiz-step" id="quiz-step-3">
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" style="width: 60%;"></div>
                         </div>
-                        <div class="quiz-option-card" data-value="2">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Бас тартуға тырысамын, бірақ кейін өзімді ұзақ уақыт кінәлі сезінемін (2 ұпай)</span>
+                        <h3 class="quiz-question-title">3. Сізге «жоқ» деп айту және жеке шекараларыңызды қорғау қаншалықты оңай?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option-card" data-value="1">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Өте қиын, көбіне өз мүддеме нұқсан келтіре отырып келісемін (1 ұпай)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="2">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Бас тартуға тырысамын, бірақ кейін өзімді ұзақ уақыт кінәлі сезінемін (2 ұпай)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="3">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Ешқандай кінә сезінбестен, жеке шекараларымды сенімді түрде орнатамын (3 ұпай)</span>
+                            </div>
                         </div>
-                        <div class="quiz-option-card" data-value="3">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Ешқандай кінә сезінбестен, жеке шекараларымды сенімді түрде орнатамын (3 ұпай)</span>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
+                            <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="quiz-navigation">
-                        <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
-                        <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
-                    </div>
-                </div>
 
-                <!-- Question 4 -->
-                <div class="quiz-step" id="quiz-step-4">
-                    <div class="quiz-progress-bar">
-                        <div class="quiz-progress-fill" style="width: 80%;"></div>
-                    </div>
-                    <h3 class="quiz-question-title">4. Жаңа пайдалы әдеттерді енгізуге тырысқанда не болады?</h3>
-                    <div class="quiz-options">
-                        <div class="quiz-option-card" data-value="1">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Мотивацияны тез жоғалтып, 2-3 күннен кейін тастап кетемін (1 ұпай)</span>
+                    <!-- Question 4 -->
+                    <div class="quiz-step" id="quiz-step-4">
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" style="width: 80%;"></div>
                         </div>
-                        <div class="quiz-option-card" data-value="2">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Бірнеше апта ұстанамын, бірақ сыртқы қолдаусыз бәрібір үзіліп қалады (2 ұпай)</span>
+                        <h3 class="quiz-question-title">4. Жаңа пайдалы әдеттерді енгізуге тырысқанда не болады?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option-card" data-value="1">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Мотивацияны тез жоғалтып, 2-3 күннен кейін тастап кетемін (1 ұпай)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="2">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Бірнеше апта ұстанамын, бірақ сыртқы қолдаусыз бәрібір үзіліп қалады (2 ұпай)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="3">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Пайдалы әдеттер мен ритуалдарды өміріме жүйелі түрде оңай сіңіремін (3 ұпай)</span>
+                            </div>
                         </div>
-                        <div class="quiz-option-card" data-value="3">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Пайдалы әдеттер мен ритуалдарды өміріме жүйелі түрде оңай сіңіремін (3 ұпай)</span>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
+                            <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="quiz-navigation">
-                        <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
-                        <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
-                    </div>
-                </div>
 
-                <!-- Question 5 -->
-                <div class="quiz-step" id="quiz-step-5">
-                    <div class="quiz-progress-bar">
-                        <div class="quiz-progress-fill" style="width: 100%;"></div>
-                    </div>
-                    <h3 class="quiz-question-title">5. Мазасыздықты, өзіңізге деген сенімсіздікті немесе болашаққа деген қорқынышты қаншалықты жиі сезінесіз?</h3>
-                    <div class="quiz-options">
-                        <div class="quiz-option-card" data-value="1">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Күнде дерлік, бұл маған ұйықтауға және болашақты жоспарлауға кедергі келтіреді (1 ұпай)</span>
+                    <!-- Question 5 -->
+                    <div class="quiz-step" id="quiz-step-5">
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" style="width: 100%;"></div>
                         </div>
-                        <div class="quiz-option-card" data-value="2">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Кейде, әсіресе жұмыста немесе отбасында күйзеліс болған кезде (2 ұпай)</span>
+                        <h3 class="quiz-question-title">5. Мазасыздықты, өзіңізге деген сенімсіздікті немесе болашаққа деген қорқынышты қаншалықты жиі сезінесіз?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option-card" data-value="1">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Күнде дерлік, бұл маған ұйықтауға және болашақты жоспарлауға кедергі келтіреді (1 ұпай)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="2">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Кейде, әсіресе жұмыста немесе отбасында күйзеліс болған кезде (2 ұпай)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="3">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Өте сирек, мен ішкі тұрақты тірегімді және тыныштықты сезінемін (3 ұпай)</span>
+                            </div>
                         </div>
-                        <div class="quiz-option-card" data-value="3">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Өте сирек, мен ішкі тұрақты тірегімді және тыныштықты сезінемін (3 ұпай)</span>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
+                            <button class="btn btn-primary" id="btn-quiz-finish">Нәтижені алу <i data-lucide="check"></i></button>
                         </div>
-                    </div>
-                    <div class="quiz-navigation">
-                        <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
-                        <button class="btn btn-primary" id="btn-quiz-finish">Нәтижені алу <i data-lucide="check"></i></button>
                     </div>
                 </div>
 
                 <!-- Results View -->
                 <div class="quiz-result" id="quiz-result-view">
+                    <!-- Gauge Meter Dashboard -->
+                    <div class="results-dashboard">
+                        <div class="gauge-meter-wrapper">
+                            <svg class="gauge-svg" viewBox="0 0 160 160">
+                                <circle class="gauge-circle-bg" cx="80" cy="80" r="70"></circle>
+                                <circle class="gauge-circle-fill" id="results-gauge-circle" cx="80" cy="80" r="70"></circle>
+                            </svg>
+                            <div class="gauge-center-text">
+                                <div class="gauge-value" id="results-gauge-value">0%</div>
+                                <div class="gauge-label">Ресурс</div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="result-zone-card red-zone hidden" id="zone-red">
                         <h3 class="result-zone-title">🔴 Қызыл аймақ (Күш-қуаттың сарқылуы және дағдарыс)</h3>
                         <p class="result-zone-desc">
@@ -384,7 +374,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- 5. TIMELINE SECTION -->
     <section class="timeline-section" id="timeline">
         <div class="container">
@@ -394,48 +384,190 @@
                 <p class="section-subtitle">Өміріңіздің маңызды салаларын кезең-кезеңімен жақсарту жоспары</p>
             </div>
             
+            <div class="timeline-tabs-wrapper">
+                <button class="timeline-tab-btn active" data-week="1">1-апта: Базис пен Ресурс</button>
+                <button class="timeline-tab-btn" data-week="2">2-апта: Шекара мен Өзін-өзі бағалау</button>
+                <button class="timeline-tab-btn" data-week="3">3-апта: Масштаб пен Мақсаттар</button>
+            </div>
+
             <div class="timeline-wrapper">
-                <div class="timeline-line"></div>
-                
-                <!-- Week 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-panel">
-                        <span class="timeline-week-badge">1-апта</span>
-                        <h3>Іргетас және диагностика</h3>
-                        <ul class="timeline-steps">
-                            <li class="timeline-step">Қазіргі өмір сапасын шынайы бағалау (баланс дөңгелегі).</li>
-                            <li class="timeline-step">Өзгелердің емес, өз қалауыңызға сай шынайы мақсаттар қою.</li>
-                            <li class="timeline-step">Таңғы және кешкі ресурстық әдеттерді енгізуді бастау.</li>
-                        </ul>
+                <!-- Week 1 Days -->
+                <div class="timeline-days-grid active" id="week-1-days">
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">01 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="clipboard-list"></i></div>
+                        </div>
+                        <h4>Баланс дөңгелегі</h4>
+                        <p>Өміріңіздің 8 негізгі саласының қазіргі жағдайына шынайы аудит жасау және тапшылық аймақтарын анықтау.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">02 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="battery-charging"></i></div>
+                        </div>
+                        <h4>Күш-қуат шығынын талдау</h4>
+                        <p>Күш-қуаттың қайда кететінін (токсинді қарым-қатынас, мазасыздық) және оны қалай тоқтату керектігін табамыз.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">03 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="sun"></i></div>
+                        </div>
+                        <h4>Таңғы ритуалдар</h4>
+                        <p>Күнге бейімделудің 10 минуттық жұмсақ тәжірибелерін енгізу (тыныс алу, ниет білдіру).</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">04 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="activity"></i></div>
+                        </div>
+                        <h4>Денемен байланыс</h4>
+                        <p>Денедегі қысымды және жиналған стресті жеңілдетуге арналған соматикалық жаттығулар.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">05 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="pen-tool"></i></div>
+                        </div>
+                        <h4>Эмоциялар күнделігі</h4>
+                        <p>Күрделі эмоционалды күйлерді бастан кешірудің экологиялық жазбаша тәжірибесін игеру.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">06 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="moon"></i></div>
+                        </div>
+                        <h4>Кешкі ритуал</h4>
+                        <p>Күнді жіберуді, мазасыздықты азайтуды және терең, сау ұйқыны қалпына келтіруді үйренеміз.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">07 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="check-square"></i></div>
+                        </div>
+                        <h4>Апта қорытындысы</h4>
+                        <p>Психолог-куратормен жабық чатта жеке супервизия алу.</p>
                     </div>
                 </div>
-                
-                <!-- Week 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-panel">
-                        <span class="timeline-week-badge">2-апта</span>
-                        <h3>Орта және өзін-өзі бағалау</h3>
-                        <ul class="timeline-steps">
-                            <li class="timeline-step">Ортаңызды талдау және жеке шекараларды сауатты құру.</li>
-                            <li class="timeline-step">Сыннан қорқуды және «сенімсіздік» сезімін жеңу практикалары.</li>
-                            <li class="timeline-step">Қоғамда және жұмыста өзіңді сенімді түрде көрсету өнері.</li>
-                        </ul>
+
+                <!-- Week 2 Days -->
+                <div class="timeline-days-grid" id="week-2-days">
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">08 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="users"></i></div>
+                        </div>
+                        <h4>Орта картасы</h4>
+                        <p>Жақын және алыс ортаңызды талдау. Кім күш береді, ал кім оны тартып алатынын анықтаймыз.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">09 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="shield"></i></div>
+                        </div>
+                        <h4>Шекаралар мен «Жоқ» сөзі</h4>
+                        <p>Кінә сезінбей немесе ақталмай, сыпайы, бірақ сенімді түрде бас тартуды үйрену.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">10 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="frown"></i></div>
+                        </div>
+                        <h4>Ұят пен кінә сезімін талдау</h4>
+                        <p>Қазақстандағы жеке еркіндікке кедергі келтіретін әлеуметтік-мәдени шектеулерді талдау.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">11 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="smile"></i></div>
+                        </div>
+                        <h4>Өзін-өзі бағалау</h4>
+                        <p>Сыртқы пікірлерге тәуелділіктен ішкі сенімді тірекке көшуге арналған жаттығулар.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">12 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="megaphone"></i></div>
+                        </div>
+                        <h4>Өзіңді көрсету күші</h4>
+                        <p>Айыпталудан қорқуды жеңу. Өз қалауыңыз бен ойыңызды ашық білдіруді үйренеміз.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">13 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="heart-handshake"></i></div>
+                        </div>
+                        <h4>Ішкі сыншы</h4>
+                        <p>Ішкі сыншыны сүйіспеншілікке толы ішкі одақтасқа айналдыруға арналған жаттығулар.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">14 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="refresh-cw"></i></div>
+                        </div>
+                        <h4>Апта қорытындысы</h4>
+                        <p>Ресурстарды өлшеуді салыстыру, психологпен күрделі мәселелерді талдау.</p>
                     </div>
                 </div>
-                
-                <!-- Week 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-panel">
-                        <span class="timeline-week-badge">3-апта</span>
-                        <h3>Бекіту және жаңа ауқым</h3>
-                        <ul class="timeline-steps">
-                            <li class="timeline-step">Ұзақ мерзімді жеке және кәсіби даму жоспарын құру.</li>
-                            <li class="timeline-step">Қаржылық блоктарды тауып, ақшалай мышлениені дамыту.</li>
-                            <li class="timeline-step">Қорытынды кездесу және ЖД қауымдастығының тұрақты клубына өту.</li>
-                        </ul>
+
+                <!-- Week 3 Days -->
+                <div class="timeline-days-grid" id="week-3-days">
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">15 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="coins"></i></div>
+                        </div>
+                        <h4>Ақша блоктары</h4>
+                        <p>Үлкен ақшадан қорқуды және подсознаниедегі кедейлік стереотиптерін тауып, жою.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">16 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="sparkles"></i></div>
+                        </div>
+                        <h4>Жаңа сценарийлер</h4>
+                        <p>Сіздің жаңа шынайылығыңыздың тамаша күнінің қадамдық сценарийін жазамыз.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">17 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="trending-up"></i></div>
+                        </div>
+                        <h4>Мансап ауқымы</h4>
+                        <p>Күйзеліске ұшырамай лауазымды өсіруді сұрау, мамандықты өзгерту немесе өз жобаңызды бастау.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">18 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="clock"></i></div>
+                        </div>
+                        <h4>Уақыт теңгерімі</h4>
+                        <p>Әйелдерге арналған жоспарлау: мансапты, отбасын, балаларды және өзіңізге арналған уақытты қалай үйлестіруге болады.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">19 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="compass"></i></div>
+                        </div>
+                        <h4>5 жылдық көзқарас</h4>
+                        <p>Өмірдің барлық 8 саласындағы мақсаттардың стратегиялық компасын жасау.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">20 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="unlock"></i></div>
+                        </div>
+                        <h4>Клубқа өту</h4>
+                        <p>UMAY жабық клубының мүшелерімен танысу, нетворкингті кеңейту.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">21 Күн</span>
+                            <div class="timeline-day-icon"><i data-lucide="party-popper"></i></div>
+                        </div>
+                        <h4>Қорытынды эфир</h4>
+                        <p>Әлия Серіковамен үлкен Zoom-кездесу, нәтижелерді тойлау және қоштасу ритуалы.</p>
                     </div>
                 </div>
             </div>
@@ -559,19 +691,40 @@
                     «Менің миссиям — қазақстандық әйелдерге өздерін мінсіз етіп көрсетудің қажеті жоқ, қауіпсіз, терең және жылы кеңістік құру. Дұрыс орта — жеке трансформацияның 80% құрайды деп сенемін. 7 жылдық кәсіби тәжірибемде мыңдаған аналарға, әйелдерге және кәсіпкер қыздарға ішкі тепе-теңдікті табуға, кінә сезімінсіз «жоқ» деп айтуды үйренуге және өз армандарына сенімді қадам басуға көмектестім.»
                 </p>
                 
-                <div class="author-achievements">
-                    <div class="achieve-item">
-                        <i data-lucide="graduation-cap"></i>
-                        <div class="achieve-text">
-                            <h4>Жоғары психологиялық білім</h4>
-                            <p>әл-Фараби атындағы ҚазҰУ, ТМД мен Еуропа елдеріндегі сертификация</p>
+                <div class="founder-editorial-wrapper">
+                    <div class="founder-tabs-header">
+                        <button class="founder-tab-btn active" data-tab="story">Менің жолым</button>
+                        <button class="founder-tab-btn" data-tab="mission">Миссия</button>
+                        <button class="founder-tab-btn" data-tab="diplomas">Дипломдар мен Тәжірибе</button>
+                    </div>
+                    
+                    <div class="founder-tab-content active" id="founder-tab-story">
+                        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                            Психологиядағы жолымды 8 жылдан астам уақыт бұрын бастаған кезде, мен академиялық теорияның қазіргі әйелдің шынайы қиындықтарынан алшақ екенін түсіндім. Мансап пен отбасын қатар алып жүріп, өз басымнан өткен күйзелістен кейін, мен «Жақын Достар» жүйесін жасап шығардым.
+                        </p>
+                        <div class="founder-tab-list">
+                            <div class="founder-tab-list-item"><i data-lucide="check-circle"></i> <span>7+ жыл жеке практика</span></div>
+                            <div class="founder-tab-list-item"><i data-lucide="check-circle"></i> <span>UMAY қоғамдастығының негізін қалаушы</span></div>
                         </div>
                     </div>
-                    <div class="achieve-item">
-                        <i data-lucide="heart-handshake"></i>
-                        <div class="achieve-text">
-                            <h4>10 000+ сағаттық практика</h4>
-                            <p>Жеке консультациялар, топтық терапия, трансформациялық тренингтер</p>
+                    
+                    <div class="founder-tab-content" id="founder-tab-mission">
+                        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                            Қазақстан мен ТМД-дағы әрбір әйелге ішкі тірек беру, өз армандарына зиян келтіретін «ұят» бұғауларынан және «жақсы келін» синдромынан босату, өзіне ұқыпты әрі мейірімді қарауды үйрету.
+                        </p>
+                        <div class="founder-tab-list">
+                            <div class="founder-tab-list-item"><i data-lucide="heart"></i> <span>10 000+ бақытты түлектер</span></div>
+                            <div class="founder-tab-list-item"><i data-lucide="shield-alert"></i> <span>Айыптаусыз қауіпсіз экожүйе</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="founder-tab-content" id="founder-tab-diplomas">
+                        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                            Менің біліктілігім когнитивті-мінез-құлық терапиясы және әйелдер коучингі саласындағы мемлекеттік дипломдармен және халықаралық сертификаттармен расталған.
+                        </p>
+                        <div class="founder-tab-list">
+                            <div class="founder-tab-list-item"><i data-lucide="graduation-cap"></i> <span>әл-Фараби атындағы ҚазҰУ (Психология)</span></div>
+                            <div class="founder-tab-list-item"><i data-lucide="award"></i> <span>КМТ сертификациясы (ТМД және ЕО)</span></div>
                         </div>
                     </div>
                 </div>
@@ -922,17 +1075,18 @@
             <div class="payment-panel active" id="panel-kaspi">
                 <p class="pay-instructions">Телефоныңызда <strong>Kaspi.kz</strong> қосымшасын ашып, <strong>Kaspi QR</strong> таңдап, кодты сканерлеңіз:</p>
                 
-                <div class="kaspi-payment-box glass-panel-dark">
+                <div class="kaspi-payment-box glass-panel-dark" style="position: relative; overflow: hidden;">
                     <div class="kaspi-red-header">Kaspi QR</div>
                     <div class="kaspi-qr-wrapper">
+                        <div class="qr-scanner-line"></div>
                         <!-- Simulated QR Code SVG -->
                         <svg viewBox="0 0 100 100" class="kaspi-qr-svg">
                             <rect x="10" y="10" width="20" height="20" fill="#e11d48"/>
-                            <rect x="15" y="15" width="10" height="10" fill="#white"/>
+                            <rect x="15" y="15" width="10" height="10" fill="white"/>
                             <rect x="70" y="10" width="20" height="20" fill="#e11d48"/>
-                            <rect x="75" y="15" width="10" height="10" fill="#white"/>
+                            <rect x="75" y="15" width="10" height="10" fill="white"/>
                             <rect x="10" y="70" width="20" height="20" fill="#e11d48"/>
-                            <rect x="15" y="75" width="10" height="10" fill="#white"/>
+                            <rect x="15" y="75" width="10" height="10" fill="white"/>
                             <!-- Pixels noise -->
                             <rect x="42" y="20" width="10" height="15" fill="#222624"/>
                             <rect x="52" y="45" width="20" height="15" fill="#222624"/>
@@ -949,17 +1103,31 @@
             <!-- Card Panel -->
             <div class="payment-panel" id="panel-card">
                 <p class="pay-instructions">Кез келген банктің карта деректерін енгізіңіз:</p>
-                <div class="credit-card-mockup">
-                    <div class="cc-brand">Visa / Mastercard</div>
-                    <div class="cc-number" id="cc-card-number-preview">•••• •••• •••• 1122</div>
-                    <div class="cc-holder-row">
-                        <div>
-                            <span class="cc-label">ИЕСІ</span>
-                            <div id="cc-name-display">ALIYA S.</div>
+                <div class="cc-flip-container" id="cc-flip-card">
+                    <div class="cc-card-flipper">
+                        <!-- Card Front -->
+                        <div class="cc-front">
+                            <div class="cc-brand" id="cc-brand-logo">Visa / Mastercard</div>
+                            <div class="cc-chip"></div>
+                            <div class="cc-number" id="cc-card-number-preview">•••• •••• •••• 1122</div>
+                            <div class="cc-holder-row">
+                                <div>
+                                    <span class="cc-label">ИЕСІ</span>
+                                    <div id="cc-name-display">ALIYA S.</div>
+                                </div>
+                                <div>
+                                    <span class="cc-label">МЕРЗІМІ</span>
+                                    <div id="cc-expiry-preview">12/28</div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <span class="cc-label">МЕРЗІМІ</span>
-                            <div id="cc-expiry-preview">12/28</div>
+                        <!-- Card Back -->
+                        <div class="cc-back">
+                            <div class="cc-black-magnetic-strip"></div>
+                            <div class="cc-signature-strip" id="cc-cvv-preview">•••</div>
+                            <div class="cc-back-info">
+                                Электрондық төлем симуляторы. Деректер Freedom Pay 256-биттік SSL шифрлауымен қорғалған.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1009,6 +1177,6 @@
     <div class="toast-container" id="toast-container"></div>
 
     <!-- JS Core -->
-    <script src="app_kk.js?v=3.0.0"></script>
+    <script src="app_kk.js?v=3.0.3"></script>
 </body>
 </html>

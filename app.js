@@ -49,8 +49,52 @@ document.addEventListener("DOMContentLoaded", () => {
     initGlobalListeners();
     initFAQAccordions();
     initQuiz();
+    initTimelineTabs();
+    initFounderTabs();
     lucide.createIcons();
 });
+
+// --- Timeline week tabs ---
+function initTimelineTabs() {
+    const tabBtns = document.querySelectorAll(".timeline-tab-btn");
+    const dayGrids = document.querySelectorAll(".timeline-days-grid");
+    
+    tabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const weekNum = btn.getAttribute("data-week");
+            
+            tabBtns.forEach(b => b.classList.remove("active"));
+            dayGrids.forEach(g => g.classList.remove("active"));
+            
+            btn.classList.add("active");
+            const targetGrid = document.getElementById(`week-${weekNum}-days`);
+            if (targetGrid) {
+                targetGrid.classList.add("active");
+            }
+        });
+    });
+}
+
+// --- Founder Bio Editorial Tabs ---
+function initFounderTabs() {
+    const tabBtns = document.querySelectorAll(".founder-tab-btn");
+    const tabContents = document.querySelectorAll(".founder-tab-content");
+    
+    tabBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const tabName = btn.getAttribute("data-tab");
+            
+            tabBtns.forEach(b => b.classList.remove("active"));
+            tabContents.forEach(c => c.classList.remove("active"));
+            
+            btn.classList.add("active");
+            const targetContent = document.getElementById(`founder-tab-${tabName}`);
+            if (targetContent) {
+                targetContent.classList.add("active");
+            }
+        });
+    });
+}
 
 // --- Header scroll effect ---
 window.addEventListener("scroll", () => {
@@ -343,6 +387,44 @@ function initGlobalListeners() {
         });
     }
 
+    // Card brand logo auto-detect
+    const brandLogo = document.getElementById("cc-brand-logo");
+    if (cardNumInput && brandLogo) {
+        cardNumInput.addEventListener("input", (e) => {
+            const firstDigit = e.target.value.charAt(0);
+            if (firstDigit === "4") {
+                brandLogo.textContent = "Visa";
+                brandLogo.style.color = "#a78bfa";
+            } else if (firstDigit === "5") {
+                brandLogo.textContent = "Mastercard";
+                brandLogo.style.color = "#f97316";
+            } else {
+                brandLogo.textContent = "Visa / Mastercard";
+                brandLogo.style.color = "var(--gold-primary)";
+            }
+        });
+    }
+
+    // Card CVV focus and flip
+    const cvvInput = document.getElementById("card-cvv-input");
+    const flipCard = document.getElementById("cc-flip-card");
+    const cvvPreview = document.getElementById("cc-cvv-preview");
+    if (cvvInput && flipCard) {
+        cvvInput.addEventListener("focus", () => {
+            flipCard.classList.add("flipped");
+        });
+        cvvInput.addEventListener("blur", () => {
+            flipCard.classList.remove("flipped");
+        });
+        cvvInput.addEventListener("input", (e) => {
+            let val = e.target.value.replace(/\D/g, "");
+            e.target.value = val;
+            if (cvvPreview) {
+                cvvPreview.textContent = val || "•••";
+            }
+        });
+    }
+
     // Social Links Toasts
     const socialLinks = document.querySelectorAll(".social-link");
     socialLinks.forEach(link => {
@@ -373,12 +455,37 @@ function initQuiz() {
     let currentStep = 0; // 0 = intro, 1-5 = questions
     let quizScores = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
 
+    function getStepEl(stepNum) {
+        if (stepNum === 0) return introStep;
+        return document.getElementById(`quiz-step-${stepNum}`);
+    }
+
+    function transitionStep(fromNum, toNum, direction) {
+        const fromEl = getStepEl(fromNum);
+        const toEl = getStepEl(toNum);
+        if (!fromEl || !toEl) return;
+
+        toEl.classList.remove("slide-left", "slide-right");
+
+        if (direction === "next") {
+            fromEl.classList.add("slide-left");
+            fromEl.classList.remove("active");
+            toEl.classList.add("active");
+        } else {
+            fromEl.classList.add("slide-right");
+            fromEl.classList.remove("active");
+            toEl.classList.add("active");
+        }
+
+        setTimeout(() => {
+            fromEl.classList.remove("slide-left", "slide-right");
+        }, 400);
+    }
+
     // Start Quiz
     btnStart.addEventListener("click", () => {
-        introStep.classList.remove("active");
-        introStep.style.display = "none";
+        transitionStep(0, 1, "next");
         currentStep = 1;
-        document.getElementById("quiz-step-1").classList.add("active");
     });
 
     // Setup Option Card Click Event for all 5 steps
@@ -409,9 +516,8 @@ function initQuiz() {
                     return;
                 }
                 // Transition to next
-                stepEl.classList.remove("active");
+                transitionStep(step, step + 1, "next");
                 currentStep = step + 1;
-                document.getElementById(`quiz-step-${currentStep}`).classList.add("active");
             });
         }
 
@@ -419,16 +525,34 @@ function initQuiz() {
         const btnPrev = stepEl.querySelector(".btn-quiz-prev");
         if (btnPrev) {
             btnPrev.addEventListener("click", () => {
-                stepEl.classList.remove("active");
+                transitionStep(step, step - 1, "prev");
                 currentStep = step - 1;
-                if (currentStep === 0) {
-                    introStep.style.display = "block";
-                    introStep.classList.add("active");
-                } else {
-                    document.getElementById(`quiz-step-${currentStep}`).classList.add("active");
-                }
             });
         }
+    }
+
+    function animateGauge(scorePercent, zoneColor) {
+        const circle = document.getElementById("results-gauge-circle");
+        const text = document.getElementById("results-gauge-value");
+        if (!circle || !text) return;
+        
+        const circumference = 440;
+        circle.style.stroke = zoneColor;
+        
+        let currentPercent = 0;
+        const interval = setInterval(() => {
+            if (currentPercent >= scorePercent) {
+                currentPercent = scorePercent;
+                clearInterval(interval);
+            }
+            text.textContent = `${currentPercent}%`;
+            const offset = circumference - (currentPercent / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+            
+            if (currentPercent < scorePercent) {
+                currentPercent++;
+            }
+        }, 15);
     }
 
     // Finish button handler
@@ -444,7 +568,8 @@ function initQuiz() {
             const total = quizScores[1] + quizScores[2] + quizScores[3] + quizScores[4] + quizScores[5];
             
             // Hide question 5
-            document.getElementById("quiz-step-5").classList.remove("active");
+            const q5El = document.getElementById("quiz-step-5");
+            q5El.classList.remove("active");
             
             // Show result view
             resultView.classList.add("active");
@@ -454,18 +579,28 @@ function initQuiz() {
             document.getElementById("zone-yellow").classList.add("hidden");
             document.getElementById("zone-green").classList.add("hidden");
             
-            // Show matched zone
+            // Calculate resource percentage: 5 score -> 15%, 15 score -> 95%
+            const resourcePercent = Math.round(15 + ((total - 5) / 10) * 80);
+            
+            // Show matched zone and color
             let targetZoneId = "";
+            let zoneColor = "";
             if (total >= 5 && total <= 8) {
                 targetZoneId = "zone-red";
+                zoneColor = "#A85850";
             } else if (total >= 9 && total <= 12) {
                 targetZoneId = "zone-yellow";
+                zoneColor = "#BCA057";
             } else {
                 targetZoneId = "zone-green";
+                zoneColor = "#153E2D";
             }
             
             const targetZone = document.getElementById(targetZoneId);
             targetZone.classList.remove("hidden");
+            
+            // Trigger circular progress ring gauge animation
+            animateGauge(resourcePercent, zoneColor);
             
             // Setup CTA buttons inside the loaded zone card
             const ctaBtn = targetZone.querySelector(".btn-open-checkout");

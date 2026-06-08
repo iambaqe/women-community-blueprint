@@ -210,152 +210,168 @@
             </div>
 
             <div class="quiz-card glass-panel" id="quiz-card-wrapper">
-                <!-- Intro View -->
-                <div class="quiz-step active" id="quiz-step-intro">
-                    <div style="text-align: center; padding: 20px 0;">
-                        <h3 class="quiz-question-title" style="margin-bottom: 20px;">Готовы узнать свой уровень ресурса?</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 36px; line-height: 1.7; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                            Этот тест разработан практикующими психологами нашего сообщества. Ответы на 5 простых вопросов помогут вам получить мгновенную оценку вашего жизненного баланса и индивидуальные рекомендации.
-                        </p>
-                        <button class="btn btn-primary" id="btn-quiz-start" style="padding: 18px 48px; font-size: 1.05rem;">
-                            <span>Начать экспресс-тест</span>
-                            <i data-lucide="play"></i>
-                        </button>
+                <div class="quiz-slides-container">
+                    <!-- Intro View -->
+                    <div class="quiz-step active" id="quiz-step-intro">
+                        <div style="text-align: center; padding: 20px 0;">
+                            <h3 class="quiz-question-title" style="margin-bottom: 20px;">Готовы узнать свой уровень ресурса?</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 36px; line-height: 1.7; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                                Этот тест разработан практикующими психологами нашего сообщества. Ответы на 5 простых вопросов помогут вам получить мгновенную оценку вашего жизненного баланса и индивидуальные рекомендации.
+                            </p>
+                            <button class="btn btn-primary" id="btn-quiz-start" style="padding: 18px 48px; font-size: 1.05rem;">
+                                <span>Начать экспресс-тест</span>
+                                <i data-lucide="play"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Question 1 -->
-                <div class="quiz-step" id="quiz-step-1">
-                    <div class="quiz-progress-bar">
-                        <div class="quiz-progress-fill" style="width: 20%;"></div>
-                    </div>
-                    <h3 class="quiz-question-title">1. Как вы оцениваете уровень своей энергии в конце обычного дня?</h3>
-                    <div class="quiz-options">
-                        <div class="quiz-option-card" data-value="1">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Чувствую полное истощение, хроническую усталость, ничего не хочется делать (1 балл)</span>
+                    <!-- Question 1 -->
+                    <div class="quiz-step" id="quiz-step-1">
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" style="width: 20%;"></div>
                         </div>
-                        <div class="quiz-option-card" data-value="2">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Устаю, но сил хватает на базовые бытовые дела и общение с близкими (2 балла)</span>
+                        <h3 class="quiz-question-title">1. Как вы оцениваете уровень своей энергии в конце обычного дня?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option-card" data-value="1">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Чувствую полное истощение, хроническую усталость, ничего не хочется делать (1 балл)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="2">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Устаю, но сил хватает на базовые бытовые дела и общение с близкими (2 балла)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="3">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Наполнена энергией, чувствую подъем и строю планы на активный вечер (3 балла)</span>
+                            </div>
                         </div>
-                        <div class="quiz-option-card" data-value="3">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Наполнена энергией, чувствую подъем и строю планы на активный вечер (3 балла)</span>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-secondary btn-quiz-prev" disabled>Назад</button>
+                            <button class="btn btn-primary btn-quiz-next">Далее <i data-lucide="arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="quiz-navigation">
-                        <button class="btn btn-secondary btn-quiz-prev" disabled>Назад</button>
-                        <button class="btn btn-primary btn-quiz-next">Далее <i data-lucide="arrow-right"></i></button>
-                    </div>
-                </div>
 
-                <!-- Question 2 -->
-                <div class="quiz-step" id="quiz-step-2">
-                    <div class="quiz-progress-bar">
-                        <div class="quiz-progress-fill" style="width: 40%;"></div>
-                    </div>
-                    <h3 class="quiz-question-title">2. Есть ли в вашем близком окружении люди, которые вас искренне поддерживают и вдохновляют?</h3>
-                    <div class="quiz-options">
-                        <div class="quiz-option-card" data-value="1">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Нет, часто сталкиваюсь с критикой, завистью или острым чувством одиночества (1 балл)</span>
+                    <!-- Question 2 -->
+                    <div class="quiz-step" id="quiz-step-2">
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" style="width: 40%;"></div>
                         </div>
-                        <div class="quiz-option-card" data-value="2">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Есть 1–2 человека, но мне не хватает качественного развивающего общения (2 балла)</span>
+                        <h3 class="quiz-question-title">2. Есть ли в вашем близком окружении люди, которые вас искренне поддерживают и вдохновляют?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option-card" data-value="1">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Нет, часто сталкиваюсь с критикой, завистью или острым чувством одиночества (1 балл)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="2">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Есть 1–2 человека, но мне не хватает качественного развивающего общения (2 балла)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="3">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Да, меня окружает сильный поддерживающий круг единомышленниц (3 балла)</span>
+                            </div>
                         </div>
-                        <div class="quiz-option-card" data-value="3">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Да, меня окружает сильный поддерживающий круг единомышленниц (3 балла)</span>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-secondary btn-quiz-prev">Назад</button>
+                            <button class="btn btn-primary btn-quiz-next">Далее <i data-lucide="arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="quiz-navigation">
-                        <button class="btn btn-secondary btn-quiz-prev">Назад</button>
-                        <button class="btn btn-primary btn-quiz-next">Далее <i data-lucide="arrow-right"></i></button>
-                    </div>
-                </div>
 
-                <!-- Question 3 -->
-                <div class="quiz-step" id="quiz-step-3">
-                    <div class="quiz-progress-bar">
-                        <div class="quiz-progress-fill" style="width: 60%;"></div>
-                    </div>
-                    <h3 class="quiz-question-title">3. Как легко вам удается говорить «нет» и защищать свои личные границы?</h3>
-                    <div class="quiz-options">
-                        <div class="quiz-option-card" data-value="1">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Очень сложно, часто соглашаюсь на неудобные условия в ущерб своим интересам (1 балл)</span>
+                    <!-- Question 3 -->
+                    <div class="quiz-step" id="quiz-step-3">
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" style="width: 60%;"></div>
                         </div>
-                        <div class="quiz-option-card" data-value="2">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Пытаюсь отказывать и отстаивать границы, но потом долго чувствую себя виноватой (2 балла)</span>
+                        <h3 class="quiz-question-title">3. Как легко вам удается говорить «нет» и защищать свои личные границы?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option-card" data-value="1">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Очень сложно, часто соглашаюсь на неудобные условия в ущерб своим интересам (1 балл)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="2">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Пытаюсь отказывать и отстаивать границы, но потом долго чувствую себя виноватой (2 балла)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="3">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Спокойно и экологично обозначаю свои границы без какого-либо чувства вины (3 балла)</span>
+                            </div>
                         </div>
-                        <div class="quiz-option-card" data-value="3">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Спокойно и экологично обозначаю свои границы без какого-либо чувства вины (3 балла)</span>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-secondary btn-quiz-prev">Назад</button>
+                            <button class="btn btn-primary btn-quiz-next">Далее <i data-lucide="arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="quiz-navigation">
-                        <button class="btn btn-secondary btn-quiz-prev">Назад</button>
-                        <button class="btn btn-primary btn-quiz-next">Далее <i data-lucide="arrow-right"></i></button>
-                    </div>
-                </div>
 
-                <!-- Question 4 -->
-                <div class="quiz-step" id="quiz-step-4">
-                    <div class="quiz-progress-bar">
-                        <div class="quiz-progress-fill" style="width: 80%;"></div>
-                    </div>
-                    <h3 class="quiz-question-title">4. Что происходит, когда вы пытаетесь внедрить новые полезные привычки?</h3>
-                    <div class="quiz-options">
-                        <div class="quiz-option-card" data-value="1">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Быстро теряю мотивацию и бросаю дело уже через 2-3 дня после старта (1 балл)</span>
+                    <!-- Question 4 -->
+                    <div class="quiz-step" id="quiz-step-4">
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" style="width: 80%;"></div>
                         </div>
-                        <div class="quiz-option-card" data-value="2">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Держусь пару недель, но без внешней поддержки и отчетности срываюсь обратно (2 балла)</span>
+                        <h3 class="quiz-question-title">4. Что происходит, когда вы пытаетесь внедрить новые полезные привычки?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option-card" data-value="1">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Быстро теряю мотивацию и бросаю дело уже через 2-3 дня после старта (1 балл)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="2">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Держусь пару недель, но без внешней поддержки и отчетности срываюсь обратно (2 балла)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="3">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Системно и легко интегрирую новые привычки и ритуалы в свою повседневную жизнь (3 балла)</span>
+                            </div>
                         </div>
-                        <div class="quiz-option-card" data-value="3">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Системно и легко интегрирую новые привычки и ритуалы в свою повседневную жизнь (3 балла)</span>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-secondary btn-quiz-prev">Назад</button>
+                            <button class="btn btn-primary btn-quiz-next">Далее <i data-lucide="arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="quiz-navigation">
-                        <button class="btn btn-secondary btn-quiz-prev">Назад</button>
-                        <button class="btn btn-primary btn-quiz-next">Далее <i data-lucide="arrow-right"></i></button>
-                    </div>
-                </div>
 
-                <!-- Question 5 -->
-                <div class="quiz-step" id="quiz-step-5">
-                    <div class="quiz-progress-bar">
-                        <div class="quiz-progress-fill" style="width: 100%;"></div>
-                    </div>
-                    <h3 class="quiz-question-title">5. Как часто вы испытываете фоновую тревогу, неуверенность в себе или завтрашнем дне?</h3>
-                    <div class="quiz-options">
-                        <div class="quiz-option-card" data-value="1">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Почти каждый день, это мешает мне спокойно спать и строить планы на будущее (1 балл)</span>
+                    <!-- Question 5 -->
+                    <div class="quiz-step" id="quiz-step-5">
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" style="width: 100%;"></div>
                         </div>
-                        <div class="quiz-option-card" data-value="2">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Периодически, особенно при высоком уровне стресса на работе или в семье (2 балла)</span>
+                        <h3 class="quiz-question-title">5. Как часто вы испытываете фоновую тревогу, неуверенность в себе или завтрашнем дне?</h3>
+                        <div class="quiz-options">
+                            <div class="quiz-option-card" data-value="1">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Почти каждый день, это мешает мне спокойно спать и строить планы на будущее (1 балл)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="2">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Периодически, особенно при высоком уровне стресса на работе или в семье (2 балла)</span>
+                            </div>
+                            <div class="quiz-option-card" data-value="3">
+                                <div class="quiz-radio-circle"></div>
+                                <span class="quiz-option-text">Очень редко, я чувствую устойчивую внутреннюю опору, уверенность и спокойствие (3 балла)</span>
+                            </div>
                         </div>
-                        <div class="quiz-option-card" data-value="3">
-                            <div class="quiz-radio-circle"></div>
-                            <span class="quiz-option-text">Очень редко, я чувствую устойчивую внутреннюю опору, уверенность и спокойствие (3 балла)</span>
+                        <div class="quiz-navigation">
+                            <button class="btn btn-secondary btn-quiz-prev">Назад</button>
+                            <button class="btn btn-primary" id="btn-quiz-finish">Получить результат <i data-lucide="check"></i></button>
                         </div>
-                    </div>
-                    <div class="quiz-navigation">
-                        <button class="btn btn-secondary btn-quiz-prev">Назад</button>
-                        <button class="btn btn-primary" id="btn-quiz-finish">Получить результат <i data-lucide="check"></i></button>
                     </div>
                 </div>
 
                 <!-- Results View -->
                 <div class="quiz-result" id="quiz-result-view">
+                    <!-- Gauge Meter Dashboard -->
+                    <div class="results-dashboard">
+                        <div class="gauge-meter-wrapper">
+                            <svg class="gauge-svg" viewBox="0 0 160 160">
+                                <circle class="gauge-circle-bg" cx="80" cy="80" r="70"></circle>
+                                <circle class="gauge-circle-fill" id="results-gauge-circle" cx="80" cy="80" r="70"></circle>
+                            </svg>
+                            <div class="gauge-center-text">
+                                <div class="gauge-value" id="results-gauge-value">0%</div>
+                                <div class="gauge-label">Ресурс</div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="result-zone-card red-zone hidden" id="zone-red">
                         <h3 class="result-zone-title">🔴 Красная зона (Выгорание и дефицит ресурса)</h3>
                         <p class="result-zone-desc">
@@ -394,48 +410,190 @@
                 <p class="section-subtitle">Последовательное погружение в работу над ключевыми сферами жизни</p>
             </div>
             
+            <div class="timeline-tabs-wrapper">
+                <button class="timeline-tab-btn active" data-week="1">Неделя 1: Базис & Ресурс</button>
+                <button class="timeline-tab-btn" data-week="2">Неделя 2: Границы & Самооценка</button>
+                <button class="timeline-tab-btn" data-week="3">Неделя 3: Масштаб & Цели</button>
+            </div>
+
             <div class="timeline-wrapper">
-                <div class="timeline-line"></div>
-                
-                <!-- Week 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-panel">
-                        <span class="timeline-week-badge">Неделя 1</span>
-                        <h3>Фундамент и диагностика</h3>
-                        <ul class="timeline-steps">
-                            <li class="timeline-step">Честный аудит текущего состояния вашей жизни (колесо баланса).</li>
-                            <li class="timeline-step">Определение истинных целей на год без навязанных шаблонов.</li>
-                            <li class="timeline-step">Внедрение первых утренних и вечерних поддерживающих привычек.</li>
-                        </ul>
+                <!-- Week 1 Days -->
+                <div class="timeline-days-grid active" id="week-1-days">
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 01</span>
+                            <div class="timeline-day-icon"><i data-lucide="clipboard-list"></i></div>
+                        </div>
+                        <h4>Колесо баланса</h4>
+                        <p>Честный аудит текущего состояния 8 ключевых сфер вашей жизни и выявление зон дефицита.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 02</span>
+                            <div class="timeline-day-icon"><i data-lucide="battery-charging"></i></div>
+                        </div>
+                        <h4>Анализ утечек энергии</h4>
+                        <p>Находим, куда уходят силы (токсичное общение, фоновый стресс) и как это остановить.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 03</span>
+                            <div class="timeline-day-icon"><i data-lucide="sun"></i></div>
+                        </div>
+                        <h4>Утренние ритуалы</h4>
+                        <p>Внедрение мягких практик настройки на день за 10 минут (дыхание, намерение).</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 04</span>
+                            <div class="timeline-day-icon"><i data-lucide="activity"></i></div>
+                        </div>
+                        <h4>Контакт с телом</h4>
+                        <p>Соматические упражнения для снятия телесных зажимов и накопленного стресса.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 05</span>
+                            <div class="timeline-day-icon"><i data-lucide="pen-tool"></i></div>
+                        </div>
+                        <h4>Дневник эмоций</h4>
+                        <p>Осваиваем экологичную письменную практику проживания сложных эмоциональных состояний.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 06</span>
+                            <div class="timeline-day-icon"><i data-lucide="moon"></i></div>
+                        </div>
+                        <h4>Вечерний ритуал</h4>
+                        <p>Учимся отпускать день, снижать тревожность и восстанавливать глубокий здоровый сон.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 07</span>
+                            <div class="timeline-day-icon"><i data-lucide="check-square"></i></div>
+                        </div>
+                        <h4>Итоги недели</h4>
+                        <p>Индивидуальная супервизия в закрытом чате с куратором-психологом.</p>
                     </div>
                 </div>
-                
-                <!-- Week 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-panel">
-                        <span class="timeline-week-badge">Неделя 2</span>
-                        <h3>Окружение и самооценка</h3>
-                        <ul class="timeline-steps">
-                            <li class="timeline-step">Экологичный разбор вашего круга общения и выстраивание границ.</li>
-                            <li class="timeline-step">Практики работы со страхом критики и синдромом самозванки.</li>
-                            <li class="timeline-step">Искусство уверенной самопрезентации в обществе и на работе.</li>
-                        </ul>
+
+                <!-- Week 2 Days -->
+                <div class="timeline-days-grid" id="week-2-days">
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 08</span>
+                            <div class="timeline-day-icon"><i data-lucide="users"></i></div>
+                        </div>
+                        <h4>Карта окружения</h4>
+                        <p>Анализ ближнего и дальнего круга. Определяем, кто дает ресурс, а кто забирает.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 09</span>
+                            <div class="timeline-day-icon"><i data-lucide="shield"></i></div>
+                        </div>
+                        <h4>Границы и слово «Нет»</h4>
+                        <p>Учимся мягко, но твердо отказывать без чувства вины и оправданий.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 10</span>
+                            <div class="timeline-day-icon"><i data-lucide="frown"></i></div>
+                        </div>
+                        <h4>Проработка уят и вины</h4>
+                        <p>Разбираем социокультурные установки Казахстана, мешающие личной свободе.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 11</span>
+                            <div class="timeline-day-icon"><i data-lucide="smile"></i></div>
+                        </div>
+                        <h4>Самооценка</h4>
+                        <p>Практические упражнения для перехода от внешней зависимости к внутренней опоре.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 12</span>
+                            <div class="timeline-day-icon"><i data-lucide="megaphone"></i></div>
+                        </div>
+                        <h4>Сила проявления</h4>
+                        <p>Преодолеваем страх осуждения. Учимся открыто выражать свои желания и мысли.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 13</span>
+                            <div class="timeline-day-icon"><i data-lucide="heart-handshake"></i></div>
+                        </div>
+                        <h4>Внутренний критик</h4>
+                        <p>Упражнения для трансформации внутреннего критика во внутреннего любящего союзника.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 14</span>
+                            <div class="timeline-day-icon"><i data-lucide="refresh-cw"></i></div>
+                        </div>
+                        <h4>Итоги недели</h4>
+                        <p>Сравниваем замеры ресурса, разбираем сложные инсайты с психологом.</p>
                     </div>
                 </div>
-                
-                <!-- Week 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-panel">
-                        <span class="timeline-week-badge">Неделя 3</span>
-                        <h3>Закрепление и новый масштаб</h3>
-                        <ul class="timeline-steps">
-                            <li class="timeline-step">Создание долгосрочного плана личного и карьерного развития.</li>
-                            <li class="timeline-step">Проработка денежного мышления и преодоление финансовых блоков.</li>
-                            <li class="timeline-step">Финальный созвон и переход в закрытый клуб выпускниц сообщества.</li>
-                        </ul>
+
+                <!-- Week 3 Days -->
+                <div class="timeline-days-grid" id="week-3-days">
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 15</span>
+                            <div class="timeline-day-icon"><i data-lucide="coins"></i></div>
+                        </div>
+                        <h4>Денежные блоки</h4>
+                        <p>Выявляем и прорабатываем страхи больших денег и подсознательные установки бедности.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 16</span>
+                            <div class="timeline-day-icon"><i data-lucide="sparkles"></i></div>
+                        </div>
+                        <h4>Новые сценарии</h4>
+                        <p>Пишем пошаговый сценарий идеального дня вашей новой реальности.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 17</span>
+                            <div class="timeline-day-icon"><i data-lucide="trending-up"></i></div>
+                        </div>
+                        <h4>Масштаб карьеры</h4>
+                        <p>Как попросить повышение, сменить профессию или запустить свой проект без выгорания.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 18</span>
+                            <div class="timeline-day-icon"><i data-lucide="clock"></i></div>
+                        </div>
+                        <h4>Тайм-баланс</h4>
+                        <p>Планирование для женщин: как совмещать карьеру, семью, детей и время на себя.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 19</span>
+                            <div class="timeline-day-icon"><i data-lucide="compass"></i></div>
+                        </div>
+                        <h4>Видение на 5 лет</h4>
+                        <p>Создание стратегического компаса целей во всех 8 сферах жизни.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 20</span>
+                            <div class="timeline-day-icon"><i data-lucide="unlock"></i></div>
+                        </div>
+                        <h4>Переход в Клуб</h4>
+                        <p>Знакомство с резидентами закрытого клуба UMAY, расширение нетворкинга.</p>
+                    </div>
+                    <div class="timeline-day-card">
+                        <div class="timeline-day-header">
+                            <span class="timeline-day-number">День 21</span>
+                            <div class="timeline-day-icon"><i data-lucide="party-popper"></i></div>
+                        </div>
+                        <h4>Выпускной созвон</h4>
+                        <p>Большая Zoom-встреча с Алией Сериковой, празднование результатов и выпускной ритуал.</p>
                     </div>
                 </div>
             </div>
@@ -561,19 +719,40 @@
                     «Моя миссия — создать для казахстанских женщин безопасное, глубокое и теплое пространство, в котором не нужно казаться идеальной. Я убеждена, что правильное окружение — это 80% успеха в личной трансформации. За 7 лет практики я помогла тысячам мам, жен и карьеристок обрести внутренний баланс, научиться говорить «нет» без чувства вины и смело идти к своей мечте.»
                 </p>
                 
-                <div class="author-achievements">
-                    <div class="achieve-item">
-                        <i data-lucide="graduation-cap"></i>
-                        <div class="achieve-text">
-                            <h4>Высшее психологическое образование</h4>
-                            <p>КазНУ им. аль-Фараби, сертификация в СНГ и ЕС</p>
+                <div class="founder-editorial-wrapper">
+                    <div class="founder-tabs-header">
+                        <button class="founder-tab-btn active" data-tab="story">Мой путь</button>
+                        <button class="founder-tab-btn" data-tab="mission">Миссия</button>
+                        <button class="founder-tab-btn" data-tab="diplomas">Дипломы и Опыт</button>
+                    </div>
+                    
+                    <div class="founder-tab-content active" id="founder-tab-story">
+                        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                            Начав свой путь в психологии более 8 лет назад, я поняла, что академическая теория часто оторвана от реальных болей современной женщины. Пройдя через собственное выгорание, совмещая карьеру и семью, я разработала систему «Близкие Друзья».
+                        </p>
+                        <div class="founder-tab-list">
+                            <div class="founder-tab-list-item"><i data-lucide="check-circle"></i> <span>7+ лет частной практики</span></div>
+                            <div class="founder-tab-list-item"><i data-lucide="check-circle"></i> <span>Создатель UMAY сообщества</span></div>
                         </div>
                     </div>
-                    <div class="achieve-item">
-                        <i data-lucide="heart-handshake"></i>
-                        <div class="achieve-text">
-                            <h4>10 000+ часов практики</h4>
-                            <p>Личные разборы, групповая терапия, тренинги</p>
+                    
+                    <div class="founder-tab-content" id="founder-tab-mission">
+                        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                            Дать каждой женщине в Казахстане и СНГ внутреннюю опору, освободить от оков «уят» (социального стыда) и синдрома «хорошей келин» в ущерб ее собственным мечтам, научить ее бережно относиться к себе.
+                        </p>
+                        <div class="founder-tab-list">
+                            <div class="founder-tab-list-item"><i data-lucide="heart"></i> <span>10 000+ счастливых выпускниц</span></div>
+                            <div class="founder-tab-list-item"><i data-lucide="shield-alert"></i> <span>Безопасная экосистема без осуждения</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="founder-tab-content" id="founder-tab-diplomas">
+                        <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                            Моя квалификация подтверждена государственными дипломами и международными сертификатами в области когнитивно-поведенческой терапии и женского коучинга.
+                        </p>
+                        <div class="founder-tab-list">
+                            <div class="founder-tab-list-item"><i data-lucide="graduation-cap"></i> <span>КазНУ им. аль-Фараби (Психология)</span></div>
+                            <div class="founder-tab-list-item"><i data-lucide="award"></i> <span>Сертификация КПТ (СНГ и ЕС)</span></div>
                         </div>
                     </div>
                 </div>
@@ -924,17 +1103,18 @@
             <div class="payment-panel active" id="panel-kaspi">
                 <p class="pay-instructions">Откройте приложение <strong>Kaspi.kz</strong> на телефоне → выберите <strong>Kaspi QR</strong> и отсканируйте код:</p>
                 
-                <div class="kaspi-payment-box glass-panel-dark">
+                <div class="kaspi-payment-box glass-panel-dark" style="position: relative; overflow: hidden;">
                     <div class="kaspi-red-header">Kaspi QR</div>
                     <div class="kaspi-qr-wrapper">
+                        <div class="qr-scanner-line"></div>
                         <!-- Simulated QR Code SVG -->
                         <svg viewBox="0 0 100 100" class="kaspi-qr-svg">
                             <rect x="10" y="10" width="20" height="20" fill="#e11d48"/>
-                            <rect x="15" y="15" width="10" height="10" fill="#white"/>
+                            <rect x="15" y="15" width="10" height="10" fill="white"/>
                             <rect x="70" y="10" width="20" height="20" fill="#e11d48"/>
-                            <rect x="75" y="15" width="10" height="10" fill="#white"/>
+                            <rect x="75" y="15" width="10" height="10" fill="white"/>
                             <rect x="10" y="70" width="20" height="20" fill="#e11d48"/>
-                            <rect x="15" y="75" width="10" height="10" fill="#white"/>
+                            <rect x="15" y="75" width="10" height="10" fill="white"/>
                             <!-- Pixels noise -->
                             <rect x="42" y="20" width="10" height="15" fill="#222624"/>
                             <rect x="52" y="45" width="20" height="15" fill="#222624"/>
@@ -951,17 +1131,31 @@
             <!-- Card Panel -->
             <div class="payment-panel" id="panel-card">
                 <p class="pay-instructions">Введите реквизиты карты любого банка СНГ/РК:</p>
-                <div class="credit-card-mockup">
-                    <div class="cc-brand">Visa / Mastercard</div>
-                    <div class="cc-number" id="cc-card-number-preview">•••• •••• •••• 1122</div>
-                    <div class="cc-holder-row">
-                        <div>
-                            <span class="cc-label">ВЛАДЕЛЕЦ</span>
-                            <div id="cc-name-display">ALIYA S.</div>
+                <div class="cc-flip-container" id="cc-flip-card">
+                    <div class="cc-card-flipper">
+                        <!-- Card Front -->
+                        <div class="cc-front">
+                            <div class="cc-brand" id="cc-brand-logo">Visa / Mastercard</div>
+                            <div class="cc-chip"></div>
+                            <div class="cc-number" id="cc-card-number-preview">•••• •••• •••• 1122</div>
+                            <div class="cc-holder-row">
+                                <div>
+                                    <span class="cc-label">ВЛАДЕЛЕЦ</span>
+                                    <div id="cc-name-display">ALIYA S.</div>
+                                </div>
+                                <div>
+                                    <span class="cc-label">СРОК</span>
+                                    <div id="cc-expiry-preview">12/28</div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <span class="cc-label">СРОК</span>
-                            <div id="cc-expiry-preview">12/28</div>
+                        <!-- Card Back -->
+                        <div class="cc-back">
+                            <div class="cc-black-magnetic-strip"></div>
+                            <div class="cc-signature-strip" id="cc-cvv-preview">•••</div>
+                            <div class="cc-back-info">
+                                Электронный симулятор платежа. Данные защищены Freedom Pay шифрованием SSL 256-bit.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -976,7 +1170,7 @@
                         <input type="text" id="card-expiry-input" placeholder="MM/YY" class="glass-input" maxlength="5">
                     </div>
                     <div class="form-group">
-                        <label for="card-cvv-input">CVV</label>
+                        <label for="card-cvv-input">CVV / CVC</label>
                         <input type="password" id="card-cvv-input" placeholder="•••" class="glass-input" maxlength="3">
                     </div>
                 </div>
@@ -1011,6 +1205,6 @@
     <div class="toast-container" id="toast-container"></div>
 
     <!-- JS Core -->
-    <script src="app.js?v=3.0.0"></script>
+    <script src="app.js?v=3.0.3"></script>
 </body>
 </html>
