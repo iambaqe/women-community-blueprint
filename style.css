@@ -3453,3 +3453,60 @@ h1, h2, h3, h4, h5, h6 {
     transition: opacity 0.3s ease;
 }
 
+/* ====================================================
+   CHALLENGES SECTION
+   ==================================================== */
+.challenges-section {
+    padding: var(--spacing-xxl) 0;
+    position: relative;
+    background: linear-gradient(180deg, var(--white) 0%, var(--bg-soft) 100%);
+    overflow: hidden;
+}
+
+.challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.challenge-card {
+    padding: 32px;
+    border-radius: var(--radius-lg);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.challenge-card:hover {
+    transform: translateY(-5px);
+}
+
+.challenge-icon-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: rgba(223, 186, 107, 0.08);
+    color: var(--gold-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    border: 1px solid rgba(223, 186, 107, 0.15);
+}
+
+.challenge-card h3 {
+    font-size: 1.25rem;
+    font-family: var(--font-serif);
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.challenge-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
