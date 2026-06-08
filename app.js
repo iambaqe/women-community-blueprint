@@ -48,7 +48,9 @@ const toastContainer = document.getElementById("toast-container");
 document.addEventListener("DOMContentLoaded", () => {
     initGlobalListeners();
     initFAQAccordions();
-    initQuiz();
+    initWheelOfBalance();
+    initAudioPlayer();
+    initMockupSlider();
     initTimelineTabs();
     initFounderTabs();
     lucide.createIcons();
@@ -295,7 +297,6 @@ function spawnSuccessHearts() {
         heart.style.zIndex = "250";
         heart.style.pointerEvents = "none";
         
-        // Pseudo elements for heart geometry
         const style = document.createElement('style');
         style.innerHTML = `
             .success-heart::before, .success-heart::after {
@@ -444,169 +445,209 @@ function initGlobalListeners() {
     }
 }
 
-// --- Interactive Diagnostic Quiz Logic ---
-function initQuiz() {
-    const btnStart = document.getElementById("btn-quiz-start");
-    const introStep = document.getElementById("quiz-step-intro");
-    const resultView = document.getElementById("quiz-result-view");
+// --- Gauge Meter Animation Helper ---
+function animateGauge(scorePercent, zoneColor) {
+    const circle = document.getElementById("results-gauge-circle");
+    const text = document.getElementById("results-gauge-value");
+    if (!circle || !text) return;
     
-    if (!btnStart) return;
-
-    let currentStep = 0; // 0 = intro, 1-5 = questions
-    let quizScores = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
-
-    function getStepEl(stepNum) {
-        if (stepNum === 0) return introStep;
-        return document.getElementById(`quiz-step-${stepNum}`);
-    }
-
-    function transitionStep(fromNum, toNum, direction) {
-        const fromEl = getStepEl(fromNum);
-        const toEl = getStepEl(toNum);
-        if (!fromEl || !toEl) return;
-
-        toEl.classList.remove("slide-left", "slide-right");
-
-        if (direction === "next") {
-            fromEl.classList.add("slide-left");
-            fromEl.classList.remove("active");
-            toEl.classList.add("active");
-        } else {
-            fromEl.classList.add("slide-right");
-            fromEl.classList.remove("active");
-            toEl.classList.add("active");
+    const circumference = 440;
+    circle.style.stroke = zoneColor;
+    
+    let currentPercent = 0;
+    const interval = setInterval(() => {
+        if (currentPercent >= scorePercent) {
+            currentPercent = scorePercent;
+            clearInterval(interval);
         }
+        text.textContent = `${currentPercent}%`;
+        const offset = circumference - (currentPercent / 100) * circumference;
+        circle.style.strokeDashoffset = offset;
+        
+        if (currentPercent < scorePercent) {
+            currentPercent++;
+        }
+    }, 12);
+}
 
-        setTimeout(() => {
-            fromEl.classList.remove("slide-left", "slide-right");
-        }, 400);
+// --- Wheel of Balance ---
+function initWheelOfBalance() {
+    const sliders = document.querySelectorAll(".wheel-range-slider");
+    const polygon = document.getElementById("wheel-filled-polygon");
+    const submitBtn = document.getElementById("btn-submit-wheel");
+    const resultsContainer = document.getElementById("wheel-results-container");
+    const leadFormSection = document.getElementById("wheel-lead-form-section");
+
+    if (!polygon || sliders.length === 0) return;
+
+    let levels = [5, 5, 5, 5, 5, 5, 5, 5];
+
+    function updateWheel() {
+        let points = [];
+        sliders.forEach((slider, index) => {
+            const val = parseInt(slider.value);
+            levels[index] = val;
+            const r = (val * 12);
+            const angle = -Math.PI / 2 + (index * Math.PI / 4);
+            const x = (r * Math.cos(angle)).toFixed(2);
+            const y = (r * Math.sin(angle)).toFixed(2);
+            points.push(`${x},${y}`);
+
+            const valOutput = document.getElementById(`val-${index}`);
+            if (valOutput) {
+                valOutput.textContent = val;
+            }
+        });
+        polygon.setAttribute("points", points.join(" "));
     }
 
-    // Start Quiz
-    btnStart.addEventListener("click", () => {
-        transitionStep(0, 1, "next");
-        currentStep = 1;
+    sliders.forEach((slider, index) => {
+        slider.addEventListener("input", updateWheel);
     });
 
-    // Setup Option Card Click Event for all 5 steps
-    for (let step = 1; step <= 5; step++) {
-        const stepEl = document.getElementById(`quiz-step-${step}`);
-        if (!stepEl) continue;
+    updateWheel();
 
-        const options = stepEl.querySelectorAll(".quiz-option-card");
-        options.forEach(option => {
-            option.addEventListener("click", () => {
-                // Remove selection from siblings
-                options.forEach(opt => opt.classList.remove("selected"));
-                // Add selection to clicked
-                option.classList.add("selected");
-                
-                // Store score
-                const val = parseInt(option.getAttribute("data-value"));
-                quizScores[step] = val;
-            });
-        });
+    if (submitBtn) {
+        submitBtn.addEventListener("click", () => {
+            const nameInput = document.getElementById("wheel-user-name");
+            const phoneInput = document.getElementById("wheel-user-phone");
+            const name = nameInput ? nameInput.value.trim() : "";
+            const phone = phoneInput ? phoneInput.value.trim() : "";
 
-        // Next button handler
-        const btnNext = stepEl.querySelector(".btn-quiz-next");
-        if (btnNext) {
-            btnNext.addEventListener("click", () => {
-                if (quizScores[step] === 0) {
-                    showToast("Пожалуйста, выберите один из вариантов ответа!", "error");
-                    return;
-                }
-                // Transition to next
-                transitionStep(step, step + 1, "next");
-                currentStep = step + 1;
-            });
-        }
-
-        // Prev button handler
-        const btnPrev = stepEl.querySelector(".btn-quiz-prev");
-        if (btnPrev) {
-            btnPrev.addEventListener("click", () => {
-                transitionStep(step, step - 1, "prev");
-                currentStep = step - 1;
-            });
-        }
-    }
-
-    function animateGauge(scorePercent, zoneColor) {
-        const circle = document.getElementById("results-gauge-circle");
-        const text = document.getElementById("results-gauge-value");
-        if (!circle || !text) return;
-        
-        const circumference = 440;
-        circle.style.stroke = zoneColor;
-        
-        let currentPercent = 0;
-        const interval = setInterval(() => {
-            if (currentPercent >= scorePercent) {
-                currentPercent = scorePercent;
-                clearInterval(interval);
-            }
-            text.textContent = `${currentPercent}%`;
-            const offset = circumference - (currentPercent / 100) * circumference;
-            circle.style.strokeDashoffset = offset;
-            
-            if (currentPercent < scorePercent) {
-                currentPercent++;
-            }
-        }, 15);
-    }
-
-    // Finish button handler
-    const btnFinish = document.getElementById("btn-quiz-finish");
-    if (btnFinish) {
-        btnFinish.addEventListener("click", () => {
-            if (quizScores[5] === 0) {
-                showToast("Пожалуйста, выберите один из вариантов ответа!", "error");
+            if (!name) {
+                showToast("Пожалуйста, введите ваше имя!", "error");
                 return;
             }
-            
-            // Calculate score
-            const total = quizScores[1] + quizScores[2] + quizScores[3] + quizScores[4] + quizScores[5];
-            
-            // Hide question 5
-            const q5El = document.getElementById("quiz-step-5");
-            q5El.classList.remove("active");
-            
-            // Show result view
-            resultView.classList.add("active");
-            
-            // Hide all zones
-            document.getElementById("zone-red").classList.add("hidden");
-            document.getElementById("zone-yellow").classList.add("hidden");
-            document.getElementById("zone-green").classList.add("hidden");
-            
-            // Calculate resource percentage: 5 score -> 15%, 15 score -> 95%
-            const resourcePercent = Math.round(15 + ((total - 5) / 10) * 80);
-            
-            // Show matched zone and color
+            if (phone.length < 5) {
+                showToast("Пожалуйста, введите корректный номер WhatsApp!", "error");
+                return;
+            }
+
+            leadFormSection.classList.add("hidden");
+            resultsContainer.classList.remove("hidden");
+
+            const totalScore = levels.reduce((acc, curr) => acc + curr, 0);
+            const scorePercent = Math.round((totalScore / 80) * 100);
+
+            document.getElementById("wheel-zone-red").classList.add("hidden");
+            document.getElementById("wheel-zone-yellow").classList.add("hidden");
+            document.getElementById("wheel-zone-green").classList.add("hidden");
+
             let targetZoneId = "";
             let zoneColor = "";
-            if (total >= 5 && total <= 8) {
-                targetZoneId = "zone-red";
+            if (scorePercent <= 50) {
+                targetZoneId = "wheel-zone-red";
                 zoneColor = "#A85850";
-            } else if (total >= 9 && total <= 12) {
-                targetZoneId = "zone-yellow";
+            } else if (scorePercent > 50 && scorePercent <= 75) {
+                targetZoneId = "wheel-zone-yellow";
                 zoneColor = "#BCA057";
             } else {
-                targetZoneId = "zone-green";
+                targetZoneId = "wheel-zone-green";
                 zoneColor = "#153E2D";
             }
-            
+
             const targetZone = document.getElementById(targetZoneId);
-            targetZone.classList.remove("hidden");
-            
-            // Trigger circular progress ring gauge animation
-            animateGauge(resourcePercent, zoneColor);
-            
-            // Setup CTA buttons inside the loaded zone card
-            const ctaBtn = targetZone.querySelector(".btn-open-checkout");
-            if (ctaBtn) {
-                ctaBtn.addEventListener("click", openCheckout);
-            }
+            if (targetZone) targetZone.classList.remove("hidden");
+
+            animateGauge(scorePercent, zoneColor);
+
+            const openPayBtns = resultsContainer.querySelectorAll(".btn-open-checkout");
+            openPayBtns.forEach(btn => {
+                btn.addEventListener("click", openCheckout);
+            });
         });
     }
+}
+
+// --- Audio Meditation Player ---
+function initAudioPlayer() {
+    const audio = document.getElementById("meditation-audio");
+    const playPauseBtn = document.getElementById("btn-play-pause");
+    const playIcon = document.getElementById("play-icon");
+    const progressSlider = document.getElementById("audio-progress");
+    const timeCurrent = document.getElementById("time-current");
+    const timeTotal = document.getElementById("time-total");
+    const waveVisualizer = document.getElementById("wave-visualizer");
+
+    if (!audio || !playPauseBtn) return;
+
+    function formatTime(secs) {
+        const minutes = Math.floor(secs / 60);
+        const seconds = Math.floor(secs % 60);
+        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
+
+    playPauseBtn.addEventListener("click", () => {
+        if (audio.paused) {
+            audio.play();
+            playIcon.setAttribute("data-lucide", "pause");
+            waveVisualizer.classList.add("playing");
+        } else {
+            audio.pause();
+            playIcon.setAttribute("data-lucide", "play");
+            waveVisualizer.classList.remove("playing");
+        }
+        lucide.createIcons();
+    });
+
+    audio.addEventListener("timeupdate", () => {
+        const progress = (audio.currentTime / audio.duration) * 100;
+        progressSlider.value = progress || 0;
+        timeCurrent.textContent = formatTime(audio.currentTime);
+    });
+
+    audio.addEventListener("loadedmetadata", () => {
+        timeTotal.textContent = formatTime(audio.duration);
+    });
+
+    progressSlider.addEventListener("input", () => {
+        const time = (progressSlider.value / 100) * audio.duration;
+        audio.currentTime = time;
+    });
+
+    audio.addEventListener("ended", () => {
+        playIcon.setAttribute("data-lucide", "play");
+        waveVisualizer.classList.remove("playing");
+        progressSlider.value = 0;
+        timeCurrent.textContent = "0:00";
+        lucide.createIcons();
+    });
+}
+
+// --- Smartphone Mockup Slider ---
+function initMockupSlider() {
+    const slides = document.querySelectorAll(".screen-slide");
+    const dots = document.querySelectorAll(".mockup-dot-btn");
+    
+    if (slides.length === 0 || dots.length === 0) return;
+
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove("active"));
+        dots.forEach(dot => dot.classList.remove("active"));
+
+        currentSlide = index;
+        slides[currentSlide].classList.add("active");
+        dots[currentSlide].classList.add("active");
+    }
+
+    dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            clearInterval(autoSlideInterval);
+            const index = parseInt(dot.getAttribute("data-slide"));
+            showSlide(index);
+            startAutoSlide();
+        });
+    });
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            let nextSlide = (currentSlide + 1) % slides.length;
+            showSlide(nextSlide);
+        }, 4000);
+    }
+
+    startAutoSlide();
 }

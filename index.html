@@ -200,164 +200,110 @@
         </div>
     </section>
 
-    <!-- 4.5 DIAGNOSTIC QUIZ SECTION -->
+    <!-- 4.5 DIAGNOSTIC WHEEL SECTION -->
     <section class="quiz-section" id="quiz">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag"><i data-lucide="sparkles"></i> Диагностика</span>
-                <h2 class="section-title">Пройдите психологический экспресс-тест</h2>
-                <p class="section-subtitle">Оцените уровень своего текущего ресурса, качества окружения и внутренней уверенности</p>
+                <h2 class="section-title">Постройте свое Колесо баланса</h2>
+                <p class="section-subtitle">Интерактивная диагностика 8 ключевых сфер вашей жизни с моментальным расчетом уровня ресурса</p>
             </div>
 
-            <div class="quiz-card glass-panel" id="quiz-card-wrapper">
-                <div class="quiz-slides-container">
-                    <!-- Intro View -->
-                    <div class="quiz-step active" id="quiz-step-intro">
-                        <div style="text-align: center; padding: 20px 0;">
-                            <h3 class="quiz-question-title" style="margin-bottom: 20px;">Готовы узнать свой уровень ресурса?</h3>
-                            <p style="color: var(--text-secondary); margin-bottom: 36px; line-height: 1.7; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                                Этот тест разработан практикующими психологами нашего сообщества. Ответы на 5 простых вопросов помогут вам получить мгновенную оценку вашего жизненного баланса и индивидуальные рекомендации.
-                            </p>
-                            <button class="btn btn-primary" id="btn-quiz-start" style="padding: 18px 48px; font-size: 1.05rem;">
-                                <span>Начать экспресс-тест</span>
-                                <i data-lucide="play"></i>
-                            </button>
-                        </div>
+            <div class="wheel-interactive-card glass-panel" id="wheel-card-wrapper">
+                <div class="wheel-flex-container">
+                    <div class="wheel-visual-side">
+                        <svg class="wheel-svg" id="wheel-svg" viewBox="-150 -150 300 300">
+                            <!-- Background Grid Rings -->
+                            <circle cx="0" cy="0" r="120" class="wheel-grid-ring"></circle>
+                            <circle cx="0" cy="0" r="96" class="wheel-grid-ring"></circle>
+                            <circle cx="0" cy="0" r="72" class="wheel-grid-ring"></circle>
+                            <circle cx="0" cy="0" r="48" class="wheel-grid-ring"></circle>
+                            <circle cx="0" cy="0" r="24" class="wheel-grid-ring"></circle>
+                            
+                            <!-- Filled Polygon area (will be dynamically rendered by JS) -->
+                            <polygon id="wheel-filled-polygon" points="" class="wheel-filled-area"></polygon>
+                            
+                            <!-- Spokes/Dividers -->
+                            <line x1="0" y1="0" x2="0" y2="-120" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="84.85" y2="-84.85" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="120" y2="0" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="84.85" y2="84.85" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="0" y2="120" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="-84.85" y2="84.85" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="-120" y2="0" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="-84.85" y2="-84.85" class="wheel-spoke"></line>
+
+                            <!-- Labels around the wheel -->
+                            <text x="0" y="-135" text-anchor="middle" class="wheel-sector-text">Здоровье</text>
+                            <text x="100" y="-100" text-anchor="start" class="wheel-sector-text">Карьера</text>
+                            <text x="135" y="5" text-anchor="start" class="wheel-sector-text">Финансы</text>
+                            <text x="100" y="110" text-anchor="start" class="wheel-sector-text">Семья</text>
+                            <text x="0" y="140" text-anchor="middle" class="wheel-sector-text">Окружение</text>
+                            <text x="-100" y="110" text-anchor="end" class="wheel-sector-text">Отдых</text>
+                            <text x="-135" y="5" text-anchor="end" class="wheel-sector-text">Духовность</text>
+                            <text x="-100" y="-100" text-anchor="end" class="wheel-sector-text">Развитие</text>
+                        </svg>
                     </div>
 
-                    <!-- Question 1 -->
-                    <div class="quiz-step" id="quiz-step-1">
-                        <div class="quiz-progress-bar">
-                            <div class="quiz-progress-fill" style="width: 20%;"></div>
-                        </div>
-                        <h3 class="quiz-question-title">1. Как вы оцениваете уровень своей энергии в конце обычного дня?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option-card" data-value="1">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Чувствую полное истощение, хроническую усталость, ничего не хочется делать (1 балл)</span>
+                    <div class="wheel-controls-side">
+                        <div class="wheel-sliders-grid">
+                            <div class="wheel-slider-item" data-sector="0">
+                                <span class="wheel-slider-label"><i data-lucide="activity"></i> Здоровье</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-0">
+                                <span class="wheel-slider-value" id="val-0">5</span>
                             </div>
-                            <div class="quiz-option-card" data-value="2">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Устаю, но сил хватает на базовые бытовые дела и общение с близкими (2 балла)</span>
+                            <div class="wheel-slider-item" data-sector="1">
+                                <span class="wheel-slider-label"><i data-lucide="briefcase"></i> Карьера</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-1">
+                                <span class="wheel-slider-value" id="val-1">5</span>
                             </div>
-                            <div class="quiz-option-card" data-value="3">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Наполнена энергией, чувствую подъем и строю планы на активный вечер (3 балла)</span>
+                            <div class="wheel-slider-item" data-sector="2">
+                                <span class="wheel-slider-label"><i data-lucide="coins"></i> Финансы</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-2">
+                                <span class="wheel-slider-value" id="val-2">5</span>
+                            </div>
+                            <div class="wheel-slider-item" data-sector="3">
+                                <span class="wheel-slider-label"><i data-lucide="home"></i> Семья</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-3">
+                                <span class="wheel-slider-value" id="val-3">5</span>
+                            </div>
+                            <div class="wheel-slider-item" data-sector="4">
+                                <span class="wheel-slider-label"><i data-lucide="users"></i> Окружение</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-4">
+                                <span class="wheel-slider-value" id="val-4">5</span>
+                            </div>
+                            <div class="wheel-slider-item" data-sector="5">
+                                <span class="wheel-slider-label"><i data-lucide="smile"></i> Отдых</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-5">
+                                <span class="wheel-slider-value" id="val-5">5</span>
+                            </div>
+                            <div class="wheel-slider-item" data-sector="6">
+                                <span class="wheel-slider-label"><i data-lucide="compass"></i> Духовность</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-6">
+                                <span class="wheel-slider-value" id="val-6">5</span>
+                            </div>
+                            <div class="wheel-slider-item" data-sector="7">
+                                <span class="wheel-slider-label"><i data-lucide="sparkles"></i> Развитие</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-7">
+                                <span class="wheel-slider-value" id="val-7">5</span>
                             </div>
                         </div>
-                        <div class="quiz-navigation">
-                            <button class="btn btn-secondary btn-quiz-prev" disabled>Назад</button>
-                            <button class="btn btn-primary btn-quiz-next">Далее <i data-lucide="arrow-right"></i></button>
-                        </div>
-                    </div>
 
-                    <!-- Question 2 -->
-                    <div class="quiz-step" id="quiz-step-2">
-                        <div class="quiz-progress-bar">
-                            <div class="quiz-progress-fill" style="width: 40%;"></div>
-                        </div>
-                        <h3 class="quiz-question-title">2. Есть ли в вашем близком окружении люди, которые вас искренне поддерживают и вдохновляют?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option-card" data-value="1">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Нет, часто сталкиваюсь с критикой, завистью или острым чувством одиночества (1 балл)</span>
+                        <!-- Lead capture form below sliders -->
+                        <div class="wheel-lead-form-wrapper" id="wheel-lead-form-section">
+                            <h4 class="wheel-form-title">Получить расшифровку баланса</h4>
+                            <p class="wheel-form-desc">Введите ваши контакты, чтобы сохранить колесо баланса и рассчитать уровень ресурса</p>
+                            <div class="wheel-form-row">
+                                <input type="text" id="wheel-user-name" placeholder="Ваше имя" required class="wheel-input-field">
+                                <input type="tel" id="wheel-user-phone" placeholder="WhatsApp (для связи)" required class="wheel-input-field">
+                                <button class="btn btn-primary" id="btn-submit-wheel">Построить и рассчитать <i data-lucide="trending-up"></i></button>
                             </div>
-                            <div class="quiz-option-card" data-value="2">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Есть 1–2 человека, но мне не хватает качественного развивающего общения (2 балла)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="3">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Да, меня окружает сильный поддерживающий круг единомышленниц (3 балла)</span>
-                            </div>
-                        </div>
-                        <div class="quiz-navigation">
-                            <button class="btn btn-secondary btn-quiz-prev">Назад</button>
-                            <button class="btn btn-primary btn-quiz-next">Далее <i data-lucide="arrow-right"></i></button>
-                        </div>
-                    </div>
-
-                    <!-- Question 3 -->
-                    <div class="quiz-step" id="quiz-step-3">
-                        <div class="quiz-progress-bar">
-                            <div class="quiz-progress-fill" style="width: 60%;"></div>
-                        </div>
-                        <h3 class="quiz-question-title">3. Как легко вам удается говорить «нет» и защищать свои личные границы?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option-card" data-value="1">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Очень сложно, часто соглашаюсь на неудобные условия в ущерб своим интересам (1 балл)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="2">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Пытаюсь отказывать и отстаивать границы, но потом долго чувствую себя виноватой (2 балла)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="3">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Спокойно и экологично обозначаю свои границы без какого-либо чувства вины (3 балла)</span>
-                            </div>
-                        </div>
-                        <div class="quiz-navigation">
-                            <button class="btn btn-secondary btn-quiz-prev">Назад</button>
-                            <button class="btn btn-primary btn-quiz-next">Далее <i data-lucide="arrow-right"></i></button>
-                        </div>
-                    </div>
-
-                    <!-- Question 4 -->
-                    <div class="quiz-step" id="quiz-step-4">
-                        <div class="quiz-progress-bar">
-                            <div class="quiz-progress-fill" style="width: 80%;"></div>
-                        </div>
-                        <h3 class="quiz-question-title">4. Что происходит, когда вы пытаетесь внедрить новые полезные привычки?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option-card" data-value="1">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Быстро теряю мотивацию и бросаю дело уже через 2-3 дня после старта (1 балл)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="2">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Держусь пару недель, но без внешней поддержки и отчетности срываюсь обратно (2 балла)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="3">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Системно и легко интегрирую новые привычки и ритуалы в свою повседневную жизнь (3 балла)</span>
-                            </div>
-                        </div>
-                        <div class="quiz-navigation">
-                            <button class="btn btn-secondary btn-quiz-prev">Назад</button>
-                            <button class="btn btn-primary btn-quiz-next">Далее <i data-lucide="arrow-right"></i></button>
-                        </div>
-                    </div>
-
-                    <!-- Question 5 -->
-                    <div class="quiz-step" id="quiz-step-5">
-                        <div class="quiz-progress-bar">
-                            <div class="quiz-progress-fill" style="width: 100%;"></div>
-                        </div>
-                        <h3 class="quiz-question-title">5. Как часто вы испытываете фоновую тревогу, неуверенность в себе или завтрашнем дне?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option-card" data-value="1">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Почти каждый день, это мешает мне спокойно спать и строить планы на будущее (1 балл)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="2">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Периодически, особенно при высоком уровне стресса на работе или в семье (2 балла)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="3">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Очень редко, я чувствую устойчивую внутреннюю опору, уверенность и спокойствие (3 балла)</span>
-                            </div>
-                        </div>
-                        <div class="quiz-navigation">
-                            <button class="btn btn-secondary btn-quiz-prev">Назад</button>
-                            <button class="btn btn-primary" id="btn-quiz-finish">Получить результат <i data-lucide="check"></i></button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Results View -->
-                <div class="quiz-result" id="quiz-result-view">
+                <!-- Results View (shown after submitting lead form) -->
+                <div class="wheel-results-view hidden" id="wheel-results-container">
                     <!-- Gauge Meter Dashboard -->
                     <div class="results-dashboard">
                         <div class="gauge-meter-wrapper">
@@ -367,34 +313,199 @@
                             </svg>
                             <div class="gauge-center-text">
                                 <div class="gauge-value" id="results-gauge-value">0%</div>
-                                <div class="gauge-label">Ресурс</div>
+                                <div class="gauge-label">Ваш ресурс</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="result-zone-card red-zone hidden" id="zone-red">
-                        <h3 class="result-zone-title">🔴 Красная зона (Выгорание и дефицит ресурса)</h3>
+                    <div class="result-zone-card red-zone hidden" id="wheel-zone-red">
+                        <h3 class="result-zone-title">🔴 Критический дефицит ресурса</h3>
                         <p class="result-zone-desc">
-                            Ваш уровень ресурса находится на критической отметке. Вы испытываете сильную эмоциональную или физическую усталость, страдаете от нарушения личных границ и отсутствия должного уровня поддержки. В таком состоянии крайне тяжело развиваться и принимать правильные жизненные решения.<br><br>
-                            <strong>Рекомендация:</strong> Вам срочно необходима бережная реабилитация, экологичное и безопасное поддерживающее окружение, а также фокус на себе. 21-дневная программа «Близкие Друзья» и бережное сопровождение психологов станут для вас идеальной точкой опоры для плавного выхода из кризиса.
+                            Ваш уровень ресурса находится на критически низкой отметке. Сферы отдыха, здоровья и окружения требуют немедленного восстановления. В таком состоянии сложно развиваться и принимать экологичные решения.<br><br>
+                            <strong>Рекомендация:</strong> Вам необходима бережная реабилитация и безопасное поддерживающее окружение. Программа «Близкие Друзья» и сопровождение кураторов-психологов помогут вам восстановить баланс во всех 8 сферах жизни.
                         </p>
-                        <button class="btn btn-primary btn-open-checkout">Начать восстановление в БД</button>
+                        <button class="btn btn-primary btn-open-checkout">Начать восстановление баланса</button>
                     </div>
-                    <div class="result-zone-card yellow-zone hidden" id="zone-yellow">
-                        <h3 class="result-zone-title">🟡 Желтая зона (Поиск баланса и застой)</h3>
+                    
+                    <div class="result-zone-card yellow-zone hidden" id="wheel-zone-yellow">
+                        <h3 class="result-zone-title">🟡 Поиск баланса и застой</h3>
                         <p class="result-zone-desc">
-                            У вас есть хороший внутренний потенциал, но на текущий момент вы застряли на месте. Усталость и рутина мешают вам сделать качественный рывок вперед. Вам не хватает системных привычек, регулярной мягкой дисциплины и, самое главное — сильного, нетоксичного окружения, которое будет вас мотивировать двигаться дальше.<br><br>
-                            <strong>Рекомендация:</strong> Программа «Близкие Друзья» поможет вам вернуть фокус внимания на себя, сформировать сильные ежедневные ритуалы и обрести единомышленниц, с которыми двигаться вперед будет намного легче, интереснее и быстрее.
+                            У вас есть хороший внутренний потенциал, но сферы отдыха и окружения проседают. Усталость и рутина мешают вам сделать качественный рывок вперед. Вам не хватает системных привычек и поддерживающего женского комьюнити.<br><br>
+                            <strong>Рекомендация:</strong> Программа «Близкие Друзья» поможет вам вернуть фокус внимания на себя, сформировать сильные ежедневные ритуалы и обрести близких по духу единомышленниц.
                         </p>
-                        <button class="btn btn-primary btn-open-checkout">Начать трансформацию в БД</button>
+                        <button class="btn btn-primary btn-open-checkout">Начать трансформацию баланса</button>
                     </div>
-                    <div class="result-zone-card green-zone hidden" id="zone-green">
-                        <h3 class="result-zone-title">🟢 Зеленая зона (Стабильный ресурс и готовность к росту)</h3>
+
+                    <div class="result-zone-card green-zone hidden" id="wheel-zone-green">
+                        <h3 class="result-zone-title">🟢 Стабильный баланс и готовность к росту</h3>
                         <p class="result-zone-desc">
-                            Поздравляем, вы отлично справляетесь со своей жизнью! Вы умеете распределять энергию, выстраивать личные границы и удерживать внутреннее спокойствие. Однако сейчас самое лучшее время для того, чтобы масштабировать свои результаты, избавиться от синдрома самозванца и выйти на принципиально новый уровень.<br><br>
-                            <strong>Рекомендация:</strong> БД даст вам доступ к закрытому нетворкингу сильных женщин, поможет глубже раскрыть ваш потенциал через продвинутые психологические практики и расширить финансовые и личные горизонты в поддерживающей премиальной среде.
+                            Поздравляем, вы отлично управляете балансом своей жизни! У вас ровные и здоровые показатели во всех сферах. Это идеальный момент для расширения горизонтов и выхода на новый уровень масштаба без выгорания.<br><br>
+                            <strong>Рекомендация:</strong> БД даст вам доступ к закрытому премиальному нетворкингу женщин, поможет глубже раскрыть ваш потенциал через продвинутые психологические практики.
                         </p>
                         <button class="btn btn-primary btn-open-checkout">Выйти на новый уровень с БД</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4.6 AMBIENCE & SENSORY SECTION -->
+    <section class="ambience-section" id="ambience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i data-lucide="headphones"></i> Атмосфера UMAY</span>
+                <h2 class="section-title">Почувствуйте легкость прямо сейчас</h2>
+                <p class="section-subtitle">Обретите спокойствие с помощью аудио-практики и загляните внутрь нашего пространства</p>
+            </div>
+
+            <div class="ambience-grid">
+                <!-- Left: Audio Player -->
+                <div class="ambience-player-card glass-panel">
+                    <div class="player-cover">
+                        <div class="player-cover-icon"><i data-lucide="music"></i></div>
+                        <div class="player-meta">
+                            <h3>Восстановление силы</h3>
+                            <p>Авторская аудио-медитация для расслабления и баланса</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Audio Wave Visualizer -->
+                    <div class="audio-wave-visualizer" id="wave-visualizer">
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                    </div>
+
+                    <!-- HTML5 Audio Node -->
+                    <audio id="meditation-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="metadata"></audio>
+
+                    <div class="player-controls">
+                        <button class="player-btn btn-play-pause" id="btn-play-pause" aria-label="Воспроизвести">
+                            <i data-lucide="play" id="play-icon"></i>
+                        </button>
+                        
+                        <div class="player-progress-container">
+                            <input type="range" class="player-progress-slider" id="audio-progress" min="0" max="100" value="0">
+                            <div class="player-time-row">
+                                <span id="time-current">0:00</span>
+                                <span id="time-total">3:15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Smartphone Mockup Slider -->
+                <div class="ambience-mockup-card glass-panel">
+                    <div class="smartphone-frame">
+                        <div class="smartphone-screen">
+                            <div class="screen-header">
+                                <span class="screen-time">14:21</span>
+                                <div class="screen-notch"></div>
+                                <div class="screen-icons">
+                                    <i data-lucide="wifi" style="width:12px;height:12px;display:inline-block;"></i>
+                                    <i data-lucide="battery" style="width:12px;height:12px;display:inline-block;"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-content-wrapper">
+                                <!-- Slide 1 -->
+                                <div class="screen-slide active" id="slide-0">
+                                    <div class="mockup-chat-header">
+                                        <i data-lucide="sparkles" class="text-gold"></i>
+                                        <div>
+                                            <h4>UMAY | Близкие Друзья</h4>
+                                            <p>5,420 подписчиков</p>
+                                        </div>
+                                    </div>
+                                    <div class="mockup-chat-body">
+                                        <div class="chat-message author-msg">
+                                            <span class="chat-sender">Алия Серикова</span>
+                                            <p>Доброе утро, дорогие! Сегодня наш 1-й день. Начнем с мягкой практики дыхания и зафиксируем точку А...</p>
+                                            <span class="chat-time">08:15</span>
+                                        </div>
+                                        <div class="chat-message info-msg">
+                                            <p>🎙 Голосовое сообщение (3:15)</p>
+                                            <button class="btn btn-primary btn-mini-play" style="padding: 6px 12px; font-size: 0.75rem; min-height: auto;"><i data-lucide="play" style="width:12px;height:12px;"></i> Слушать</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 2 -->
+                                <div class="screen-slide" id="slide-1">
+                                    <div class="mockup-chat-header">
+                                        <i data-lucide="message-square" class="text-green"></i>
+                                        <div>
+                                            <h4>Чат поддержки | Неделя 1</h4>
+                                            <p>120 участниц в группе</p>
+                                        </div>
+                                    </div>
+                                    <div class="mockup-chat-body">
+                                        <div class="chat-message msg-left">
+                                            <span class="chat-sender">Мадина, Алматы</span>
+                                            <p>Девочки, отчет за сегодня сдала! Такое облегчение после практики выгорания, будто гора с плеч 😍</p>
+                                            <span class="chat-time">11:32</span>
+                                        </div>
+                                        <div class="chat-message msg-left">
+                                            <span class="chat-sender">Сания, Астана</span>
+                                            <p>Мадина, согласна! У меня муж даже заметил, что я стала намного спокойнее общаться с детьми.</p>
+                                            <span class="chat-time">11:45</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 3 -->
+                                <div class="screen-slide" id="slide-2">
+                                    <div class="mockup-chat-header">
+                                        <i data-lucide="check-square" class="text-gold"></i>
+                                        <div>
+                                            <h4>Задание дня 03</h4>
+                                            <p>Практика баланса сфер</p>
+                                        </div>
+                                    </div>
+                                    <div class="mockup-chat-body">
+                                        <div class="mockup-task-box">
+                                            <h5>📝 Задание:</h5>
+                                            <p>Выпишите 3 вещи, которые забирают вашу энергию сегодня, и 1 вещь, которая ее наполняет.</p>
+                                            <div class="task-checkbox-item">
+                                                <input type="checkbox" id="task-chk-1" checked disabled>
+                                                <label for="task-chk-1">Практика дыхания</label>
+                                            </div>
+                                            <div class="task-checkbox-item">
+                                                <input type="checkbox" id="task-chk-2" disabled>
+                                                <label for="task-chk-2">Сдать отчет в чат</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-footer">
+                                <div class="footer-home-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mockup-controls">
+                        <button class="mockup-dot-btn active" data-slide="0" aria-label="Слайд 1"></button>
+                        <button class="mockup-dot-btn" data-slide="1" aria-label="Слайд 2"></button>
+                        <button class="mockup-dot-btn" data-slide="2" aria-label="Слайд 3"></button>
                     </div>
                 </div>
             </div>
@@ -1091,102 +1202,142 @@
         <button class="close-modal-btn" id="checkout-close" aria-label="Закрыть"><i data-lucide="x"></i></button>
         
         <div class="checkout-modal-content">
-            <h3 class="checkout-title">Оформление участия</h3>
-            <p class="checkout-subtitle">Онлайн-программа «Близкие Друзья»</p>
-            
-            <div class="payment-tabs">
-                <button class="pay-tab active" id="tab-kaspi">Kaspi QR</button>
-                <button class="pay-tab" id="tab-card">Карта Visa/Mastercard</button>
-            </div>
-            
-            <!-- Kaspi QR Panel -->
-            <div class="payment-panel active" id="panel-kaspi">
-                <p class="pay-instructions">Откройте приложение <strong>Kaspi.kz</strong> на телефоне → выберите <strong>Kaspi QR</strong> и отсканируйте код:</p>
-                
-                <div class="kaspi-payment-box glass-panel-dark" style="position: relative; overflow: hidden;">
-                    <div class="kaspi-red-header">Kaspi QR</div>
-                    <div class="kaspi-qr-wrapper">
-                        <div class="qr-scanner-line"></div>
-                        <!-- Simulated QR Code SVG -->
-                        <svg viewBox="0 0 100 100" class="kaspi-qr-svg">
-                            <rect x="10" y="10" width="20" height="20" fill="#e11d48"/>
-                            <rect x="15" y="15" width="10" height="10" fill="white"/>
-                            <rect x="70" y="10" width="20" height="20" fill="#e11d48"/>
-                            <rect x="75" y="15" width="10" height="10" fill="white"/>
-                            <rect x="10" y="70" width="20" height="20" fill="#e11d48"/>
-                            <rect x="15" y="75" width="10" height="10" fill="white"/>
-                            <!-- Pixels noise -->
-                            <rect x="42" y="20" width="10" height="15" fill="#222624"/>
-                            <rect x="52" y="45" width="20" height="15" fill="#222624"/>
-                            <rect x="25" y="62" width="12" height="20" fill="#222624"/>
-                            <rect x="70" y="70" width="15" height="15" fill="#222624"/>
-                            <rect x="35" y="75" width="5" height="5" fill="#e11d48"/>
-                        </svg>
-                        <div class="qr-pulse-glow"></div>
-                    </div>
-                    <div class="kaspi-qr-title">CLOSE FRIENDS COMMUNITY</div>
-                </div>
-            </div>
-            
-            <!-- Card Panel -->
-            <div class="payment-panel" id="panel-card">
-                <p class="pay-instructions">Введите реквизиты карты любого банка СНГ/РК:</p>
-                <div class="cc-flip-container" id="cc-flip-card">
-                    <div class="cc-card-flipper">
-                        <!-- Card Front -->
-                        <div class="cc-front">
-                            <div class="cc-brand" id="cc-brand-logo">Visa / Mastercard</div>
-                            <div class="cc-chip"></div>
-                            <div class="cc-number" id="cc-card-number-preview">•••• •••• •••• 1122</div>
-                            <div class="cc-holder-row">
-                                <div>
-                                    <span class="cc-label">ВЛАДЕЛЕЦ</span>
-                                    <div id="cc-name-display">ALIYA S.</div>
-                                </div>
-                                <div>
-                                    <span class="cc-label">СРОК</span>
-                                    <div id="cc-expiry-preview">12/28</div>
-                                </div>
-                            </div>
+            <div class="checkout-two-columns">
+                <!-- Column 1: Order Details & Security -->
+                <div class="checkout-details-column">
+                    <h3 class="checkout-title">Ваш заказ</h3>
+                    <p class="checkout-subtitle">Онлайн-программа «Близкие Друзья»</p>
+                    
+                    <div class="checkout-receipt">
+                        <div class="receipt-item">
+                            <i data-lucide="check-circle" class="text-green"></i>
+                            <span>21-дневная программа поддержки</span>
                         </div>
-                        <!-- Card Back -->
-                        <div class="cc-back">
-                            <div class="cc-black-magnetic-strip"></div>
-                            <div class="cc-signature-strip" id="cc-cvv-preview">•••</div>
-                            <div class="cc-back-info">
-                                Электронный симулятор платежа. Данные защищены Freedom Pay шифрованием SSL 256-bit.
-                            </div>
+                        <div class="receipt-item">
+                            <i data-lucide="check-circle" class="text-green"></i>
+                            <span>Доступ в личный кабинет навсегда</span>
+                        </div>
+                        <div class="receipt-item">
+                            <i data-lucide="check-circle" class="text-green"></i>
+                            <span>Закрытый нетворкинг-чат</span>
+                        </div>
+                        <div class="receipt-item">
+                            <i data-lucide="check-circle" class="text-green"></i>
+                            <span>Кураторское сопровождение психологов</span>
+                        </div>
+                        
+                        <div class="receipt-divider"></div>
+                        
+                        <div class="receipt-total">
+                            <span>Итого к оплате:</span>
+                            <strong>7 000 ₸</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-security-badges">
+                        <div class="security-badge">
+                            <i data-lucide="shield-check" class="text-gold"></i>
+                            <span>SSL Secure</span>
+                        </div>
+                        <div class="security-badge">
+                            <i data-lucide="lock" class="text-gold"></i>
+                            <span>3D Secure</span>
+                        </div>
+                        <div class="security-badge">
+                            <i data-lucide="check-square" class="text-gold"></i>
+                            <span>Kaspi Gold Партнер</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="card-inputs-grid">
-                    <div class="form-group full-width">
-                        <label for="card-number-input">Номер карты</label>
-                        <input type="text" id="card-number-input" placeholder="4400 0000 0000 0000" class="glass-input" maxlength="19">
+                <!-- Column 2: Payment Inputs -->
+                <div class="checkout-inputs-column">
+                    <div class="payment-tabs">
+                        <button class="pay-tab active" id="tab-kaspi">Kaspi QR</button>
+                        <button class="pay-tab" id="tab-card">Карта Visa/Mastercard</button>
                     </div>
-                    <div class="form-group">
-                        <label for="card-expiry-input">Срок действия</label>
-                        <input type="text" id="card-expiry-input" placeholder="MM/YY" class="glass-input" maxlength="5">
+                    
+                    <!-- Kaspi QR Panel -->
+                    <div class="payment-panel active" id="panel-kaspi">
+                        <p class="pay-instructions">Откройте приложение <strong>Kaspi.kz</strong> → выберите <strong>Kaspi QR</strong> и отсканируйте код:</p>
+                        
+                        <div class="kaspi-payment-box glass-panel-dark" style="position: relative; overflow: hidden; margin-top: 10px;">
+                            <div class="kaspi-red-header">Kaspi QR</div>
+                            <div class="kaspi-qr-wrapper">
+                                <div class="qr-scanner-line"></div>
+                                <svg viewBox="0 0 100 100" class="kaspi-qr-svg">
+                                    <rect x="10" y="10" width="20" height="20" fill="#e11d48"/>
+                                    <rect x="15" y="15" width="10" height="10" fill="white"/>
+                                    <rect x="70" y="10" width="20" height="20" fill="#e11d48"/>
+                                    <rect x="75" y="15" width="10" height="10" fill="white"/>
+                                    <rect x="10" y="70" width="20" height="20" fill="#e11d48"/>
+                                    <rect x="15" y="75" width="10" height="10" fill="white"/>
+                                    <rect x="42" y="20" width="10" height="15" fill="#222624"/>
+                                    <rect x="52" y="45" width="20" height="15" fill="#222624"/>
+                                    <rect x="25" y="62" width="12" height="20" fill="#222624"/>
+                                    <rect x="70" y="70" width="15" height="15" fill="#222624"/>
+                                    <rect x="35" y="75" width="5" height="5" fill="#e11d48"/>
+                                </svg>
+                                <div class="qr-pulse-glow"></div>
+                            </div>
+                            <div class="kaspi-qr-title">CLOSE FRIENDS COMMUNITY</div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="card-cvv-input">CVV / CVC</label>
-                        <input type="password" id="card-cvv-input" placeholder="•••" class="glass-input" maxlength="3">
+                    
+                    <!-- Card Panel -->
+                    <div class="payment-panel" id="panel-card">
+                        <p class="pay-instructions">Введите реквизиты карты любого банка СНГ/РК:</p>
+                        <div class="cc-flip-container" id="cc-flip-card" style="margin-top: 10px;">
+                            <div class="cc-card-flipper">
+                                <div class="cc-front">
+                                    <div class="cc-brand" id="cc-brand-logo">Visa / Mastercard</div>
+                                    <div class="cc-chip"></div>
+                                    <div class="cc-number" id="cc-card-number-preview">•••• •••• •••• 1122</div>
+                                    <div class="cc-holder-row">
+                                        <div>
+                                            <span class="cc-label">ВЛАДЕЛЕЦ</span>
+                                            <div id="cc-name-display">ALIYA S.</div>
+                                        </div>
+                                        <div>
+                                            <span class="cc-label">СРОК</span>
+                                            <div id="cc-expiry-preview">12/28</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cc-back">
+                                    <div class="cc-black-magnetic-strip"></div>
+                                    <div class="cc-signature-strip" id="cc-cvv-preview">•••</div>
+                                    <div class="cc-back-info">
+                                        Электронный симулятор платежа. Данные защищены Freedom Pay шифрованием SSL 256-bit.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-inputs-grid">
+                            <div class="form-group full-width">
+                                <label for="card-number-input">Номер карты</label>
+                                <input type="text" id="card-number-input" placeholder="4400 0000 0000 0000" class="glass-input" maxlength="19">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-expiry-input">Срок действия</label>
+                                <input type="text" id="card-expiry-input" placeholder="MM/YY" class="glass-input" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvv-input">CVV / CVC</label>
+                                <input type="password" id="card-cvv-input" placeholder="•••" class="glass-input" maxlength="3">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-actions">
+                        <button class="btn btn-secondary btn-full" id="checkout-cancel-btn">Отмена</button>
+                        <button class="btn btn-primary btn-full" id="checkout-pay-btn">
+                            <span class="pay-btn-text">Я оплатила через Kaspi QR</span>
+                            <span class="pay-btn-spinner hidden"></span>
+                        </button>
                     </div>
                 </div>
-            </div>
-            
-            <div class="checkout-bill-summary">
-                <span>Сумма списания (единоразово):</span>
-                <strong>7 000 ₸</strong>
-            </div>
-            
-            <div class="checkout-actions">
-                <button class="btn btn-secondary btn-full" id="checkout-cancel-btn">Отмена</button>
-                <button class="btn btn-primary btn-full" id="checkout-pay-btn">
-                    <span class="pay-btn-text">Я оплатила через Kaspi QR</span>
-                    <span class="pay-btn-spinner hidden"></span>
-                </button>
             </div>
         </div>
         

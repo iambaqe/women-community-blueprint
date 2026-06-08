@@ -174,164 +174,110 @@
         </div>
     </section>
 
-    <!-- 4.5 DIAGNOSTIC QUIZ SECTION -->
+    <!-- 4.5 DIAGNOSTIC WHEEL SECTION -->
     <section class="quiz-section" id="quiz">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag"><i data-lucide="sparkles"></i> Диагностика</span>
-                <h2 class="section-title">Психологиялық экспресс-тесттен өтіңіз</h2>
-                <p class="section-subtitle">Өзіңіздің ішкі ресурстарыңызды, ортаңызды және сенімділігіңізді бағалаңыз</p>
+                <h2 class="section-title">Өзіңіздің өмірлік баланс дөңгелегін құрыңыз</h2>
+                <p class="section-subtitle">Өміріңіздің 8 негізгі саласына арналған интерактивті диагностика және ресурсыңызды жылдам есептеу</p>
             </div>
 
-            <div class="quiz-card glass-panel" id="quiz-card-wrapper">
-                <div class="quiz-slides-container">
-                    <!-- Intro View -->
-                    <div class="quiz-step active" id="quiz-step-intro">
-                        <div style="text-align: center; padding: 20px 0;">
-                            <h3 class="quiz-question-title" style="margin-bottom: 20px;">Ішкі ресурсыңыздың деңгейін білуге дайынсыз ба?</h3>
-                            <p style="color: var(--text-secondary); margin-bottom: 36px; line-height: 1.7; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                                Бұл тест қауымдастығымыздың тәжірибелі психологтарымен әзірленген. 5 қарапайым сұраққа жауап беру арқылы өміріңіздің балансын бағалаңыз және жеке ұсыныстар алыңыз.
-                            </p>
-                            <button class="btn btn-primary" id="btn-quiz-start" style="padding: 18px 48px; font-size: 1.05rem;">
-                                <span>Экспресс-тестті бастау</span>
-                                <i data-lucide="play"></i>
-                            </button>
-                        </div>
+            <div class="wheel-interactive-card glass-panel" id="wheel-card-wrapper">
+                <div class="wheel-flex-container">
+                    <div class="wheel-visual-side">
+                        <svg class="wheel-svg" id="wheel-svg" viewBox="-150 -150 300 300">
+                            <!-- Background Grid Rings -->
+                            <circle cx="0" cy="0" r="120" class="wheel-grid-ring"></circle>
+                            <circle cx="0" cy="0" r="96" class="wheel-grid-ring"></circle>
+                            <circle cx="0" cy="0" r="72" class="wheel-grid-ring"></circle>
+                            <circle cx="0" cy="0" r="48" class="wheel-grid-ring"></circle>
+                            <circle cx="0" cy="0" r="24" class="wheel-grid-ring"></circle>
+                            
+                            <!-- Filled Polygon area (will be dynamically rendered by JS) -->
+                            <polygon id="wheel-filled-polygon" points="" class="wheel-filled-area"></polygon>
+                            
+                            <!-- Spokes/Dividers -->
+                            <line x1="0" y1="0" x2="0" y2="-120" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="84.85" y2="-84.85" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="120" y2="0" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="84.85" y2="84.85" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="0" y2="120" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="-84.85" y2="84.85" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="-120" y2="0" class="wheel-spoke"></line>
+                            <line x1="0" y1="0" x2="-84.85" y2="-84.85" class="wheel-spoke"></line>
+
+                            <!-- Labels around the wheel -->
+                            <text x="0" y="-135" text-anchor="middle" class="wheel-sector-text">Денсаулық</text>
+                            <text x="100" y="-100" text-anchor="start" class="wheel-sector-text">Мансап</text>
+                            <text x="135" y="5" text-anchor="start" class="wheel-sector-text">Қаржы</text>
+                            <text x="100" y="110" text-anchor="start" class="wheel-sector-text">Отбасы</text>
+                            <text x="0" y="140" text-anchor="middle" class="wheel-sector-text">Орта</text>
+                            <text x="-100" y="110" text-anchor="end" class="wheel-sector-text">Демалыс</text>
+                            <text x="-135" y="5" text-anchor="end" class="wheel-sector-text">Руханият</text>
+                            <text x="-100" y="-100" text-anchor="end" class="wheel-sector-text">Даму</text>
+                        </svg>
                     </div>
 
-                    <!-- Question 1 -->
-                    <div class="quiz-step" id="quiz-step-1">
-                        <div class="quiz-progress-bar">
-                            <div class="quiz-progress-fill" style="width: 20%;"></div>
-                        </div>
-                        <h3 class="quiz-question-title">1. Күннің соңында өзіңіздің күш-қуатыңызды қалай бағалайсыз?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option-card" data-value="1">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Толықтай қажығанымды сеземін, созылмалы шаршау бар, ештеңе істегім келмейді (1 ұпай)</span>
+                    <div class="wheel-controls-side">
+                        <div class="wheel-sliders-grid">
+                            <div class="wheel-slider-item" data-sector="0">
+                                <span class="wheel-slider-label"><i data-lucide="activity"></i> Денсаулық</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-0">
+                                <span class="wheel-slider-value" id="val-0">5</span>
                             </div>
-                            <div class="quiz-option-card" data-value="2">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Шаршаймын, бірақ үй шаруасына және жақындарыммен араласуға күшім жетеді (2 ұпай)</span>
+                            <div class="wheel-slider-item" data-sector="1">
+                                <span class="wheel-slider-label"><i data-lucide="briefcase"></i> Мансап</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-1">
+                                <span class="wheel-slider-value" id="val-1">5</span>
                             </div>
-                            <div class="quiz-option-card" data-value="3">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Күш-қуатым тасып тұрады, сергекпін және кешке белсенді жоспарлар құрамын (3 ұпай)</span>
+                            <div class="wheel-slider-item" data-sector="2">
+                                <span class="wheel-slider-label"><i data-lucide="coins"></i> Қаржы</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-2">
+                                <span class="wheel-slider-value" id="val-2">5</span>
+                            </div>
+                            <div class="wheel-slider-item" data-sector="3">
+                                <span class="wheel-slider-label"><i data-lucide="home"></i> Отбасы</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-3">
+                                <span class="wheel-slider-value" id="val-3">5</span>
+                            </div>
+                            <div class="wheel-slider-item" data-sector="4">
+                                <span class="wheel-slider-label"><i data-lucide="users"></i> Орта</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-4">
+                                <span class="wheel-slider-value" id="val-4">5</span>
+                            </div>
+                            <div class="wheel-slider-item" data-sector="5">
+                                <span class="wheel-slider-label"><i data-lucide="smile"></i> Демалыс</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-5">
+                                <span class="wheel-slider-value" id="val-5">5</span>
+                            </div>
+                            <div class="wheel-slider-item" data-sector="6">
+                                <span class="wheel-slider-label"><i data-lucide="compass"></i> Руханият</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-6">
+                                <span class="wheel-slider-value" id="val-6">5</span>
+                            </div>
+                            <div class="wheel-slider-item" data-sector="7">
+                                <span class="wheel-slider-label"><i data-lucide="sparkles"></i> Даму</span>
+                                <input type="range" min="1" max="10" value="5" class="wheel-range-slider" id="slider-7">
+                                <span class="wheel-slider-value" id="val-7">5</span>
                             </div>
                         </div>
-                        <div class="quiz-navigation">
-                            <button class="btn btn-secondary btn-quiz-prev" disabled>Артқа</button>
-                            <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
-                        </div>
-                    </div>
 
-                    <!-- Question 2 -->
-                    <div class="quiz-step" id="quiz-step-2">
-                        <div class="quiz-progress-bar">
-                            <div class="quiz-progress-fill" style="width: 40%;"></div>
-                        </div>
-                        <h3 class="quiz-question-title">2. Жақын ортаңызда сізді шын жүректен қолдайтын және шабыттандыратын адамдар бар ма?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option-card" data-value="1">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Жоқ, көбіне сынмен, қызғанышпен немесе жалғыздық сезімімен бетпе-бет келемін (1 ұпай)</span>
+                        <!-- Lead capture form below sliders -->
+                        <div class="wheel-lead-form-wrapper" id="wheel-lead-form-section">
+                            <h4 class="wheel-form-title">Баланстың толық талдауын алу</h4>
+                            <p class="wheel-form-desc">Баланс дөңгелегін сақтау және ресурстың толық есебін ашу үшін байланыс деректеріңізді енгізіңіз</p>
+                            <div class="wheel-form-row">
+                                <input type="text" id="wheel-user-name" placeholder="Сіздің есіміңіз" required class="wheel-input-field">
+                                <input type="tel" id="wheel-user-phone" placeholder="WhatsApp (байланыс үшін)" required class="wheel-input-field">
+                                <button class="btn btn-primary" id="btn-submit-wheel">Дөңгелекті құру және есептеу <i data-lucide="trending-up"></i></button>
                             </div>
-                            <div class="quiz-option-card" data-value="2">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">1–2 адам бар, бірақ маған сапалы дамытатын орта жетіспейді (2 ұпай)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="3">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Иә, мені әрқашан қолдайтын және маған сенетін мықты әйелдер қоршаған (3 ұпай)</span>
-                            </div>
-                        </div>
-                        <div class="quiz-navigation">
-                            <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
-                            <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
-                        </div>
-                    </div>
-
-                    <!-- Question 3 -->
-                    <div class="quiz-step" id="quiz-step-3">
-                        <div class="quiz-progress-bar">
-                            <div class="quiz-progress-fill" style="width: 60%;"></div>
-                        </div>
-                        <h3 class="quiz-question-title">3. Сізге «жоқ» деп айту және жеке шекараларыңызды қорғау қаншалықты оңай?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option-card" data-value="1">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Өте қиын, көбіне өз мүддеме нұқсан келтіре отырып келісемін (1 ұпай)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="2">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Бас тартуға тырысамын, бірақ кейін өзімді ұзақ уақыт кінәлі сезінемін (2 ұпай)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="3">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Ешқандай кінә сезінбестен, жеке шекараларымды сенімді түрде орнатамын (3 ұпай)</span>
-                            </div>
-                        </div>
-                        <div class="quiz-navigation">
-                            <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
-                            <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
-                        </div>
-                    </div>
-
-                    <!-- Question 4 -->
-                    <div class="quiz-step" id="quiz-step-4">
-                        <div class="quiz-progress-bar">
-                            <div class="quiz-progress-fill" style="width: 80%;"></div>
-                        </div>
-                        <h3 class="quiz-question-title">4. Жаңа пайдалы әдеттерді енгізуге тырысқанда не болады?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option-card" data-value="1">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Мотивацияны тез жоғалтып, 2-3 күннен кейін тастап кетемін (1 ұпай)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="2">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Бірнеше апта ұстанамын, бірақ сыртқы қолдаусыз бәрібір үзіліп қалады (2 ұпай)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="3">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Пайдалы әдеттер мен ритуалдарды өміріме жүйелі түрде оңай сіңіремін (3 ұпай)</span>
-                            </div>
-                        </div>
-                        <div class="quiz-navigation">
-                            <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
-                            <button class="btn btn-primary btn-quiz-next">Келесі <i data-lucide="arrow-right"></i></button>
-                        </div>
-                    </div>
-
-                    <!-- Question 5 -->
-                    <div class="quiz-step" id="quiz-step-5">
-                        <div class="quiz-progress-bar">
-                            <div class="quiz-progress-fill" style="width: 100%;"></div>
-                        </div>
-                        <h3 class="quiz-question-title">5. Мазасыздықты, өзіңізге деген сенімсіздікті немесе болашаққа деген қорқынышты қаншалықты жиі сезінесіз?</h3>
-                        <div class="quiz-options">
-                            <div class="quiz-option-card" data-value="1">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Күнде дерлік, бұл маған ұйықтауға және болашақты жоспарлауға кедергі келтіреді (1 ұпай)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="2">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Кейде, әсіресе жұмыста немесе отбасында күйзеліс болған кезде (2 ұпай)</span>
-                            </div>
-                            <div class="quiz-option-card" data-value="3">
-                                <div class="quiz-radio-circle"></div>
-                                <span class="quiz-option-text">Өте сирек, мен ішкі тұрақты тірегімді және тыныштықты сезінемін (3 ұпай)</span>
-                            </div>
-                        </div>
-                        <div class="quiz-navigation">
-                            <button class="btn btn-secondary btn-quiz-prev">Артқа</button>
-                            <button class="btn btn-primary" id="btn-quiz-finish">Нәтижені алу <i data-lucide="check"></i></button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Results View -->
-                <div class="quiz-result" id="quiz-result-view">
+                <!-- Results View (shown after submitting lead form) -->
+                <div class="wheel-results-view hidden" id="wheel-results-container">
                     <!-- Gauge Meter Dashboard -->
                     <div class="results-dashboard">
                         <div class="gauge-meter-wrapper">
@@ -341,40 +287,205 @@
                             </svg>
                             <div class="gauge-center-text">
                                 <div class="gauge-value" id="results-gauge-value">0%</div>
-                                <div class="gauge-label">Ресурс</div>
+                                <div class="gauge-label">Ресурсыңыз</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="result-zone-card red-zone hidden" id="zone-red">
-                        <h3 class="result-zone-title">🔴 Қызыл аймақ (Күш-қуаттың сарқылуы және дағдарыс)</h3>
+                    <div class="result-zone-card red-zone hidden" id="wheel-zone-red">
+                        <h3 class="result-zone-title">🔴 Күш-қуаттың сарқылуы және дағдарыс</h3>
                         <p class="result-zone-desc">
-                            Сіздің ресурсыңыз өте төмен деңгейде. Сіз қатты эмоционалды немесе физикалық шаршауды сезінесіз, жеке шекараларыңыз бұзылып, қолдаудың жоқтығынан зардап шегесіз. Мұндай күйде даму және дұрыс өмірлік шешімдер қабылдау өте қиын.<br><br>
-                            <strong>Ұсыныс:</strong> Сізге тез арада қолдау, қауіпсіз орта және шекараларды қалпына келтіру қажет. 21 күндік «Жақын Достар» бағдарламасы мен психологтардың қолдауы сізге осы дағдарыстан шығуға көмектеседі.
+                            Сіздің ресурсыңыз өте төмен деңгейде. Денсаулық, демалыс және орта салалары тез арада қалпына келтіруді талап етеді. Мұндай күйде даму және дұрыс шешімдер қабылдау қиын.<br><br>
+                            <strong>Ұсыныс:</strong> Сізге тез арада қолдау және қауіпсіз орта қажет. 21 күндік «Жақын Достар» бағдарламасы мен психологтардың қолдауы сізге барлық 8 саланы қалпына келтіруге көмектеседі.
                         </p>
-                        <button class="btn btn-primary btn-open-checkout">ЖД арқылы қалпына келуді бастау</button>
+                        <button class="btn btn-primary btn-open-checkout">Балансты қалпына келтіруді бастау</button>
                     </div>
-                    <div class="result-zone-card yellow-zone hidden" id="zone-yellow">
-                        <h3 class="result-zone-title">🟡 Сары аймақ (Теңгерімді іздеу және тоқырау)</h3>
+                    
+                    <div class="result-zone-card yellow-zone hidden" id="wheel-zone-yellow">
+                        <h3 class="result-zone-title">🟡 Теңгерімді іздеу және тоқырау</h3>
                         <p class="result-zone-desc">
-                            Бойыңызда жақсы ішкі әлеует бар, бірақ қазіргі уақытта бір орында тұрып қалғандайсыз. Күнделікті күйбең тірлік пен шаршау сізге алға серпіліс жасауға кедергі келтіреді. Сізге пайдалы әдеттер, жүйелі тәртіп және ең бастысы — сізді алға жетелейтін сапалы әйелдер ортасы жетіспейді.<br><br>
-                            <strong>Ұсыныс:</strong> «Жақын Достар» бағдарламасы сізге назарыңызды өзіңізге аударуға, күнделікті пайдалы әдеттер қалыптастыруға және алға сенімді қадам басуға көмектеседі.
+                            Бойыңызда жақсы ішкі әлеует бар, бірақ демалыс пен орта салаларында баланс жетіспейді. Күнделікті күйбең тірлік сізге алға серпіліс жасауға кедергі келтіреді.<br><br>
+                            <strong>Ұсыныс:</strong> «Жақын Достар» бағдарламасы сізге назарыңызды өзіңізге аударуға, пайдалы әдеттер қалыптастыруға және сізді алға жетелейтін әйелдер ортасын табуға көмектеседі.
                         </p>
-                        <button class="btn btn-primary btn-open-checkout">ЖД арқылы трансформацияны бастау</button>
+                        <button class="btn btn-primary btn-open-checkout">Трансформацияны бастау</button>
                     </div>
-                    <div class="result-zone-card green-zone hidden" id="zone-green">
-                        <h3 class="result-zone-title">🟢 Жасыл аймақ (Тұрақты ресурс және дамуға дайындық)</h3>
+
+                    <div class="result-zone-card green-zone hidden" id="wheel-zone-green">
+                        <h3 class="result-zone-title">🟢 Тұрақты ресурс және дамуға дайындық</h3>
                         <p class="result-zone-desc">
-                            Құттықтаймыз, сіз өзіңіздің өміріңізді өте жақсы басқарып отырсыз! Сіз күш-қуатты бөлуді, жеке шекараларды орнатуды және ішкі тыныштықты сақтауды білесіз. Дегенмен, қазір нәтижелеріңізді одан әрі арттырып, жаңа биіктерді бағындырудың ең қолайлы уақыты.<br><br>
+                            Құттықтаймыз, сіз өзіңіздің өміріңізді өте жақсы басқарып отырсыз! Дегенмен, қазір нәтижелеріңізді одан әрі арттырып, жаңа биіктерді бағындырудың ең қолайлы уақыты.<br><br>
                             <strong>Ұсыныс:</strong> ЖД сізге мықты әрі белсенді әйелдердің жабық нетворкингіне жол ашады, ішкі әлеуетіңізді тереңірек ашуға және өмір сапасын жаңа деңгейге көтеруге көмектеседі.
                         </p>
-                        <button class="btn btn-primary btn-open-checkout">ЖД-мен бірге жаңа деңгейге шығу</button>
+                        <button class="btn btn-primary btn-open-checkout">Жаңа деңгейге шығу</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- 4.6 AMBIENCE & SENSORY SECTION -->
+    <section class="ambience-section" id="ambience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i data-lucide="headphones"></i> UMAY атмосферасы</span>
+                <h2 class="section-title">Қазірдің өзінде жеңілдікті сезініңіз</h2>
+                <p class="section-subtitle">Қысқаша аудио-практика арқылы тыныштықты сезініңіз және жабық клубымыздың ішкі өмірімен танысыңыз</p>
+            </div>
+
+            <div class="ambience-grid">
+                <!-- Left: Audio Player -->
+                <div class="ambience-player-card glass-panel">
+                    <div class="player-cover">
+                        <div class="player-cover-icon"><i data-lucide="music"></i></div>
+                        <div class="player-meta">
+                            <h3>Ішкі күшті қалпына келтіру</h3>
+                            <p>Босаңсу мен тепе-теңдікке арналған авторлық аудио-медитация</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Audio Wave Visualizer -->
+                    <div class="audio-wave-visualizer" id="wave-visualizer">
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                    </div>
+
+                    <!-- HTML5 Audio Node -->
+                    <audio id="meditation-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="metadata"></audio>
+
+                    <div class="player-controls">
+                        <button class="player-btn btn-play-pause" id="btn-play-pause" aria-label="Воспроизвести">
+                            <i data-lucide="play" id="play-icon"></i>
+                        </button>
+                        
+                        <div class="player-progress-container">
+                            <input type="range" class="player-progress-slider" id="audio-progress" min="0" max="100" value="0">
+                            <div class="player-time-row">
+                                <span id="time-current">0:00</span>
+                                <span id="time-total">3:15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Smartphone Mockup Slider -->
+                <div class="ambience-mockup-card glass-panel">
+                    <div class="smartphone-frame">
+                        <div class="smartphone-screen">
+                            <div class="screen-header">
+                                <span class="screen-time">14:21</span>
+                                <div class="screen-notch"></div>
+                                <div class="screen-icons">
+                                    <i data-lucide="wifi" style="width:12px;height:12px;display:inline-block;"></i>
+                                    <i data-lucide="battery" style="width:12px;height:12px;display:inline-block;"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-content-wrapper">
+                                <!-- Slide 1 -->
+                                <div class="screen-slide active" id="slide-0">
+                                    <div class="mockup-chat-header">
+                                        <i data-lucide="sparkles" class="text-gold"></i>
+                                        <div>
+                                            <h4>UMAY | Жақын Достар</h4>
+                                            <p>5,420 жазылушы</p>
+                                        </div>
+                                    </div>
+                                    <div class="mockup-chat-body">
+                                        <div class="chat-message author-msg">
+                                            <span class="chat-sender">Әлия Серікова</span>
+                                            <p>Қайырлы таң, қымбаттыларым! Бүгін біздің 1-ші күніміз. Тыныс алу тәжірибесінен бастап, А нүктесін белгілейік...</p>
+                                            <span class="chat-time">08:15</span>
+                                        </div>
+                                        <div class="chat-message info-msg">
+                                            <p>🎙 Дауыстық хабарлама (3:15)</p>
+                                            <button class="btn btn-primary btn-mini-play" style="padding: 6px 12px; font-size: 0.75rem; min-height: auto;"><i data-lucide="play" style="width:12px;height:12px;"></i> Тыңдау</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 2 -->
+                                <div class="screen-slide" id="slide-1">
+                                    <div class="mockup-chat-header">
+                                        <i data-lucide="message-square" class="text-green"></i>
+                                        <div>
+                                            <h4>Қолдау чаты | 1-апта</h4>
+                                            <p>120 қатысушы топта</p>
+                                        </div>
+                                    </div>
+                                    <div class="mockup-chat-body">
+                                        <div class="chat-message msg-left">
+                                            <span class="chat-sender">Мадина, Алматы</span>
+                                            <p>Қыздар, бүгінгі есепті тапсырдым! Соматикалық жаттығудан кейін жеңілдеп қалдым 😍</p>
+                                            <span class="chat-time">11:32</span>
+                                        </div>
+                                        <div class="chat-message msg-left">
+                                            <span class="chat-sender">Сәния, Астана</span>
+                                            <p>Мадина, келісемін! Күйеуім де менің сабырлы болып, балалармен байсалды сөйлесетінімді байқады.</p>
+                                            <span class="chat-time">11:45</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Slide 3 -->
+                                <div class="screen-slide" id="slide-2">
+                                    <div class="mockup-chat-header">
+                                        <i data-lucide="check-square" class="text-gold"></i>
+                                        <div>
+                                            <h4>Күнделікті тапсырма 03</h4>
+                                            <p>Баланс сфералары</p>
+                                        </div>
+                                    </div>
+                                    <div class="mockup-chat-body">
+                                        <div class="mockup-task-box">
+                                            <h5>📝 Тапсырма:</h5>
+                                            <p>Бүгін сіздің күш-қуатыңызды алатын 3 нәрсені және оны толтыратын 1 әрекетті жазыңыз.</p>
+                                            <div class="task-checkbox-item">
+                                                <input type="checkbox" id="task-chk-1" checked disabled>
+                                                <label for="task-chk-1">Тыныс алу тәжірибесі</label>
+                                            </div>
+                                            <div class="task-checkbox-item">
+                                                <input type="checkbox" id="task-chk-2" disabled>
+                                                <label for="task-chk-2">Есепті чатқа жіберу</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="screen-footer">
+                                <div class="footer-home-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mockup-controls">
+                        <button class="mockup-dot-btn active" data-slide="0" aria-label="Слайд 1"></button>
+                        <button class="mockup-dot-btn" data-slide="1" aria-label="Слайд 2"></button>
+                        <button class="mockup-dot-btn" data-slide="2" aria-label="Слайд 3"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 5. TIMELINE SECTION -->
     <section class="timeline-section" id="timeline">
         <div class="container">
@@ -1059,106 +1170,146 @@
 
     <!-- KASPI CHECKOUT MODAL -->
     <div class="checkout-overlay" id="checkout-overlay"></div>
-    <div class="checkout-modal glass-panel" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Клуб төлемі">
+    <div class="checkout-modal glass-panel" id="checkout-modal" role="dialog" aria-modal="true" aria-label="Бағдарламаға төлеу">
         <button class="close-modal-btn" id="checkout-close" aria-label="Жабу"><i data-lucide="x"></i></button>
         
         <div class="checkout-modal-content">
-            <h3 class="checkout-title">Қатысуды рәсімдеу</h3>
-            <p class="checkout-subtitle">«Жақын Достар» онлайн-бағдарламасы</p>
-            
-            <div class="payment-tabs">
-                <button class="pay-tab active" id="tab-kaspi">Kaspi QR</button>
-                <button class="pay-tab" id="tab-card">Карт Visa/Mastercard</button>
-            </div>
-            
-            <!-- Kaspi QR Panel -->
-            <div class="payment-panel active" id="panel-kaspi">
-                <p class="pay-instructions">Телефоныңызда <strong>Kaspi.kz</strong> қосымшасын ашып, <strong>Kaspi QR</strong> таңдап, кодты сканерлеңіз:</p>
-                
-                <div class="kaspi-payment-box glass-panel-dark" style="position: relative; overflow: hidden;">
-                    <div class="kaspi-red-header">Kaspi QR</div>
-                    <div class="kaspi-qr-wrapper">
-                        <div class="qr-scanner-line"></div>
-                        <!-- Simulated QR Code SVG -->
-                        <svg viewBox="0 0 100 100" class="kaspi-qr-svg">
-                            <rect x="10" y="10" width="20" height="20" fill="#e11d48"/>
-                            <rect x="15" y="15" width="10" height="10" fill="white"/>
-                            <rect x="70" y="10" width="20" height="20" fill="#e11d48"/>
-                            <rect x="75" y="15" width="10" height="10" fill="white"/>
-                            <rect x="10" y="70" width="20" height="20" fill="#e11d48"/>
-                            <rect x="15" y="75" width="10" height="10" fill="white"/>
-                            <!-- Pixels noise -->
-                            <rect x="42" y="20" width="10" height="15" fill="#222624"/>
-                            <rect x="52" y="45" width="20" height="15" fill="#222624"/>
-                            <rect x="25" y="62" width="12" height="20" fill="#222624"/>
-                            <rect x="70" y="70" width="15" height="15" fill="#222624"/>
-                            <rect x="35" y="75" width="5" height="5" fill="#e11d48"/>
-                        </svg>
-                        <div class="qr-pulse-glow"></div>
-                    </div>
-                    <div class="kaspi-qr-title">CLOSE FRIENDS COMMUNITY</div>
-                </div>
-            </div>
-            
-            <!-- Card Panel -->
-            <div class="payment-panel" id="panel-card">
-                <p class="pay-instructions">Кез келген банктің карта деректерін енгізіңіз:</p>
-                <div class="cc-flip-container" id="cc-flip-card">
-                    <div class="cc-card-flipper">
-                        <!-- Card Front -->
-                        <div class="cc-front">
-                            <div class="cc-brand" id="cc-brand-logo">Visa / Mastercard</div>
-                            <div class="cc-chip"></div>
-                            <div class="cc-number" id="cc-card-number-preview">•••• •••• •••• 1122</div>
-                            <div class="cc-holder-row">
-                                <div>
-                                    <span class="cc-label">ИЕСІ</span>
-                                    <div id="cc-name-display">ALIYA S.</div>
-                                </div>
-                                <div>
-                                    <span class="cc-label">МЕРЗІМІ</span>
-                                    <div id="cc-expiry-preview">12/28</div>
-                                </div>
-                            </div>
+            <div class="checkout-two-columns">
+                <!-- Column 1: Order Details & Security -->
+                <div class="checkout-details-column">
+                    <h3 class="checkout-title">Тапсырысыңыз</h3>
+                    <p class="checkout-subtitle">«Жақын Достар» онлайн-бағдарламасы</p>
+                    
+                    <div class="checkout-receipt">
+                        <div class="receipt-item">
+                            <i data-lucide="check-circle" class="text-green"></i>
+                            <span>21 күндік қолдау бағдарламасы</span>
                         </div>
-                        <!-- Card Back -->
-                        <div class="cc-back">
-                            <div class="cc-black-magnetic-strip"></div>
-                            <div class="cc-signature-strip" id="cc-cvv-preview">•••</div>
-                            <div class="cc-back-info">
-                                Электрондық төлем симуляторы. Деректер Freedom Pay 256-биттік SSL шифрлауымен қорғалған.
-                            </div>
+                        <div class="receipt-item">
+                            <i data-lucide="check-circle" class="text-green"></i>
+                            <span>Материалдарға мәңгілік рұқсат</span>
+                        </div>
+                        <div class="receipt-item">
+                            <i data-lucide="check-circle" class="text-green"></i>
+                            <span>Жабық нетворкинг-чат</span>
+                        </div>
+                        <div class="receipt-item">
+                            <i data-lucide="check-circle" class="text-green"></i>
+                            <span>Психологтардың кураторлық қолдауы</span>
+                        </div>
+                        
+                        <div class="receipt-divider"></div>
+                        
+                        <div class="receipt-total">
+                            <span>Барлығы төлеуге:</span>
+                            <strong>7 000 ₸</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-security-badges">
+                        <div class="security-badge">
+                            <i data-lucide="shield-check" class="text-gold"></i>
+                            <span>SSL Secure</span>
+                        </div>
+                        <div class="security-badge">
+                            <i data-lucide="lock" class="text-gold"></i>
+                            <span>3D Secure</span>
+                        </div>
+                        <div class="security-badge">
+                            <i data-lucide="check-square" class="text-gold"></i>
+                            <span>Kaspi Gold Серіктесі</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="card-inputs-grid">
-                    <div class="form-group full-width">
-                        <label for="card-number-input">Карта нөмірі</label>
-                        <input type="text" id="card-number-input" placeholder="4400 0000 0000 0000" class="glass-input" maxlength="19">
+                <!-- Column 2: Payment Inputs -->
+                <div class="checkout-inputs-column">
+                    <div class="payment-tabs">
+                        <button class="pay-tab active" id="tab-kaspi">Kaspi QR</button>
+                        <button class="pay-tab" id="tab-card">Visa/Mastercard картасы</button>
                     </div>
-                    <div class="form-group">
-                        <label for="card-expiry-input">Мерзімі</label>
-                        <input type="text" id="card-expiry-input" placeholder="MM/YY" class="glass-input" maxlength="5">
+                    
+                    <!-- Kaspi QR Panel -->
+                    <div class="payment-panel active" id="panel-kaspi">
+                        <p class="pay-instructions">Телефоныңыздағы <strong>Kaspi.kz</strong> қосымшасын ашыңыз → <strong>Kaspi QR</strong> таңдап, кодты сканерлеңіз:</p>
+                        
+                        <div class="kaspi-payment-box glass-panel-dark" style="position: relative; overflow: hidden; margin-top: 10px;">
+                            <div class="kaspi-red-header">Kaspi QR</div>
+                            <div class="kaspi-qr-wrapper">
+                                <div class="qr-scanner-line"></div>
+                                <svg viewBox="0 0 100 100" class="kaspi-qr-svg">
+                                    <rect x="10" y="10" width="20" height="20" fill="#e11d48"/>
+                                    <rect x="15" y="15" width="10" height="10" fill="white"/>
+                                    <rect x="70" y="10" width="20" height="20" fill="#e11d48"/>
+                                    <rect x="75" y="15" width="10" height="10" fill="white"/>
+                                    <rect x="10" y="70" width="20" height="20" fill="#e11d48"/>
+                                    <rect x="15" y="75" width="10" height="10" fill="white"/>
+                                    <rect x="42" y="20" width="10" height="15" fill="#222624"/>
+                                    <rect x="52" y="45" width="20" height="15" fill="#222624"/>
+                                    <rect x="25" y="62" width="12" height="20" fill="#222624"/>
+                                    <rect x="70" y="70" width="15" height="15" fill="#222624"/>
+                                    <rect x="35" y="75" width="5" height="5" fill="#e11d48"/>
+                                </svg>
+                                <div class="qr-pulse-glow"></div>
+                            </div>
+                            <div class="kaspi-qr-title">CLOSE FRIENDS COMMUNITY</div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="card-cvv-input">CVV</label>
-                        <input type="password" id="card-cvv-input" placeholder="•••" class="glass-input" maxlength="3">
+                    
+                    <!-- Card Panel -->
+                    <div class="payment-panel" id="panel-card">
+                        <p class="pay-instructions">СНГ/РК кез келген банкінің карта деректерін енгізіңіз:</p>
+                        <div class="cc-flip-container" id="cc-flip-card" style="margin-top: 10px;">
+                            <div class="cc-card-flipper">
+                                <div class="cc-front">
+                                    <div class="cc-brand" id="cc-brand-logo">Visa / Mastercard</div>
+                                    <div class="cc-chip"></div>
+                                    <div class="cc-number" id="cc-card-number-preview">•••• •••• •••• 1122</div>
+                                    <div class="cc-holder-row">
+                                        <div>
+                                            <span class="cc-label">ИЕСІ</span>
+                                            <div id="cc-name-display">ALIYA S.</div>
+                                        </div>
+                                        <div>
+                                            <span class="cc-label">МЕРЗІМІ</span>
+                                            <div id="cc-expiry-preview">12/28</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cc-back">
+                                    <div class="cc-black-magnetic-strip"></div>
+                                    <div class="cc-signature-strip" id="cc-cvv-preview">•••</div>
+                                    <div class="cc-back-info">
+                                        Төлемнің электронды симуляторы. Деректер Freedom Pay және SSL 256-bit шифрлауымен қорғалған.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-inputs-grid">
+                            <div class="form-group full-width">
+                                <label for="card-number-input">Карта нөмірі</label>
+                                <input type="text" id="card-number-input" placeholder="4400 0000 0000 0000" class="glass-input" maxlength="19">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-expiry-input">Жарамдылық мерзімі</label>
+                                <input type="text" id="card-expiry-input" placeholder="MM/YY" class="glass-input" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvv-input">CVV / CVC</label>
+                                <input type="password" id="card-cvv-input" placeholder="•••" class="glass-input" maxlength="3">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-actions">
+                        <button class="btn btn-secondary btn-full" id="checkout-cancel-btn">Бас тарту</button>
+                        <button class="btn btn-primary btn-full" id="checkout-pay-btn">
+                            <span class="pay-btn-text">Мен Kaspi QR арқылы төледім</span>
+                            <span class="pay-btn-spinner hidden"></span>
+                        </button>
                     </div>
                 </div>
-            </div>
-            
-            <div class="checkout-bill-summary">
-                <span>Төлем сомасы (бір реттік):</span>
-                <strong>7 000 ₸</strong>
-            </div>
-            
-            <div class="checkout-actions">
-                <button class="btn btn-secondary btn-full" id="checkout-cancel-btn">Бас тарту</button>
-                <button class="btn btn-primary btn-full" id="checkout-pay-btn">
-                    <span class="pay-btn-text">Мен Kaspi QR арқылы төледім</span>
-                    <span class="pay-btn-spinner hidden"></span>
-                </button>
             </div>
         </div>
         
