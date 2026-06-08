@@ -802,8 +802,12 @@ function initChatSimulator() {
             // Analyze keywords to customize response
             const lowerText = text.toLowerCase();
             let botResponse = "";
+            let isCrisis = false;
 
-            if (lowerText.includes("ене") || lowerText.includes("свекровь") || lowerText.includes("родственник") || lowerText.includes("семья") || lowerText.includes("родител") || lowerText.includes("муж")) {
+            if (lowerText.includes("смерть") || lowerText.includes("умру") || lowerText.includes("умереть") || lowerText.includes("убить себя") || lowerText.includes("покончить с собой") || lowerText.includes("суицид") || lowerText.includes("не хочу жить") || lowerText.includes("өлгім") || lowerText.includes("өлу")) {
+                botResponse = "Дорогая, мне очень жаль, что ты проходишь через это, но твоя жизнь бесценна. Пожалуйста, не оставайся наедине со своей болью. Ты можешь бесплатно и анонимно получить профессиональную помощь. В Казахстане работает единая государственная служба психологической помощи: позвони по номеру 111 или 150 (звонок бесплатный и круглосуточный).";
+                isCrisis = true;
+            } else if (lowerText.includes("ене") || lowerText.includes("свекровь") || lowerText.includes("родственник") || lowerText.includes("семья") || lowerText.includes("родител") || lowerText.includes("муж")) {
                 botResponse = "Отношения с близкими — это часто сложнейшая тема. Ты имеешь право на свои границы и личное пространство. В нашем клубе мы часто разбираем с психологами темы сепарации и здоровых границ.";
             } else if (lowerText.includes("уят") || lowerText.includes("жұрт") || lowerText.includes("люди") || lowerText.includes("осужден") || lowerText.includes("стыд") || lowerText.includes("позор")) {
                 botResponse = "Страх осуждения и синдром «уят» часто сковывают нас. Но помни: твоя жизнь принадлежит только тебе. Ты заслуживаешь жить свободно и счастливо, не пытаясь угодить всем вокруг.";
@@ -822,13 +826,20 @@ function initChatSimulator() {
                 ctaBubble.className = "chat-bubble incoming chat-cta-link-bubble";
                 
                 const ctaText = document.createElement("p");
-                ctaText.textContent = "Ты достойна заботы и лучшего окружения. Давай сделаем первый шаг вместе:";
                 ctaText.style.margin = "0 0 8px 0";
                 
                 const ctaBtn = document.createElement("a");
-                ctaBtn.href = "#pricing";
                 ctaBtn.className = "chat-cta-btn";
-                ctaBtn.textContent = "Узнать о программе";
+                
+                if (isCrisis) {
+                    ctaText.textContent = "Пожалуйста, обратись за помощью прямо сейчас. Специалисты готовы выслушать тебя:";
+                    ctaBtn.href = "tel:111";
+                    ctaBtn.textContent = "Позвонить на 111";
+                } else {
+                    ctaText.textContent = "Ты достойна заботы и лучшего окружения. Давай сделаем первый шаг вместе:";
+                    ctaBtn.href = "#pricing";
+                    ctaBtn.textContent = "Узнать о программе";
+                }
                 
                 ctaBubble.appendChild(ctaText);
                 ctaBubble.appendChild(ctaBtn);

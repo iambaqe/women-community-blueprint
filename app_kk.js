@@ -802,8 +802,12 @@ function initChatSimulator() {
             // Analyze keywords to customize response
             const lowerText = text.toLowerCase();
             let botResponse = "";
+            let isCrisis = false;
 
-            if (lowerText.includes("ене") || lowerText.includes("күйеу") || lowerText.includes("туыс") || lowerText.includes("отбасы")) {
+            if (lowerText.includes("өлгім") || lowerText.includes("өлу") || lowerText.includes("өлім") || lowerText.includes("суицид") || lowerText.includes("өзімді өлтіру") || lowerText.includes("өмір сүргім келмейді") || lowerText.includes("смерть") || lowerText.includes("умру")) {
+                botResponse = "Қымбаттым, мұндай ауыр кезеңді бастан өткеріп жатқаныңа өте қатты қынжыламын, бірақ сенің өмірің өте құнды. Өтінемін, бұл ауыр сезіммен жалғыз қалма. Саған тегін әрі анонимді түрде кәсіби көмек көрсетіледі. Қазақстанда Мемлекеттік психологиялық қолдау орталығы жұмыс істейді: кез келген уақытта 111 немесе 150 нөміріне хабарлас (қоңырау шалу тегін және тәулік бойы жұмыс істейді).";
+                isCrisis = true;
+            } else if (lowerText.includes("ене") || lowerText.includes("күйеу") || lowerText.includes("туыс") || lowerText.includes("отбасы")) {
                 botResponse = "Жақындармен қарым-қатынас — өте күрделі тақырып. Сенің өз шекараң мен жеке кеңістігіңе құқығың бар. Біздің қауымдастықта психологтармен бірге осы жеке шекараны қорғау тақырыбын жиі талдамыз.";
             } else if (lowerText.includes("уят") || lowerText.includes("ұят") || lowerText.includes("жұрт") || lowerText.includes("сын") || lowerText.includes("айып")) {
                 botResponse = "«Ұят» синдромы мен өзгелердің сыны біздің еркіндігімізді шектейді. Есіңде болсын: сенің өмірің тек өзіңе тиесілі. Сен еркін әрі бақытты өмір сүруге лайықтысың.";
@@ -822,13 +826,20 @@ function initChatSimulator() {
                 ctaBubble.className = "chat-bubble incoming chat-cta-link-bubble";
                 
                 const ctaText = document.createElement("p");
-                ctaText.textContent = "Сен қамқорлық пен жақсы ортаға лайықтысың. Алғашқы қадамды бірге жасайық:";
                 ctaText.style.margin = "0 0 8px 0";
                 
                 const ctaBtn = document.createElement("a");
-                ctaBtn.href = "#pricing";
                 ctaBtn.className = "chat-cta-btn";
-                ctaBtn.textContent = "Бағдарлама туралы білу";
+                
+                if (isCrisis) {
+                    ctaText.textContent = "Өтінемін, дәл қазір көмекке жүгін. Мамандар сені тыңдауға дайын:";
+                    ctaBtn.href = "tel:111";
+                    ctaBtn.textContent = "111 нөміріне қоңырау шалу";
+                } else {
+                    ctaText.textContent = "Сен қамқорлық пен жақсы ортаға лайықтысың. Алғашқы қадамды бірге жасайық:";
+                    ctaBtn.href = "#pricing";
+                    ctaBtn.textContent = "Бағдарлама туралы білу";
+                }
                 
                 ctaBubble.appendChild(ctaText);
                 ctaBubble.appendChild(ctaBtn);
