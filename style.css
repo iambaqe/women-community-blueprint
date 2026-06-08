@@ -2718,7 +2718,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .wheel-sector-text {
     font-family: var(--font-sans);
-    font-size: 0.65rem;
+    font-size: 9px;
     font-weight: 700;
     fill: var(--text-secondary);
     text-transform: uppercase;
