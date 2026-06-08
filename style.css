@@ -2694,6 +2694,7 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 340px;
     height: auto;
     overflow: visible;
+    cursor: pointer;
 }
 
 .wheel-grid-ring {

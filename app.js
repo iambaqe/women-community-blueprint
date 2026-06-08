@@ -507,6 +507,34 @@ function initWheelOfBalance() {
 
     updateWheel();
 
+    const svg = document.getElementById("wheel-svg");
+    if (svg) {
+        svg.addEventListener("click", (e) => {
+            const rect = svg.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const dx = e.clientX - centerX;
+            const dy = e.clientY - centerY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const maxRadiusPx = rect.width * 0.4;
+            
+            let level = Math.round((distance / maxRadiusPx) * 10);
+            level = Math.max(1, Math.min(10, level));
+            
+            let angle = Math.atan2(dy, dx);
+            let normalizedAngle = angle + Math.PI / 2;
+            if (normalizedAngle < 0) normalizedAngle += Math.PI * 2;
+            
+            const sectorIndex = Math.round(normalizedAngle / (Math.PI / 4)) % 8;
+            
+            const slider = document.getElementById(`slider-${sectorIndex}`);
+            if (slider) {
+                slider.value = level;
+                slider.dispatchEvent(new Event('input'));
+            }
+        });
+    }
+
     if (submitBtn) {
         submitBtn.addEventListener("click", () => {
             const nameInput = document.getElementById("wheel-user-name");
